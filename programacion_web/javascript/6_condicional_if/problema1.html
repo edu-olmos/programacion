@@ -1,0 +1,40 @@
+<!--
+    Se ingresan tres notas de un alumno, si el promedio es mayor o igual a siete mostrar el mensaje 'Promocionado'. Tener en cuenta que para obtener el promedio debemos operar suma=nota1+nota2+nota3; y luego hacer promedio=suma/3;
+Cuando cargamos una nota y queremos convertir inmediatamente el valor ingresado a entero podemos hacer:
+nota1=prompt('Ingrese primer nota:','');
+nota1=parseInt(nota1);
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Problema1</title>
+    <style>
+        :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;color:#111;background:#fff}
+        body{margin:0;padding:1rem;line-height:1.5}
+        main{max-width:65ch;margin:0 auto}
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Hello, world!</h1>
+        <p>Start editing this file to build your page.</p>
+    </main>
+
+    <script>
+        let nota1, nota2, nota3, suma, promedio;
+        nota1 = parseInt(prompt('Ingrese la primera nota:'));
+        nota2 = parseInt(prompt('Ingrese la segunda nota:'));
+        nota3 = parseInt(prompt('Ingrese la tercera nota:'));
+        suma = nota1 + nota2 + nota3;
+        promedio = suma / 3;
+        if (promedio >= 7) {
+            document.write('Promocionado');
+        }
+        // Entry script
+        (function(){ document.documentElement.dataset.js = 'enabled'; })();
+    </script>
+</body>
+</html>

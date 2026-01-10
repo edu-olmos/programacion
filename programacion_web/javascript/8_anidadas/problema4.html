@@ -1,0 +1,49 @@
+<!--
+    De un postulante a un empleo, que realizó un test de capacitación, se obtuvo la siguiente información: nombre del postulante, cantidad total de preguntas que se le realizaron y cantidad de preguntas que contestó correctamente. Se pide confeccionar un programa que lea los datos del postulante e informe el nivel del mismo según el porcentaje de respuestas correctas que ha obtenido, y sabiendo que:
+Nivel superior: Porcentaje>=90%.
+Nivel medio: Porcentaje>=75% y <90%.
+Nivel regular: Porcentaje>=50% y <75%.
+Fuera de nivel: Porcentaje<50%.
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Plantilla básica HTML" />
+    <title>Documento</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+
+    <script>
+        let nombre, totalPreguntas, preguntasCorrectas;
+        nombre = prompt('Ingrese el nombre del postulante:');
+        totalPreguntas = prompt('Ingrese la cantidad total de preguntas:');
+        preguntasCorrectas = prompt('Ingrese la cantidad de preguntas contestadas correctamente:');
+        // Convertimos los strings en enteros
+        totalPreguntas = parseInt(totalPreguntas);
+        preguntasCorrectas = parseInt(preguntasCorrectas);
+        let porcentaje;
+        porcentaje = (preguntasCorrectas / totalPreguntas) * 100;
+        if (porcentaje >= 90) {
+            document.write('Nivel superior');
+        } else {
+            if (porcentaje >= 75) {
+                document.write('Nivel medio');
+            } else {
+                if (porcentaje >= 50) {
+                    document.write('Nivel regular');
+                } else {
+                    document.write('Fuera de nivel');
+                }
+            }
+        }
+    </script>  
+    <script>   
+        // Inserte scripts aquí
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

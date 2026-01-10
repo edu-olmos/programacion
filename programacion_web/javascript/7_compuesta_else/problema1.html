@@ -1,0 +1,39 @@
+<!--
+    Realizar un programa que lea por teclado dos números, si el primero es mayor al segundo informar su suma y diferencia, en caso contrario informar el producto y la división del primero respecto al segundo.
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>problema1</title>
+    <meta name="description" content="Plantilla básica HTML" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <script>
+        let num1, num2;
+        num1 = parseFloat(prompt('Ingrese el primer número:'));
+        num2 = parseFloat(prompt('Ingrese el segundo número:'));
+        if (num1 > num2) {
+            let suma = num1 + num2;
+            let diferencia = num1 - num2;
+            document.write('La suma es: ' + suma + '<br>');
+            document.write('La diferencia es: ' + diferencia);
+        } else {
+            let producto = num1 * num2;
+            let division = num1 / num2;
+            document.write('El producto es: ' + producto + '<br>');
+            document.write('La división es: ' + division);
+        }
+    </script>
+
+    <footer>
+        <p>&copy; Ing Eduardo 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

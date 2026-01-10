@@ -1,0 +1,50 @@
+<!--
+    Se cargan por teclado tres números distintos. Mostrar por pantalla el mayor de ellos. 
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Plantilla HTML básica">
+    <title>Documento</title>
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        let numero1, numero2, numero3;
+        numero1 = prompt('Ingrese el primer número:');
+        numero2 = prompt('Ingrese el segundo número:');
+        numero3 = prompt('Ingrese el tercer número:');
+        // Convertimos los 3 string en enteros
+        numero1 = parseInt(numero1);
+        numero2 = parseInt(numero2);
+        numero3 = parseInt(numero3);
+        let mayor;
+        if (numero1 > numero2) {
+            if (numero1 > numero3) {
+                mayor = numero1;
+            } else {
+                mayor = numero3;
+            }
+        } else {
+            if (numero2 > numero3) {
+                mayor = numero2;
+            } else {
+                mayor = numero3;
+            }
+        }
+        document.write('El número mayor es: ' + mayor);
+    </script>
+    
+
+    <footer>
+        <p>&copy; 2026 Nombre</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js" defer></script>
+</body>
+</html>

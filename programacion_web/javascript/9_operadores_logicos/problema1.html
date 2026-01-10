@@ -1,0 +1,35 @@
+<!--
+
+    Realizar un programa que pida cargar una fecha cualquiera, luego verificar si dicha fecha corresponde a Navidad (se debe cargar por separado el dia, el mes y el año) 
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Documento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        let dia = prompt("Ingrese el día:");
+        let mes = prompt("Ingrese el mes:");
+        let anio = prompt("Ingrese el año:");
+
+        dia = parseInt(dia);
+        mes = parseInt(mes);
+        anio = parseInt(anio);
+
+        if (dia === 25 && mes === 12) {
+            document.write("La fecha corresponde a Navidad.");
+        } else {
+            document.write("La fecha no corresponde a Navidad.");
+        }
+    </script>
+    <footer>
+        <small>&copy; Ing Eduardo 2026</small>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>

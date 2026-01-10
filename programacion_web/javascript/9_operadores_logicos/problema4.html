@@ -1,0 +1,43 @@
+<!--
+    Escribir un programa que pida ingresar la coordenada de un punto en el plano, es decir dos valores enteros x e y.
+Posteriormente imprimir en pantalla en qué cuadrante se ubica dicho punto. (1º Cuadrante si x > 0 Y y > 0 , 2º Cuadrante: x < 0 Y y > 0, etc.) 
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plantilla básica</title>
+    <meta name="description" content="Descripción de la página">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        let x = parseInt(prompt("Ingrese la coordenada x:"));
+        let y = parseInt(prompt("Ingrese la coordenada y:"));
+
+        if (x > 0 && y > 0) {
+            document.write("El punto se encuentra en el 1º Cuadrante.");
+        } else if (x < 0 && y > 0) {
+            document.write("El punto se encuentra en el 2º Cuadrante.");
+        } else if (x < 0 && y < 0) {
+            document.write("El punto se encuentra en el 3º Cuadrante.");
+        } else if (x > 0 && y < 0) {
+            document.write("El punto se encuentra en el 4º Cuadrante.");
+        } else if (x === 0 && y === 0) {
+            document.write("El punto se encuentra en el origen.");
+        } else if (x === 0) {
+            document.write("El punto se encuentra sobre el eje Y.");
+        } else if (y === 0) {
+            document.write("El punto se encuentra sobre el eje X.");
+        }
+    </script>
+
+    <footer>
+        <p>&copy; Ing Eduardo 2026</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+</body>
+</html>

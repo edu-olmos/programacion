@@ -1,0 +1,34 @@
+<!--
+    Solicitar que se ingrese dos veces una clave. Mostrar un mensaje si son iguales (tener en cuenta que para ver si dos variables tienen el mismo valor almacenado debemos utilizar el operador ==) 
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Untitled</title>
+    <link rel="icon" href="data:," />
+</head>
+<body>
+    <header>
+        <h1>Welcome</h1>
+    </header>
+
+    <main>
+        <p>Start editing this file.</p>
+    </main>
+
+    <script>
+        let clave1, clave2;
+        clave1 = prompt('Ingrese la clave:');
+        clave2 = prompt('Ingrese nuevamente la clave:');
+        if (clave1 == clave2) {
+            document.write('Las claves son iguales');
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Document ready');
+        });
+    </script>
+</body>
+</html>
