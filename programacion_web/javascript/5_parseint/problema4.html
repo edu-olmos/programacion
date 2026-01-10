@@ -1,0 +1,40 @@
+<!--
+    Se debe desarrollar un programa que pida el ingreso del precio de un artículo y la cantidad que lleva el cliente. Mostrar lo que debe abonar el comprador (Ingresar por teclado un precio sin decimales, es decir un entero: 2, 7, 90 etc.) 
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Problema4</title>
+    <style>
+        :root{--pad:1rem}
+        body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;padding:var(--pad);line-height:1.5;color:#111}
+        header,footer{padding:.5rem 0}
+        nav a{margin-right:1rem;color:inherit;text-decoration:none}
+        main{max-width:64rem;margin-top:.5rem}
+    </style>
+</head>
+<body>
+
+    <main>
+        <section>
+            <h2>Welcome</h2>
+            
+        </section>
+    </main>
+
+    <script>
+        let precio = prompt('Ingrese el precio del artículo (entero sin decimales):');
+        let cantidad = prompt('Ingrese la cantidad que lleva el cliente:');
+        let total = parseInt(precio) * parseInt(cantidad);
+        document.write('El total a abonar es: ');
+        document.write(total);
+    </script>
+
+    <footer>
+        <small>&copy;Ing Eduardo 2026</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!--
+    Confeccionar un programa que permita cargar el nombre de un usuario y su mail por teclado. Mostrar posteriormente los datos en la página HTML. 
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Untitled</title>
+</head>
+<body>
+    <header><h1>Welcome</h1></header>
+    <main>
+        <p>Start editing this HTML file.</p>
+    </main>
+    <footer><small>&copy; Ing Eduardo 2026</small></footer>
+
+        <script>
+        let nombre;
+        let mail;
+        nombre = prompt('Ingrese su nombre de usuario:');
+        mail = prompt('Ingrese su correo:'); 
+        document.write('Nombre de usuario: ' + nombre + '<br>');
+        document.write('Mail: ' + mail);
+
+    </script>
+
+    <script>
+        // Example: log when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => console.log('Document ready'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!--
+    Realizar un programa que lea cuatro valores numéricos e informar su suma y producto.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Problema3</title>
+    <style>
+        :root { --bg:#fff; --fg:#111; --muted:#6b7280; }
+        html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+        .container{max-width:900px;margin:48px auto;padding:0 16px}
+        header h1{margin:0 0 8px;font-size:1.6rem}
+        p{color:var(--muted)}
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <script>
+            let valor1 = parseInt(prompt("Ingrese el primer número:"));
+            let valor2 = parseInt(prompt("Ingrese el segundo número:"));
+            let valor3 = parseInt(prompt("Ingrese el tercer número:"));
+            let valor4 = parseInt(prompt("Ingrese el cuarto número:"));
+            let suma = valor1 + valor2 + valor3 + valor4;
+            let producto = valor1 * valor2 * valor3 * valor4;
+            document.write("La suma de los cuatro números es: " + suma);
+            document.write("<br>");
+            document.write("El producto de los cuatro números es: " + producto);
+
+
+            // Write your JavaScript here
+        </script>
+
+    </div>
+
+    <script>
+        // Simple JS starter
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Document loaded');
+        });
+    </script>
+</body>
+</html>

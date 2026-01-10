@@ -1,0 +1,46 @@
+<!--
+    Escribir un programa en el cual se ingresen cuatro números, calcular e informar la suma de los dos primeros y el producto del tercero y el cuarto. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Problema2</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Welcome</h1>
+    </header>
+
+    <main>
+        <p>Hello, world!</p>
+    </main>
+
+    <script>
+        let valor1;
+        let valor2;
+        let valor3;
+        let valor4;
+        valor1 = prompt('Ingrese primer número:');
+        valor2 = prompt('Ingrese segundo número:');
+        valor3 = prompt('Ingrese tercer número:');
+        valor4 = prompt('Ingrese cuarto número:');
+        let suma = parseInt(valor1) + parseInt(valor2);
+        let producto = parseInt(valor3) * parseInt(valor4);
+        document.write('La suma de los dos primeros números es: ');
+        document.write(suma);
+        document.write('<br>');
+        document.write('El producto del tercer y cuarto número es: ');
+        document.write(producto);
+    </script>   
+
+    <footer>
+        <small>&copy; Ing Eduardo 2026</small>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>
