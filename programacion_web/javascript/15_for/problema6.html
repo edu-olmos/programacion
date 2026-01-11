@@ -1,0 +1,74 @@
+<!--
+Escribir un programa que pida ingresar coordenadas (x,y) que representan puntos en el plano. Informar cuántos puntos se han ingresado en el primer, segundo, tercer y cuarto cuadrante. Al comenzar el programa se pide que se ingrese la cantidad de puntos a procesar. 
+
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Plantilla sencilla</title>
+    <meta name="description" content="Plantilla HTML5 mínima">
+    <style>
+        body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; margin:0; padding:0; line-height:1.5; }
+        header, footer { background:#f3f4f6; padding:1rem; text-align:center; }
+        nav { padding:0.5rem; text-align:center; }
+        nav a { margin:0 .5rem; color:#0366d6; text-decoration:none; }
+        main { padding:1rem; max-width:900px; margin:0 auto; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi sitio</h1>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Acerca</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Bienvenido</h2>
+            <p>Esta es una plantilla HTML sencilla para empezar un proyecto.</p>
+        </section>
+    </main>
+
+    <footer>
+        <small>&copy; 2026 Nombre</small>
+    </footer>
+
+    <script>
+        let cantidadPuntos = parseInt(prompt("Ingrese la cantidad de puntos a procesar:"));
+        let primerCuadrante = 0;
+        let segundoCuadrante = 0;
+        let tercerCuadrante = 0;
+        let cuartoCuadrante = 0;
+
+        for (let i = 1; i <= cantidadPuntos; i++) {
+            let x = parseFloat(prompt("Ingrese la coordenada x del punto " + i + ":"));
+            let y = parseFloat(prompt("Ingrese la coordenada y del punto " + i + ":"));
+
+            if (x > 0 && y > 0) {
+                primerCuadrante++;
+            } else if (x < 0 && y > 0) {
+                segundoCuadrante++;
+            } else if (x < 0 && y < 0) {
+                tercerCuadrante++;
+            } else if (x > 0 && y < 0) {
+                cuartoCuadrante++;
+            }
+        }
+
+        document.write("<h3>Información de los puntos:</h3>");
+        document.write("<p>Primer cuadrante: " + primerCuadrante + "</p>");
+        document.write("<p>Segundo cuadrante: " + segundoCuadrante + "</p>");
+        document.write("<p>Tercer cuadrante: " + tercerCuadrante + "</p>");
+        document.write("<p>Cuarto cuadrante: " + cuartoCuadrante + "</p>");
+
+        // Código JS opcional
+        // console.log('Documento listo');
+    </script>
+</body>
+</html>

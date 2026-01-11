@@ -1,0 +1,32 @@
+<!--
+     Confeccionar un programa que permita ingresar un valor del 1 al 10 y nos muestre la tabla de multiplicar del mismo (los primeros 12 términos)
+Ejemplo: Si ingreso 3 deberá aparecer en pantalla los valores 3, 6, 9, hasta el 36. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Template</title>
+</head>
+<body>
+    <script>
+        let valor = parseInt(prompt("Ingrese un valor del 1 al 10 para ver su tabla de multiplicar:"));
+
+        if (valor >= 1 && valor <= 10) {
+            document.write("<h3>Tabla de multiplicar del " + valor + "</h3>");
+            for (let i = 1; i <= 12; i++) {
+                let resultado = valor * i;
+                document.write("<p>" + valor + " x " + i + " = " + resultado + "</p>");
+            }
+        } else {
+            document.write("<p>El valor ingresado no es válido. Por favor, ingrese un número entre 1 y 10.</p>");
+        }
+    </script>
+
+    <footer>
+        <small>&copy; Ing Eduardo 2026</small>
+    </footer>   
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!--
+    Se realizó un censo provincial y se desea procesar la información obtenida en dicho censo. De cada una de las personas censadas se tiene la siguiente información: número de documento, edad y sexo ('femenino' o 'masculino')
+Se pide confeccionar un programa que lea los datos de cada persona censada (para finalizar ingresar el valor cero en el número de documento) e informar:
+
+ 
+a)	Cantidad total de personas censadas.
+b)	Cantidad de varones.
+c)	Cantidad de mujeres.
+d)	Cantidad de varones cuya edad varía entre 16 y 65 años.
+
+-->
+<!doctype html>
+<!-- Plantilla HTML sencilla -->
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plantilla sencilla</title>
+    <style>
+        body { font-family: system-ui, sans-serif; margin: 0; padding: 1rem; }
+        header, footer { background:#f5f5f5; padding:0.5rem 1rem; }
+        nav ul { list-style:none; margin:0; padding:0; display:flex; gap:1rem; }
+        a { text-decoration:none; color:inherit; }
+        main { padding:1rem 0; }
+    </style>
+</head>
+<body>
+    <script>
+        let docNum, edad, sexo;
+        let totalPersonas = 0;
+        let totalVarones = 0;
+        let totalMujeres = 0;
+        let varones16a65 = 0;
+
+        do {
+            docNum = parseInt(prompt("Ingrese el número de documento (0 para finalizar):"));
+            if (docNum !== 0) {
+                edad = parseInt(prompt("Ingrese la edad:"));
+                sexo = prompt("Ingrese el sexo ('femenino' o 'masculino'):").toLowerCase();
+
+                totalPersonas++;
+
+                if (sexo === 'masculino') {
+                    totalVarones++;
+                    if (edad >= 16 && edad <= 65) {
+                        varones16a65++;
+                    }
+                } else if (sexo === 'femenino') {
+                    totalMujeres++;
+                }
+            }
+        } while (docNum !== 0);
+
+        document.write("<h2>Resultados del Censo</h2>");
+        document.write("<p>Total de personas censadas: " + totalPersonas + "</p>");
+        document.write("<p>Total de varones: " + totalVarones + "</p>");
+        document.write("<p>Total de mujeres: " + totalMujeres + "</p>");
+        document.write("<p>Total de varones entre 16 y 65 años: " + varones16a65 + "</p>");
+    </script>   
+
+    <footer>
+        <p>&copy; 2026 Tu nombre</p>
+    </footer>
+</body>
+</html>

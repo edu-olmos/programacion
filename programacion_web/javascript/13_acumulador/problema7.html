@@ -1,0 +1,41 @@
+<!--
+
+Desarrollar un programa que permita cargar 5 números enteros y luego nos informe cuántos valores fueron pares y cuántos impares.
+Emplear el operador "%" en la condición de la estructura condicional.
+
+	if (valor%2==0)
+
+El operador "%" retorna el resto de la división valor / 2. Por ejemplo: 12 % 2, retorna 0; 13 % 2, retorna 1, porque el resto de dividir 13 en 2 es 1. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Title</title>
+</head>
+<body>
+    <script>
+        let x = 1;
+        let valor;
+        let contadorPares = 0;
+        let contadorImpares = 0;
+
+        while (x <= 5) {
+            valor = parseInt(prompt('Ingrese un número entero ' + x + ':'));
+
+            if (valor % 2 == 0) {
+                contadorPares++;
+            } else {
+                contadorImpares++;
+            }
+
+            x++;
+        }
+
+        document.write('Cantidad de valores pares: ' + contadorPares + '<br>');
+        document.write('Cantidad de valores impares: ' + contadorImpares + '<br>');
+    </script>   
+</body>
+</html>

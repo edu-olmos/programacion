@@ -1,0 +1,47 @@
+<!--
+    Confeccionar un programa que lea 3 pares de datos, cada par de datos corresponde a la medida de la base y la altura de un triángulo. El programa deberá informar:
+a) De cada triángulo la medida de su base, su altura y su superficie.
+b) La cantidad de triángulos cuya superficie es mayor a 12. 
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Plantilla sencilla</title>
+    <style>
+        :root{font-family:system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif}
+        body{margin:0;max-width:900px;margin-inline:auto;padding:1rem;line-height:1.6}
+        header,footer{padding:.5rem 0}
+        nav a{margin-right:1rem;color:#0366d6;text-decoration:none}
+        main{padding-top:.5rem}
+    </style>
+</head>
+<body>
+    <script>
+        let contadorSuperficieMayor12 = 0;
+
+        for (let i = 1; i <= 3; i++) {
+            let base = parseFloat(prompt("Ingrese la base del triángulo " + i + ":"));
+            let altura = parseFloat(prompt("Ingrese la altura del triángulo " + i + ":"));
+            let superficie = (base * altura) / 2;
+
+            document.write("<h3>Triángulo " + i + "</h3>");
+            document.write("<p>Base: " + base + "</p>");
+            document.write("<p>Altura: " + altura + "</p>");
+            document.write("<p>Superficie: " + superficie + "</p>");
+
+            if (superficie > 12) {
+                contadorSuperficieMayor12++;
+            }
+        }
+
+        document.write("<h3>Cantidad de triángulos con superficie mayor a 12: " + contadorSuperficieMayor12 + "</h3>");
+    </script>
+
+    <footer>
+        <small>© Ing Eduardo 2026</small>
+    </footer>
+</body>
+</html>

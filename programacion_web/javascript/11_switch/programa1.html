@@ -1,0 +1,35 @@
+<!--
+    Plantearemos un segundo problema para ver que podemos utilizar variables de tipo cadena (string) con la instrucción switch.
+Ingresar por teclado el nombre de un color (rojo, verde o azul), luego mostraremos un mensaje indicando el color ingresado
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let col;
+        col = prompt('Ingrese alguno de estos tres colores (rojo, verde, azul)');
+        switch (col) {
+            case 'rojo':
+                document.write('se ingresó rojo');
+                break;
+            case 'verde':
+                document.write('se ingresó verde');
+                break;
+            case 'azul':
+                document.write('se ingresó azul');
+                break;
+        }
+    </script>
+
+</body>
+
+</html>

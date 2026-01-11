@@ -1,0 +1,38 @@
+<!--
+    En una empresa trabajan 5 empleados cuyos sueldos oscilan entre $100 y $500, realizar un programa que lea los sueldos que cobra cada empleado e informe cuántos empleados cobran entre $100 y $300 y cuántos cobran más de $300. Además el programa deberá informar el importe que gasta la empresa en sueldos al personal. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Title</title>
+</head>
+<body>
+    <script>
+        let x = 1;
+        let sueldo;
+        let contador100_300 = 0;
+        let contador300_mas = 0;
+        let gastoTotal = 0;
+
+        while (x <= 5) {
+            sueldo = parseFloat(prompt('Ingrese el sueldo del empleado ' + x + ':'));
+            gastoTotal += sueldo;
+
+            if (sueldo >= 100 && sueldo <= 300) {
+                contador100_300++;
+            } else if (sueldo > 300) {
+                contador300_mas++;
+            }
+
+            x++;
+        }
+
+        document.write('Cantidad de empleados que cobran entre $100 y $300: ' + contador100_300 + '<br>');
+        document.write('Cantidad de empleados que cobran más de $300: ' + contador300_mas + '<br>');
+        document.write('Importe total que gasta la empresa en sueldos: $' + gastoTotal.toFixed(2) + '<br>');
+    </script>   
+</body>
+</html>

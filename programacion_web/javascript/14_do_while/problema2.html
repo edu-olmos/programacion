@@ -1,0 +1,68 @@
+<!--
+    En un banco se procesan datos de las cuentas corrientes de sus clientes. De cada cuenta corriente se conoce: número de cuenta, nombre del cliente y saldo actual. El ingreso de datos debe finalizar al ingresar un valor negativo en el número de cuenta.
+Se pide confeccionar un programa que lea los datos de las cuentas corrientes e informe:
+a) De cada cuenta: número de cuenta, nombre del cliente y estado de la cuenta según su saldo, sabiendo que:
+
+Estado de la cuenta	'Acreedor' si el saldo es >0.
+			'Deudor' si el saldo es <0.
+			'Nulo' si el saldo es =0.
+
+b) La suma total de los saldos acreedores. 
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Plantilla sencilla</title>
+    <style>
+        :root { --bg:#f7f7f7; --card:#fff; --accent:#0066cc; --text:#222; }
+        html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--text);background:var(--bg)}
+        .container{max-width:900px;margin:3rem auto;padding:1.5rem}
+        header h1{margin:0 0 .5rem;color:var(--accent)}
+        nav a{margin-right:1rem;color:var(--accent);text-decoration:none}
+        main{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+        footer{margin-top:.75rem;font-size:.9rem;color:#666}
+    </style>
+</head>
+<body>
+
+    <script>
+        let numeroCuenta, nombreCliente, saldoActual;
+        let sumaAcreedores = 0;
+        do {
+            numeroCuenta = parseInt(prompt("Ingrese el número de cuenta (número negativo para finalizar):"));
+            if (numeroCuenta >= 0) {
+                nombreCliente = prompt("Ingrese el nombre del cliente:");
+                saldoActual = parseFloat(prompt("Ingrese el saldo actual de la cuenta:"));
+
+                let estadoCuenta;
+                if (saldoActual > 0) {
+                    estadoCuenta = "Acreedor";
+                    sumaAcreedores += saldoActual;
+                } else if (saldoActual < 0) {
+                    estadoCuenta = "Deudor";
+                } else {
+                    estadoCuenta = "Nulo";
+                }
+
+                document.write("<h3>Cuenta N°: " + numeroCuenta + "</h3>");
+                document.write("<p>Cliente: " + nombreCliente + "</p>");
+                document.write("<p>Estado de la cuenta: " + estadoCuenta + "</p>");
+                document.write("<hr>");
+            }
+        } while (numeroCuenta >= 0);
+        document.write("<h3>Suma total de saldos acreedores: " + sumaAcreedores + "</h3>");
+    </script>
+        <footer>
+            <small>© Ing Eduardo 2026 — Proyecto</small>
+        </footer>
+    
+
+    <script>
+        // Ejemplo mínimo: añade la clase "js" al html
+        document.documentElement.classList.add('js');
+    </script>
+</body>
+</html>

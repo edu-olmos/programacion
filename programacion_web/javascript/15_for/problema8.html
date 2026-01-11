@@ -1,0 +1,65 @@
+<!--
+    Se cuenta con la siguiente información:
+Las edades de 5 estudiantes del turno mañana.
+Las edades de 6 estudiantes del turno tarde.
+Las edades de 11 estudiantes del turno noche.
+Las edades de cada estudiante deben ingresarse por teclado.
+a) Obtener el promedio de las edades de cada turno (tres promedios).
+b) Imprimir dichos promedios (promedio de cada turno).
+c) Mostrar por pantalla un mensaje que indique cual de los tres turnos tiene un promedio de edades mayor.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Título de la página</title>
+    <meta name="description" content="Descripción breve de la página.">
+    <!-- Estilos: <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <script>
+        let sumaManana = 0;
+        let sumaTarde = 0;
+        let sumaNoche = 0;
+
+        for (let i = 1; i <= 5; i++) {
+            let edad = parseInt(prompt("Ingrese la edad del estudiante " + i + " del turno mañana:"));
+            sumaManana += edad;
+        }
+        let promedioManana = sumaManana / 5;
+
+        for (let i = 1; i <= 6; i++) {
+            let edad = parseInt(prompt("Ingrese la edad del estudiante " + i + " del turno tarde:"));
+            sumaTarde += edad;
+        }
+        let promedioTarde = sumaTarde / 6;
+
+        for (let i = 1; i <= 11; i++) {
+            let edad = parseInt(prompt("Ingrese la edad del estudiante " + i + " del turno noche:"));
+            sumaNoche += edad;
+        }
+        let promedioNoche = sumaNoche / 11;
+
+        document.write("<h3>Promedios de edades por turno</h3>");
+        document.write("<p>Turno Mañana: " + promedioManana.toFixed(2) + "</p>");
+        document.write("<p>Turno Tarde: " + promedioTarde.toFixed(2) + "</p>");
+        document.write("<p>Turno Noche: " + promedioNoche.toFixed(2) + "</p>");     
+        let mayorPromedio = Math.max(promedioManana, promedioTarde, promedioNoche); 
+        let turnoMayor = "";
+        if (mayorPromedio === promedioManana) {
+            turnoMayor += "Mañana ";
+        }
+        if (mayorPromedio === promedioTarde) {
+            turnoMayor += "Tarde ";
+        }
+        if (mayorPromedio === promedioNoche) {
+            turnoMayor += "Noche ";     
+        }   
+        document.write("<h3>El turno con mayor promedio de edades es: " + turnoMayor.trim() + "</h3>");
+    </script>
+
+    <!-- Scripts: <script src="app.js"></script> -->
+</body>
+</html>

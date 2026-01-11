@@ -1,0 +1,76 @@
+<!--
+    Se realiza la carga de 10 valores enteros por teclado. Se desea conocer:
+a) La cantidad de valores negativos ingresados.
+b) La cantidad de valores positivos ingresados.
+c) La cantidad de múltiplos de 15.
+d) El valor acumulado de los números ingresados que son pares.
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Plantilla sencilla</title>
+    <style>
+        :root{font-family:system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;line-height:1.5}
+        body{margin:0;padding:1rem;max-width:900px;margin-inline:auto}
+        header,footer{padding:1rem 0}
+        nav a{margin-right:1rem;text-decoration:none;color:inherit}
+        main{padding:1rem 0}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi sitio</h1>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Acerca</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Título</h2>
+        <p>Contenido de ejemplo.</p>
+    </main>
+
+    <footer>
+        <small>&copy; 2026</small>
+    </footer>
+
+    <script>
+        let negativos = 0;
+        let positivos = 0;
+        let multiplos15 = 0;
+        let acumuladorPares = 0;
+
+        for (let i = 1; i <= 10; i++) {
+            let valor = parseInt(prompt("Ingrese el valor " + i + ":"));
+
+            if (valor < 0) {
+                negativos++;
+            } else if (valor > 0) {
+                positivos++;
+            }
+
+            if (valor % 15 === 0) {
+                multiplos15++;
+            }
+
+            if (valor % 2 === 0 && valor !== 0) {
+                acumuladorPares += valor;
+            }
+        }
+
+        document.write("<h3>Resultados:</h3>");
+        document.write("<p>Cantidad de valores negativos: " + negativos + "</p>");
+        document.write("<p>Cantidad de valores positivos: " + positivos + "</p>");
+        document.write("<p>Cantidad de múltiplos de 15: " + multiplos15 + "</p>");
+        document.write("<p>Valor acumulado de los números pares: " + acumuladorPares + "</p>");
+        
+        // Ejemplo: prevenir navegación de ejemplo
+        document.querySelectorAll('nav a').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!--
+    Realizar un programa que permita cargar dos listas de 3 valores cada una. Informar con un mensaje cual de las dos listas tiene un valor acumulado mayor (mensajes 'Lista 1 mayor', 'Lista 2 mayor', 'Listas iguales')
+Tener en cuenta que puede haber dos o más estructuras repetitivas en un algoritmo. 
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Plantilla básica HTML" />
+    <title>Documento</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Título</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Acerca</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sección</h2>
+            <p>Contenido de ejemplo.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Tu sitio</p>
+    </footer>
+
+    <script>
+        let x = 1;
+        let acumulador1 = 0;
+        let acumulador2 = 0;
+        let valor;
+
+        while (x <= 3) {
+            valor = parseFloat(prompt('Ingrese el valor de la lista 1, posición ' + x + ':'));
+            acumulador1 += valor;
+            x++;
+        }
+
+        x = 1;
+        while (x <= 3) {
+            valor = parseFloat(prompt('Ingrese el valor de la lista 2, posición ' + x + ':'));
+            acumulador2 += valor;
+            x++;
+        }
+
+        if (acumulador1 > acumulador2) {
+            document.write('Lista 1 mayor');
+        } else if (acumulador2 > acumulador1) {
+            document.write('Lista 2 mayor');
+        } else {
+            document.write('Listas iguales');
+        }
+            
+        // Fragmento mínimo de JS
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

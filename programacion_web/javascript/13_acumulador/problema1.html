@@ -1,0 +1,40 @@
+<!--
+     Escribir un programa que lea 10 notas de alumnos y nos informe cuántos tienen notas mayores o iguales a 7 y cuántos menores. 
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plantilla básica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Plantilla básica</h1>
+    </header>
+
+    <script>
+        let x = 1;
+        let contadorMayoresIgual7 = 0;
+        let contadorMenores7 = 0;
+        let nota;
+
+        while (x <= 10) {
+            nota = parseFloat(prompt('Ingrese la nota del alumno ' + x + ':'));
+            if (nota >= 7) {
+                contadorMayoresIgual7++;
+            } else {
+                contadorMenores7++;
+            }
+            x++;
+        }
+
+        document.write('Cantidad de notas mayores o iguales a 7: ' + contadorMayoresIgual7 + '<br>');
+        document.write('Cantidad de notas menores a 7: ' + contadorMenores7 + '<br>');
+    </script>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

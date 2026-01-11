@@ -1,0 +1,50 @@
+<!--
+    Solicitar el ingreso alguna de estas palabras (casa, mesa, perro, gato) luego mostrar la palabra traducida en inglés. Es decir, si se ingresa 'casa' debemos mostrar el texto 'house' en la página. 
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Plantilla sencilla</title>
+    <style>
+        :root{--bg:#f7f7f7;--card:#fff;--accent:#0069ff}
+        html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial}
+        body{background:var(--bg);display:flex;flex-direction:column}
+        header,footer{background:var(--card);padding:1rem;border-bottom:1px solid #e6e6e6}
+        main{flex:1;max-width:900px;margin:1.5rem auto;padding:1rem;background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+        a{color:var(--accent);text-decoration:none}
+        nav a{margin-right:1rem}
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Bienvenido</h2>
+        <p>Esta es una plantilla HTML sencilla para comenzar.</p>
+    </main>
+    <script>
+        let palabra;
+        palabra = prompt('Ingrese alguna de estas palabras (casa, mesa, perro, gato)');
+        switch (palabra) {
+            case 'casa':
+                document.write('house');
+                break;
+            case 'mesa':
+                document.write('table');
+                break;
+            case 'perro':
+                document.write('dog');
+                break;
+            case 'gato':
+                document.write('cat');
+                break;
+            default:
+                document.write('La palabra ingresada no está en el listado.');
+        }
+    </script>
+    <footer>
+        <small>&copy; Ing Eduardo 2026 Nombre</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!--
+    Desarrollar un programa que solicite la carga de 10 números e imprima la suma de lo últimos 5 valores ingresados.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plantilla sencilla</title>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; margin: 20px; line-height:1.5; }
+        header, footer { background:#f4f4f4; padding:10px; border-radius:4px; }
+        main { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <script>
+        let sumaUltimosCinco = 0;
+
+        for (let i = 1; i <= 10; i++) {
+            let numero = parseFloat(prompt("Ingrese el número " + i + ":"));
+
+            if (i > 5) {
+                sumaUltimosCinco += numero;
+            }
+        }
+
+        document.write("<h3>La suma de los últimos 5 números ingresados es: " + sumaUltimosCinco + "</h3>");
+    </script>
+
+    <footer>
+        <small>&copy; 2026</small>
+    </footer>
+</body>
+</html>

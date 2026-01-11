@@ -1,0 +1,35 @@
+<!--
+    Realizar un programa que imprima 25 términos de la serie 11 - 22 - 33 - 44, etc. (No se ingresan valores por teclado). 
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plantilla básica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Hola, Mundo</h1>
+    </header>
+    <main>
+        <p>Contenido principal...</p>
+    </main>
+    <script>
+        let contador = 1;
+        let numero = 11;
+
+        while (contador <= 25) {
+            document.write(numero + "<br>");
+            numero += 11;
+            contador++;
+        }
+    </script>
+    <footer>
+        <small>&copy;Ing Eduardo 2026</small>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
