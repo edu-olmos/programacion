@@ -1,0 +1,37 @@
+<!--
+    Elaborar una función a la cual le enviemos tres enteros y muestre el menor. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+
+        function mostrarMenor(v1, v2, v3) {
+            let menor
+            if (v1 <= v2 && v1 <= v3) {
+                menor = v1;
+            } else if (v2 <= v1 && v2 <= v3) {
+                menor = v2;
+            } else {
+                menor = v3;
+            }
+            document.write("El menor es: " + menor);
+        }
+
+        let valor1 = parseInt(prompt('Ingrese primer valor:'));
+        let valor2 = parseInt(prompt('Ingrese segundo valor:'));
+        let valor3 = parseInt(prompt('Ingrese tercer valor:'));
+        mostrarMenor(valor1, valor2, valor3);
+    </script>
+
+</body>
+
+</html>

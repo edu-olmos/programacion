@@ -1,0 +1,34 @@
+<!--
+    Confeccionar una función que solicite la carga de dos enteros (primero el menor y luego el mayor) y nos muestre desde el menor hasta el mayor de uno en uno.
+Por ejemplo si ingresamos los valores 4 y 10 luego se debe mostrar por pantalla:
+
+4 5 6 7 8 9 10
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function mostrarMenorMayor() {
+            let menor = parseInt(prompt("Ingrese el menor valor"));
+            let mayor = parseInt(prompt("Ingrese el mayor valor"));
+            for (let i = menor; i <= mayor; i++) {
+                document.write(i + '<br>');
+            }
+        }       showMenorMayor();                   
+
+
+        mostrarMenorMayor();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!--
+    Confeccionar una función a la cual le envíe tres enteros y los muestre ordenados de menor a mayor.  
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+
+        function menorMayor(v1, v2, v3) {
+            let menor, medio, mayor;
+
+            // Determinar el menor
+            if (v1 <= v2 && v1 <= v3) {
+                menor = v1;
+                if (v2 <= v3) {
+                    medio = v2;
+                    mayor = v3;
+                } else {
+                    medio = v3;
+                    mayor = v2;
+                }
+            } else if (v2 <= v1 && v2 <= v3) {
+                menor = v2;
+                if (v1 <= v3) {
+                    medio = v1;
+                    mayor = v3;
+                } else {
+                    medio = v3;
+                    mayor = v1;
+                }
+            } else {
+                menor = v3;
+                if (v1 <= v2) {
+                    medio = v1;
+                    mayor = v2;
+                } else {
+                    medio = v2;
+                    mayor = v1;
+                }
+            }
+
+            document.write("Ordenados de menor a mayor: " + menor + ", " + medio + ", " + mayor);
+        }
+
+        let valor1 = parseInt(prompt('Ingrese primer valor:'));
+        let valor2 = parseInt(prompt('Ingrese segundo valor:'));
+        let valor3 = parseInt(prompt('Ingrese tercer valor:'));
+        menorMayor(valor1, valor2, valor3);
+    </script>
+
+</body>
+
+</html>
