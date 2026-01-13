@@ -1,0 +1,37 @@
+<!--
+    Confeccionar una función a la cual le envíe tres enteros y retorne el mayor de ellos. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function retornarMayor(a, b, c) {
+            if (a > b && a > c) {
+                return a;
+            } else {
+                if (b > c) {
+                    return b;
+                } else {
+                    return c;
+                }
+            }   
+        }
+
+        let valor1 = parseInt(prompt("Ingrese el primer valor entre"));
+        let valor2 = parseInt(prompt("Ingrese el segundo valor entre"));
+        let valor3 = parseInt(prompt("Ingrese el tercer valor entre"));
+        let m = retornarMayor(valor1, valor2, valor3);
+        document.write('el mayor es: ' + m);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!--
+    Elaborar una función que reciba tres enteros y retorne el promedio. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+
+        function retornarPromedio(a, b, c) {
+            return (a + b + c) / 3; 
+        }
+
+        let valor1 = parseInt(prompt("Ingrese el primer valor "));
+        let valor2 = parseInt(prompt("Ingrese el segundo valor "));
+        let valor3 = parseInt(prompt("Ingrese el tercer valor ")); 
+        let m = retornarPromedio(valor1, valor2, valor3);
+        document.write('el promedio es: ' + m);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!--
+    Elaborar una función a la cual le envíe el valor del lado de un cuadrado y me retorne su perímetro. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function retornarPerimetro(l) {
+            return l * 4;
+        }
+
+        let lado = parseInt(prompt("Ingrese el valor del lado del cuadrado")); 
+        let m = retornarPerimetro(lado);
+        document.write('su perimetro es: ' + m);
+    </script>
+
+</body>
+
+</html>
