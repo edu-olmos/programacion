@@ -1,0 +1,63 @@
+<!--
+    Desarrollar un programa que permita ingresar un vector de 8 elementos, e informe:
+El valor acumulado de todos los elementos del vector.
+El valor acumulado de los elementos del vector que sean mayores a 36.
+Cantidad de valores mayores a 50.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function cargar(elementos) {
+            for (let f = 0; f < elementos.length; f++) {
+                let v = prompt('Ingrese un número:');
+                elementos[f] = parseInt(v);
+            }
+        }
+        function acumulado(elementos) {
+            let total = 0;
+            for (let f = 0; f < elementos.length; f++) {
+                total = total + elementos[f];
+            }
+            document.write('Valor acumulado de todos los elementos: ' + total + '<br>');
+        }
+
+        function acumuladoMayores36(elementos) {
+            let total = 0;
+            for (let f = 0; f < elementos.length; f++) {
+                if (elementos[f] > 36) {
+                    total = total + elementos[f];
+                }
+            }
+            document.write('Valor acumulado de los elementos mayores a 36: ' + total + '<br>');
+        }
+
+        function cantidadMayores50(elementos) {
+            let cantidad = 0;
+            for (let f = 0; f < elementos.length; f++) {
+                if (elementos[f] > 50) {
+                    cantidad = cantidad + 1;
+                }
+            }
+            document.write('Cantidad de valores mayores a 50: ' + cantidad + '<br>');
+        }   
+
+        let elementos;
+        elementos = new Array(8);
+        cargar(elementos);
+        acumulado(elementos);
+        acumuladoMayores36(elementos);
+        cantidadMayores50(elementos);
+    </script>
+
+</body>
+
+</html>
