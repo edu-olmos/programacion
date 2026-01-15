@@ -1,0 +1,31 @@
+<!--
+     Confeccionar un programa que solicite el ingreso de un número y nos muestre dicho valor elevado a la tercera potencia. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        // Solicitar al usuario que ingrese un número
+        let numero = prompt("Por favor, ingrese un número:");
+
+        // Convertir la entrada a un número
+        numero = Number(numero);
+
+        // Calcular el número elevado a la tercera potencia
+        let resultado = Math.pow(numero, 3);
+
+        // Mostrar el resultado al usuario
+        alert("El número " + numero + " elevado a la tercera potencia es: " + resultado);
+    </script>
+
+</body>
+
+</html>

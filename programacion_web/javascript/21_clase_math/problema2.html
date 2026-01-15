@@ -1,0 +1,25 @@
+<!--
+    Ingresar por teclado un valor y luego mostrar la raiz cuadrada de dicho valor. 
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+      <script>
+            // Solicitar al usuario que ingrese un valor
+            var valor = prompt("Ingrese un valor para calcular su raíz cuadrada:");
+     
+            // Convertir el valor ingresado a un número
+            var numero = parseFloat(valor);
+     
+            // Calcular la raíz cuadrada
+            var raizCuadrada = Math.sqrt(numero);
+     
+            // Mostrar el resultado
+            alert("La raíz cuadrada de " + numero + " es " + raizCuadrada);
+      </script>

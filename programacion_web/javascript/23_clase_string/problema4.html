@@ -1,0 +1,46 @@
+<!--
+  Ingresar una palabra o texto por teclado y determinar si es o no una palabra palíndromo. (Palabra que se lee de igual manera de adelante hacia atrás, que de atrás hacia delante)  
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let texto = prompt('Ingrese una palabra o texto:');
+        //Eliminar espacios y pasar a minúsculas para una comparación más precisa
+        let textoLimpio = texto.replace(/\s+/g, '').toLowerCase();
+        let textoReverso = textoLimpio.split('').reverse().join('');
+        if (textoLimpio === textoReverso) {
+            document.write('La palabra o texto "' + texto + '" es un palíndromo.');
+        } else {
+            document.write('La palabra o texto "' + texto + '" no es un palíndromo.');
+        }
+    </script>
+<!--
+
+    <script>
+        let texto = prompt('Ingrese una palabra o frase:');
+        let cant = 0;
+        for (let f = 0; f < texto.length; f++) {
+            if (texto.charAt(f) == texto.charAt(texto.length - 1 - f)) {
+                cant++;
+            }
+        }
+        if (cant == texto.length) {
+            document.write(texto + ' se lee igual en ambas direcciones');
+        } else {
+            document.write(texto + ' no se lee igual en ambas direcciones');
+        }
+    </script>
+-->
+
+</body>
+
+</html>

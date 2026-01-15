@@ -1,0 +1,28 @@
+<!--
+  Realizar la búsqueda de un string clave en un string fuente. Se deberá ingresar una frase o texto (fuente) y luego la clave a buscar. En caso de encontrarla, imprimir la posición, de lo contrario una leyenda que indique que no está.  
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let fuente = prompt('Ingrese un texto o frase:');
+        let clave = prompt('Ingrese la clave a buscar:');
+        let posicion = fuente.indexOf(clave);
+        if (posicion != -1) {
+            document.write('La clave se encontró en la posición: ' + posicion);
+        } else {
+            document.write('La clave no se encontró en el texto fuente.');
+        }
+    </script>
+
+</body>
+
+</html>
