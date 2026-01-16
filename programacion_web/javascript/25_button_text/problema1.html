@@ -1,0 +1,46 @@
+<!--
+    Crear un programa que permita cargar un entero en un text y al presionar un botón nos muestre dicho valor elevado al cubo (emplear la función alert). 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <form>
+        <p>Ingrese un numero entero:<input type="text" id="numero"></p>
+        <p><input type="button" value="Confirmar" onClick="mostrar()"></p>
+    </form>
+
+    <script>
+        function mostrar() {
+            let num = document.getElementById('numero').value;
+            let cubo = Math.pow(num, 3);
+            alert('El numero ' + num + ' elevado al cubo es: ' + cubo); 
+        }
+    </script>
+
+<!--
+    <form>
+        <p>Ingrese un valor:<input type="text" id="num"></p>
+        <p><input type="button" value="Calcular cubo" onClick="calcularCubo()"></p>
+    </form>
+
+    <script>
+        function calcularCubo() {
+            let v = document.getElementById('num').value;
+            v = parseInt(v);
+            let cubo = v * v * v;
+            alert(cubo);
+        }
+    </script>
+-->
+
+</body>
+
+</html>

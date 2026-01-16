@@ -1,0 +1,43 @@
+<!--
+Confeccionar una página que permita seleccionar una pizza y la cantidad de unidades. Luego al presionar un botón calcular el importe a pagar.
+Utilizar un objeto de la clase SELECT para la selección de la pizza, pudiendo ser:
+Queso: $ 4.
+Jamón y queso: $ 6.
+Especial: $ 10.
+A la cantidad de pizzas cargarla en un objeto de la clase TEXT y en otro objeto de la clase TEXT mostrar el importe total a abonar. 
+-->
+<!--
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <form>
+        <p><select id="select1" onChange="precioPizza()">
+            <option value="4">Queso</option>
+            <option value="6">Jamón y queso</option>
+            <option value="10">Especial</option>
+        </select></p>
+        <p>Cantidad de pizzas:<input type="text" id="text1"></p>
+    </form>
+
+    <script>
+        function precioPizza() {
+            let seleccion = document.getElementById('select1');
+            let cantidad = parseInt(document.getElementById('text1').value);
+            let precioUnitario = parseInt(seleccion.options[seleccion.selectedIndex].value);
+            let total = cantidad * precioUnitario;
+            alert("El importe total a pagar es: $" + total);
+        }
+    </script>
+
+</body>
+
+</html>

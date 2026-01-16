@@ -1,0 +1,39 @@
+<!--
+Cargar dos números en objetos de tipo text y al presionar un botón, mostrar el mayor.  
+-->
+<!--
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <form>
+        <p>Ingrese un numero entero:<input type="text" id="numero1"></p>
+        <p>Ingrese otro numero entero:<input type="text" id="numero2"></p>
+        <p><input type="button" value="Confirmar" onClick="mostrar()"></p>
+    </form>
+
+    <script>
+        function mostrar() {
+            let num1 = parseFloat(document.getElementById('numero1').value);
+            let num2 = parseFloat(document.getElementById('numero2').value);
+            if (num1 > num2) {
+                alert('El numero mayor es: ' + num1);
+            } else if (num2 > num1) {
+                alert('El numero mayor es: ' + num2);
+            } else {
+                alert('Ambos numeros son iguales: ' + num1);
+            } 
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!--
+Confeccionar una página que permita tomar un examen múltiple choice. Se debe mostrar una pregunta y seguidamente un objeto SELECT con las respuestas posibles. Al presionar un botón mostrar la cantidad de respuestas correctas e incorrectas (Disponer 4 preguntas y sus respectivos controles SELECT) 
+-->
+<!--
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+
+    <form>
+        <p>Como se dice rojo en ingles:</p>
+        <p><select id="pregunta1">
+            <option value="1">blue</option>
+            <option value="2">green</option>
+            <option value="3">red</option>
+        </select></p>
+        <p> Como se dice ventana en ingles:</p>
+        <p><select id="pregunta2">
+            <option value="1">window</option>
+            <option value="2">door</option>
+            <option value="3">bedroom</option>
+        </select></p>
+        <p> Como se dice gato en ingles:</p>
+        <p><select id="pregunta3">
+            <option value="1">dog</option>
+            <option value="2">cat</option>
+            <option value="3">lion</option>
+        </select></p>
+        <p> Como se dice hombre en ingles:</p>
+        <p><select id="pregunta4">
+            <option value="1">women</option>
+            <option value="2">man</option>
+            <option value="3">child</option>
+        </select></p>
+        <p><input type="button" value="Controlar" onClick="verificar()"></p>
+    </form>
+
+    <script>
+        function verificar() {
+            let correctas = 0;
+            let ele1 = document.getElementById('pregunta1');
+            let ele2 = document.getElementById('pregunta2');
+            let ele3 = document.getElementById('pregunta3');
+            let ele4 = document.getElementById('pregunta4');
+            if (ele1.options[ele1.selectedIndex].value == 3) {
+                correctas++;
+            }
+            if (ele2.options[ele2.selectedIndex].value == 1) {
+                correctas++;
+            }
+            if (ele3.options[ele3.selectedIndex].value == 2) {
+                correctas++;
+            }
+            if (ele4.options[ele4.selectedIndex].value == 2) {
+                correctas++;
+            }
+            alert('Cantidad de respuestas correctas:' + correctas);
+        }
+    </script>
+<!--
+    
+    <form>
+        <p><select id="select1" onChange="examenMultiple()">
+            <option value="0">¿Cuál es la capital de Francia?</option>
+            <option value="0">Berlín</option>
+            <option value="1">París</option>
+            <option value="0">Madrid</option>
+        </select></p>
+        <p><select id="select2" onChange="examenMultiple()">
+            <option value="0">¿Cuál es el río más largo del mundo?</option>
+            <option value="1">Nilo</option>
+            <option value="0">Amazonas</option>
+            <option value="0">Yangtsé</option>
+        </select></p>
+        <p><select id="select3" onChange="examenMultiple()">
+            <option value="0">¿Quién escribió 'Cien años de soledad'?</option>
+            <option value="0">Mario Vargas Llosa</option>
+            <option value="1">Gabriel García Márquez</option>
+            <option value="0">Julio Cortázar</option>
+        
+        <p><select id="select4" onChange="examenMultiple()">
+            <option value="0">¿Cuál es el elemento químico con el símbolo 'O'?</option>
+            <option value="1">Oxígeno</option>
+            <option value="0">Oro</option>
+            <option value="0">Plata</option>    
+        </select></p>
+        <p>Respuestas correctas:<input type="text" id="text1"></p>
+        <p>Respuestas incorrectas:<input type="text" id="text2"></
+    </form>
+
+    <script>
+        function examenMultiple() {
+            let seleccion1 = document.getElementById('select1');
+            let seleccion2 = document.getElementById('select2');
+            let seleccion3 = document.getElementById('select3');
+            let seleccion4 = document.getElementById('select4');
+            let correctas = 0;
+            let incorrectas = 0;
+
+            if (seleccion1.options[seleccion1.selectedIndex].value == "1") {
+                correctas++;
+            } else {
+                incorrectas++;
+            }
+
+            if (seleccion2.options[seleccion2.selectedIndex].value == "1") {
+                correctas++;
+            } else {
+                incorrectas++;
+            }
+
+            if (seleccion3.options[seleccion3.selectedIndex].value == "1") {
+                correctas++;
+            } else {
+                incorrectas++;
+            }
+
+            document.getElementById('text1').value = correctas;
+            document.getElementById('text2').value = incorrectas; 
+            
+        }
+    </script>
+-->
+</body>
+
+</html>
