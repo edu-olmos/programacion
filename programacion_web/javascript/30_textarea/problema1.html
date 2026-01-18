@@ -1,0 +1,36 @@
+<!--
+Confeccionar una página de visitas a un sitio, solicitar ingresar el nombre de una persona, su mail y los comentarios (TEXTAREA). Mostrar luego llamando a la función alert los datos ingresados.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <form>
+        Ingrese nombre:
+        <input type="text" id="nombre"><br> Ingrese mail:
+        <input type="text" id="mail"><br> Comentarios:
+        <br>
+        <textarea id="comentarios" rows="20" cols="100"></textarea><br>
+        <input type="button" value="confirmar" onClick="verificar()">
+    </form>
+
+    <script>
+        function verificar() {
+            let nombre = document.getElementById('nombre').value;
+            let mail = document.getElementById('mail').value;
+            let comentarios = document.getElementById('comentarios').value;
+            alert(nombre + '\n' + mail + '\n' + comentarios);
+        }
+
+    </script>
+
+</body>
+
+</html>
