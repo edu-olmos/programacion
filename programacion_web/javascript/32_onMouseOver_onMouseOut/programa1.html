@@ -1,0 +1,33 @@
+<!--
+Otro problema que podemos probar es pinta de color el interior de una casilla de una tabla y regresar a su color original cuando salimos de la misma: 
+-->
+<!--
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <table border="1">
+        <tr>
+            <td onMouseOver="pintar(this,'#f00')" onMouseOut="pintar(this,'#fff')">rojo</td>
+            <td onMouseOver="pintar(this,'#0f0')" onMouseOut="pintar(this,'#fff')">verde</td>
+            <td onMouseOver="pintar(this,'#00f')" onMouseOut="pintar(this,'#fff')">azul</td>
+        </tr>
+    </table>
+
+    <script>
+        function pintar(objeto, col) {
+            objeto.style.backgroundColor = col;
+        }
+    </script>
+
+</body>
+
+</html>
