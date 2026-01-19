@@ -1,0 +1,29 @@
+<!--
+    Supongamos que tenemos un botón que al ser presionado ingrese al periódico La Nación, pero primero muestre una ventana de confirmación, si queremos ingresar al periódico. En caso que el visitante presione el botón afirmativo, redireccionamos al sitio de La Nación, en caso contrario mostramos un mensaje:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <button onClick="verificarEntrada()">Ingresar a La Nación</button>
+
+    <script>
+        function verificarEntrada() {
+            if (window.confirm('Desea salir del sitio e ingresar al periódico La Nación?')) {
+                window.location = 'https://www.lanacion.com.ar';
+            } else {
+                window.alert('No hay problema');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

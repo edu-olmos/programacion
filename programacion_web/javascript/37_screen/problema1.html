@@ -1,0 +1,26 @@
+<!-- 
+ Confeccionar un programa que al presionar un botón aparezca una ventana que ocupe todo el ancho del monitor y la mitad de su altura. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <form>
+        <input type="button" value="abrir ventana" onClick="abrirVentana()">
+    </form>
+
+    <script>
+        function abrirVentana() {
+            var ventana = open('', '', 'width=' + screen.availWidth + ',height=' + screen.availHeight / 2);
+        }
+    </script>
+</body>
+
+</html>
