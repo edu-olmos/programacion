@@ -1,0 +1,41 @@
+<!-- 
+ Con un ejemplo veremos la sintaxis para trabajar con los mismos. Desarrollaremos una clase que represente un hipervínculo y luego definiremos un vector con componentes de tipo hipervinculo.
+
+La clase hipervínculo y donde definimos objetos de dicha clase:
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function Hipervinculo(direccion, titulo) {
+            this.direccion = direccion;
+            this.titulo = titulo;
+            this.retornarhipervinculo = function() {
+                let cadena;
+                cadena = '<a href=' + this.direccion + '>' + this.titulo + '</a>';
+                return cadena;
+            }
+        }
+
+        let vector = new Array(3);
+        vector[0] = new Hipervinculo('https://www.google.com', 'google');
+        vector[1] = new Hipervinculo('https://www.msn.com', 'msn');
+        vector[2] = new Hipervinculo('https://www.yahoo.com', 'yahoo');
+        for (let f = 0; f < vector.length; f++) {
+            document.write(vector[f].retornarhipervinculo());
+            document.write('<br>');
+        }
+    </script>
+
+</body>
+
+</html>

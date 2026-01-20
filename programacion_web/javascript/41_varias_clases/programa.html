@@ -1,0 +1,72 @@
+<!-- 
+    Ejemplo de varias clases en JavaScript
+    Juego de la quiniela con dos jugadores
+    Cada jugador elige un número entre 1 y 10
+    Se sortea un número aleatorio entre 1 y 10
+    Se verifica si alguno de los jugadores ha ganadoPlantearemos una clase NumeroQuiniela que representa una persona que elige un número de quiniela y además registra su nombre, la clase tiene por objetivo la carga por el teclado del número deseado.
+
+Por otra parte crearemos una clase Bolillero que sortee un valor aleatorio entre 1 y 10 (que representa el valor extraído del bolillero)
+
+-->
+
+<!-- 
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Juego de la Quiniela</h1>
+    <script>
+        //clase Numeroquiniela *********************************
+        function NumeroQuiniela(nombre) {
+            this.nombre = nombre;
+            this.cargarNumero = function() {
+                this.numero = parseInt(prompt("Que número de quiniela quiere " + this.nombre + "?"));
+            }
+            this.verificarSiGano = function(num) {
+                if (this.numero == num)
+                    return true;
+                else
+                    return false;
+
+            }
+        }
+
+        //clase Bolillero **************************************
+        function Bolillero() {
+            this.numero = -1;
+            this.sortear = function() {
+                this.numero = parseInt(Math.random() * 10) + 1;
+            }
+        }
+        // bloque principal
+        let numeroquiniela1;
+        numeroquiniela1 = new NumeroQuiniela("juan");
+        numeroquiniela1.cargarNumero();
+        let numeroquiniela2;
+        numeroquiniela2 = new NumeroQuiniela("ana");
+        numeroquiniela2.cargarNumero();
+        let bolillero;
+        bolillero = new Bolillero();
+        bolillero.sortear();
+        document.write('Numero sorteado:' + bolillero.numero + '<br>');
+        document.write(numeroquiniela1.nombre + ' eligió ' + numeroquiniela1.numero + '<br>');
+        document.write(numeroquiniela2.nombre + ' eligió ' + numeroquiniela2.numero + '<br>');
+        if (numeroquiniela1.verificarSiGano(bolillero.numero)) {
+            document.write(numeroquiniela1.nombre + ' ha ganado <br>');
+        }
+        if (numeroquiniela2.verificarSiGano(bolillero.numero)) {
+            document.write(numeroquiniela2.nombre + ' ha ganado <br>');
+        }
+    </script>
+
+</body>
+
+</html>
