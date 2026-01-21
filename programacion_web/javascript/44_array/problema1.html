@@ -1,0 +1,30 @@
+<!--
+     Confeccionar un programa que defina dos array, en uno almacenar los días de la semana y en otro los nombres de los meses. Emplear dos sintaxis diferentes para crear e inicializar sus componentes. 
+-->
+ 
+ <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+         let meses = new Array('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre');
+        let dias = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sábado', 'domingo'];
+        for (let f = 0; f < meses.length; f++) {
+            document.write(meses[f] + '<br>');
+        }
+        document.write('<br>');
+        for (let f = 0; f < dias.length; f++) {
+            document.write(dias[f] + '<br>');
+        }
+
+    </script>
+
+</body>
+
+</html>

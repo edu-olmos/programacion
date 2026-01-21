@@ -1,0 +1,28 @@
+<!--
+Veamos con un ejemplo que pasa con la propiedad length y cuando accedemos a componentes que no existen en el vector: 
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = [];
+        vec[5] = 100;
+        vec[10] = 200;
+        document.write('Atributo length:' + vec.length + '<br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>

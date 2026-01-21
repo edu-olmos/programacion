@@ -1,0 +1,83 @@
+<!--
+Crear un vector con 10 valores aleatorios comprendidos entre 1 y 500. Luego crear otros dos vectores y copiar los elementos menores a 250 en el segundo vector y los mayores o iguales a 250 en el tercer vector. Imprimir los tamaños del segundo y tercer vector. Imprimir los tres vectores. 
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+
+        let vec1 = [];
+        for (let f = 0; f < 10; f++) {
+            vec1[f] = parseInt(1 + (Math.random() * 500));
+        }
+        let vec2 = [];
+        let vec3 = [];
+        let indice1 = 0;
+        let indice2 = 0;
+        for (let f = 0; f < vec1.length; f++) {
+            if (vec1[f] < 250) {
+                vec2[indice1] = vec1[f];
+                indice1++;
+            } else {
+                vec3[indice2] = vec1[f];
+                indice2++;
+            }
+        }
+        document.write('Tamaño del primer vector' + vec1.length + '<br>');
+        document.write('Tamaño del segundo vector' + vec2.length + '<br>');
+        document.write('Tamaño del tercer vector' + vec3.length + '<br>');
+        document.write('Elementos del primer vector.<br>');
+        for (let f = 0; f < vec1.length; f++) {
+            document.write(vec1[f] + '-');
+        }
+        document.write('<br>');
+        document.write('Elementos del segundo vector.<br>');
+        for (let f = 0; f < vec2.length; f++) {
+            document.write(vec2[f] + '-');
+        }
+        document.write('<br>');
+        document.write('Elementos del tercer vector.<br>');
+        for (let f = 0; f < vec3.length; f++) {
+            document.write(vec3[f] + '-');
+        }
+        /*
+        // Crear un vector con 10 valores aleatorios entre 1 y 500
+        let vectorOriginal = [];
+        for (let i = 0; i < 10; i++) {
+            vectorOriginal.push(Math.floor(Math.random() * 500) + 1);
+        }
+
+        // Crear dos vectores para menores y mayores o iguales a 250
+        let vectorMenores = [];
+        let vectorMayoresIguales = [];
+
+        // Clasificar los elementos del vector original
+        for (let i = 0; i < vectorOriginal.length; i++) {
+            if (vectorOriginal[i] < 250) {
+                vectorMenores.push(vectorOriginal[i]);
+            } else {
+                vectorMayoresIguales.push(vectorOriginal[i]);
+            }
+        }
+
+        // Imprimir los tamaños de los vectores
+        console.log("Tamaño del vector de menores a 250: " + vectorMenores.length);
+        console.log("Tamaño del vector de mayores o iguales a 250: " + vectorMayoresIguales.length);
+
+        // Imprimir los tres vectores
+        console.log("Vector Original: " + vectorOriginal);
+        console.log("Vector de Menores a 250: " + vectorMenores);
+        console.log("Vector de Mayores o Iguales a 250: " + vectorMayoresIguales);
+        */
+    </script>   
+</body>
+</html>
