@@ -1,0 +1,34 @@
+<!--
+Realizar la carga de sueldos por teclado hasta que se ingrese el cero. Almacenar todos los valores ingresados en un vector empleando el método push. Mostrar la suma de sueldos ingresados.
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let sueldos = [];
+        let monto;
+        do {
+            monto = parseInt(prompt('Ingrese el sueldo (0 para finalizar):'));
+            if (monto != 0) {
+                sueldos.push(monto);
+            }
+        } while (monto != 0);
+        let suma = 0;
+        for (let f = 0; f < sueldos.length; f++) {
+            suma = suma + sueldos[f];
+        }
+        document.write('El total en sueldos ingresado es:' + suma);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!--
+Ingresar valores por teclado. Los valores menores a 100 ingresarlos al principio del vector y los mayores o iguales a 100 ingresarlos al final. Se finaliza la carga de datos al ingresar el cero. Cuando sale del do/while extraer el último valor ingresado que es el cero del vector. Imprimir el vector en la página
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = [];
+        let valor;
+        do {
+            valor = parseInt(prompt('Ingresar un valor (0 para finalizar):'));
+            if (valor < 100) {
+                vec.unshift(valor);
+            } else {
+                vec.push(valor);
+            }
+        } while (valor != 0);
+        vec.shift();
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>

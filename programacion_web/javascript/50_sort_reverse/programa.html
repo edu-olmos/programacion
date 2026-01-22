@@ -1,0 +1,30 @@
+<!--
+    Otro método muy útil de la clase Array es sort. La sintaxis más sencilla y por defecto es para ordenar una lista de string:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let nombres = ['marcos', 'ana', 'luis', 'jorge', 'carlos'];
+        document.write('Vector antes de ordenarlo<br>');
+        for (let f = 0; f < nombres.length; f++) {
+            document.write(nombres[f] + '<br>');
+        }
+        nombres.sort();
+        document.write('Vector después de ordenarlo<br>');
+        for (let f = 0; f < nombres.length; f++) {
+            document.write(nombres[f] + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>

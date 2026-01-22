@@ -1,0 +1,36 @@
+<!--
+    Crear un vector con 5 valores aleatorios comprendidos entre 1 y 1000. Luego extraer los dos últimos elementos sumarlos y mostrarlos. Imprimir también el tamaño final del vector. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = [];
+        for (let f = 0; f < 5; f++) {
+            let nro = 1 + (Math.random() * 1000);
+            vec.push(parseInt(nro));
+        }
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+        }
+        let sumaultimos = vec.pop() + vec.pop();
+        document.write('La suma de las dos últimas componentes es:' + sumaultimos + '<br>');
+        document.write('Tamaño final del vector:' + vec.length + '<br>');
+        document.write('Elementos restantes del vector<br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,39 @@
+<!--
+    Crear un vector con 10 elementos enteros con valores aleatorios. Ordenarlos de menor a mayor. Luego invertir el vector para verlo de mayor a menor.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = new Array(10);
+        for (let f = 0; f < vec.length; f++) {
+            vec[f] = parseInt(Math.random() * 1000);
+        }
+        vec.sort(function(v1, v2) {
+            if (v1 > v2)
+                return 1;
+            else
+                return -1;
+        });
+        document.write('Vector ordenado en forma ascendente<br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+        }
+        vec.reverse();
+        document.write('Vector ordenado en forma descendente<br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>

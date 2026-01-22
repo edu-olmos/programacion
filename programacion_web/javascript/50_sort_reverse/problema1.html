@@ -1,0 +1,44 @@
+<!--
+     Cargar los sueldos de un conjunto de empleados. Finalizar la carga al ingresar cero. Mostrar por pantalla los sueldos ordenados de mayor a menor. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let sueldos = [];
+        let valor;
+        do {
+            valor = parseInt(prompt('Ingrese el sueldo (cero para finalizar)'));
+            if (valor != 0)
+                sueldos.push(valor);
+        } while (valor != 0);
+
+        sueldos.sort(function(x, y) {
+            if (x > y)
+                return 1;
+            else
+                return -1;
+        });
+
+        document.write('Sueldos ordenados de menor a mayor<br>');
+        for (let f = 0; f < sueldos.length; f++) {
+            document.write(sueldos[f] + '<br>');
+        }
+        sueldos.reverse();
+        document.write('Sueldos ordenados de mayor a menor<br>');
+        for (let f = 0; f < sueldos.length; f++) {
+            document.write(sueldos[f] + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>

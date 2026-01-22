@@ -1,0 +1,36 @@
+<!--
+    Crear un vector de 10 elementos y almacenar valores aleatorios en el mismo. Luego borrar los elementos de las posiciones pares e imprimir el vector antes y después de borrar las componentes, inclusive tratar de acceder a las componentes que acabamos de borrar.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = [];
+        for (let f = 0; f < 10; f++) {
+            let valor = parseInt(Math.random() * 1000);
+            vec.push(valor);
+        }
+        document.write('Vector antes de borrar<br>');
+        for (let f = 0; f < 10; f++) {
+            document.write(vec[f] + '<br>');
+        }
+        for (let f = 0; f < 10; f = f + 2) {
+            delete vec[f];
+        }
+        document.write('Vector luego de borrar las posiciones pares<br>');
+        for (let f = 0; f < 10; f++) {
+            document.write(vec[f] + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>

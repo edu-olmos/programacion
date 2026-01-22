@@ -1,0 +1,50 @@
+<!--
+    Definir un arreglo de cuatro elementos de tipo objeto, cada objeto representa una persona con su nombre y edad.
+Imprimir el vector previo y posteriormente a su ordenamiento por la edad.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let personas = [{
+            nombre: 'diego',
+            edad: 53
+        }, {
+            nombre: 'carlos',
+            edad: 26
+        }, {
+            nombre: 'ana',
+            edad: 70
+        }, {
+            nombre: 'victoria',
+            edad: 15
+        }];
+        document.write('Personas y sus edades<br>');
+        for (let f = 0; f < personas.length; f++) {
+            document.write('Nombre:' + personas[f].nombre + ' - ' + 'Edad:' + personas[f].edad + '<br>');
+        }
+        document.write('Personas ordenadas por su edad sus edades<br>');
+        personas.sort(function(persona1, persona2) {
+            if (persona1.edad > persona2.edad) {
+                return -1;
+            } else {
+                return 1;
+            }
+        });
+        document.write('Personas y sus edades<br>');
+        for (let f = 0; f < personas.length; f++) {
+            document.write('Nombre:' + personas[f].nombre + ' - ' + 'Edad:' + personas[f].edad + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>
