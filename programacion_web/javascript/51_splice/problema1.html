@@ -1,0 +1,36 @@
+<!--
+    Crear un vector con una lista de valores. Luego borrar las componentes donde hay un 2 y al mismo tiempo insertar dos elementos con el valor 1. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = [0, 7, 2, 3, 4, 2, 6, 2, 8, 2];
+        document.write('vector original<br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + ' ');
+        }
+        let indice = 0;
+        do {
+            if (vec[indice] == 2) {
+                vec.splice(indice, 1, 1, 1);
+            }
+            indice++;
+        } while (indice < vec.length);
+        document.write('<br>vector modificado<br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + ' ');
+        }
+    </script>
+
+</body>
+
+</html>

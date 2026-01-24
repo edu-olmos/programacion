@@ -1,0 +1,30 @@
+<!--
+    Podemos indicar un valor negativo y el posicionamiento se cuenta desde el final del vector, por ejemplo si queremos eliminar los dos últimos elementos del vector luego debemos codificar:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        document.write('Vector inicial<br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+        }
+        vec.splice(-2, 2);
+        document.write('Eliminados los dos últimos elementos<br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>

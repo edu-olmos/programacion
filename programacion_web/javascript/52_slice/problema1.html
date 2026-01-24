@@ -1,0 +1,65 @@
+<!--Crear un vector de 10 elementos con valores aleatorios comprendidos entre 0 y 1000. Buscar el menor y luego generar otro vector a partir de dicha posición hasta el final.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = [];
+        for (let f = 0; f < 10; f++) {
+            vec[f] = parseInt(Math.random() * 1001);
+        }
+        document.write('Vector original<br>');
+        for (let f = 0; f < vec.length; f++) {
+            document.write(vec[f] + '-');
+        }
+        document.write('<br>');
+        let menor = vec[0];
+        let pos = 0;
+        for (let f = 1; f < vec.length; f++) {
+            if (vec[f] < menor) {
+                menor = vec[f];
+                pos = f;
+            }
+        }
+        document.write('Elemento menor del vector:' + menor);
+        document.write('<br>');
+        let vec2 = vec.slice(pos);
+        document.write('Vector resultante de la llamada a slice<br>');
+        for (let f = 0; f < vec2.length; f++) {
+            document.write(vec2[f] + '-');
+        }
+        /*
+        // Crear un vector de 10 elementos con valores aleatorios entre 0 y 1000
+        let vector = [];
+        for (let i = 0; i < 10; i++) {
+            vector.push(Math.floor(Math.random() * 1001));
+        }
+        console.log("Vector original:", vector);
+
+        // Buscar el menor valor y su posición
+        let menor = vector[0];
+        let posicionMenor = 0;
+        for (let i = 1; i < vector.length; i++) {
+            if (vector[i] < menor) {
+                menor = vector[i];
+                posicionMenor = i;
+            }
+        }
+        console.log("Menor valor:", menor, "en la posición:", posicionMenor);
+
+        // Generar otro vector desde la posición del menor hasta el final
+        let nuevoVector = vector.slice(posicionMenor);
+        console.log("Nuevo vector desde la posición del menor hasta el final:", nuevoVector);
+        */
+    </script>       
+
+</body>
+</html>
