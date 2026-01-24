@@ -1,0 +1,28 @@
+<!--
+    Crear un vector de 10 elementos. Inicializar los valores del vector cuando se crea. Inicializar dos variables que resulten de llamar primero al método toString() y la segunda variable inicializarla llamando al método join() sin parámetros. Mostrar un mensaje si el resultado de la ejecución de los dos métodos retorna el mismo valor (empleando un if para comparar los string) 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = [34, 67, 23, 89, 12, 90, 11, 45, 78, 56];
+        let cadena1 = vec.toString();
+        let cadena2 = vec.join();
+        document.write('Cadena obtenida con toString(): ' + cadena1 + '<br>');
+        document.write('Cadena obtenida con join(): ' + cadena2 + '<br>');
+        if (cadena1 === cadena2) {
+            document.write('El resultado de ambos métodos es el mismo.');
+        } else {
+            document.write('El resultado de ambos métodos es diferente.');
+        }
+    </script>       
+</body> 
+</html>

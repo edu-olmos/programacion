@@ -1,0 +1,25 @@
+<!--
+    Crear un vector con los datos de 5 personas. Luego imprimir por pantalla uno abajo de otro utilizando el método join para generar un string y agregarle entre elementos la etiqueta html <br>. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let nombres = new Array(5);
+        for (let f = 0; f < nombres.length; f++) {
+            nombres[f] = prompt('Ingrese un nombre:');
+        }
+        document.write(nombres.join('<br>'));
+    </script>
+
+</body>
+
+</html>

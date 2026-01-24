@@ -1,0 +1,26 @@
+<!--
+    Crear un vector con 10 elementos con valores aleatorios comprendidos entre 0 y 1000. Luego copiar el contenido del vector a un string con los valores de las componentes separados por coma:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let vec = new Array(10);
+        for (let f = 0; f < vec.length; f++) {
+            vec[f] = parseInt(Math.random() * 1001);
+        }
+        let cadena = vec.toString();
+        document.write(cadena);
+    </script>
+
+</body>
+
+</html>
