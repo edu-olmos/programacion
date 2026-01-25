@@ -1,0 +1,36 @@
+<!--
+    Ahora si implementaremos otro problema que declare una función que reciba tres parámetros, el último de ellos es una función:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function calcular(x, y, fu) {
+            let resu = fu(x, y);
+            return resu;
+        }
+
+        let s1 = calcular(10, 5, function(v1, v2) {
+            return v1 + v2;
+        });
+
+        document.write(s1 + '<br>');
+
+        let s2 = calcular(10, 5, function(v1, v2) {
+            return v1 - v2;
+        });
+
+        document.write(s2 + '<br>');
+    </script>
+
+</body>
+
+</html>

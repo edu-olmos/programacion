@@ -1,0 +1,36 @@
+<!--
+    Confeccionar una función que reciba un conjunto de string y genere dentro de la página una lista ordenada (<ol>). La función debe recibir en el primer parámetro el id de un div.
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <div id="lista1"></div>
+
+    <script>
+        function iniciar() {
+            generarLista('lista1', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis');
+        }
+
+        function generarLista() {
+            let s = '<ol>';
+            for (let f = 1; f < arguments.length; f++) {
+                s = s + '<li>' + arguments[f] + '</li>';
+            }
+            s = s + '</ol>';
+            let elemento1 = document.getElementById(arguments[0]);
+            elemento1.innerHTML = s;
+        }
+
+        iniciar();
+    </script>
+
+</body>
+
+</html>

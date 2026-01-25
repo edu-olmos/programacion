@@ -1,0 +1,29 @@
+<!--
+    El JavaScript moderno introduce una directiva para salvar este y otros problemas muy comunes. Si activamos modo estricto todas las variables en JavaScript deben declarase sino se produce un error. Veamos como introducimos esta directiva de modo estricto:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        'use strict';
+
+        function imprimir() {
+            x = 100; //error
+            document.write(x + '<br>');
+        }
+
+        imprimir();
+        document.write(x + '<br>');
+    </script>
+
+</body>
+
+</html>

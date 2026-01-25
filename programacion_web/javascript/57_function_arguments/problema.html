@@ -1,0 +1,31 @@
+<!--
+    Confeccionar una función que obtenga y retorne el mayor valor de una lista de enteros que le pasamos como parámetros. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function mayor() {
+            let may = arguments[0];
+            for (let f = 1; f < arguments.length; f++) {
+                if (arguments[f] > may) {
+                    may = arguments[f];
+                }
+            }
+            return may;
+        }
+
+        document.write(mayor(7, 22, 4, 66, 3, 22, 55));
+    </script>
+
+</body>
+
+</html>

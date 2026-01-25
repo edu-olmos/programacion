@@ -1,0 +1,32 @@
+<!--
+    Definir una función llamada $ que reciba como parámetro el id de un elemento HTML y retorne la referencia del mismo.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body id="cuerpo">
+    <h1 id="titulo"></h1>
+    <p id="parrafo"></p>
+    <script>
+        function $(ele) {
+            return document.getElementById(ele);
+        }
+
+        function inicio() {
+            $('cuerpo').style.backgroundColor = '#ffff00';
+            $('titulo').innerHTML = 'Prueba';
+            $('parrafo').innerHTML = 'Contenido del párrafo';
+        }
+
+        inicio();
+    </script>
+
+</body>
+
+</html>

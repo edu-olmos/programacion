@@ -1,0 +1,49 @@
+<!--
+    Confeccionar una función que reciba un parámetro y defina una variable local. Definir dentro de la función que acabamos de crear una función anidada que contenga un parámetro.
+En la función anidada imprimir el parámetro de la función que la contiene, el parámetro que tiene la función anidada y el valor de la variable local de la función principal. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    
+
+    <script>
+        function f1(x) {
+            function f2(y) {
+                document.write('Parámetro de la función exterior:' + x + '<br>');
+                document.write('Parámetro de la función anidada:' + y + '<br>');
+                document.write('variable local de la función exterior:' + z + '<br>');
+            }
+
+            let z = 1;
+            f2(2);
+        }
+
+        f1(3);
+
+        /*
+
+        function funcionPrincipal(param1) {
+            let varLocal = 'Variable local de la función principal';
+
+            function funcionAnidada(param2) {
+                console.log('Parámetro de la función principal: ' + param1);
+                console.log('Parámetro de la función anidada: ' + param2);
+                console.log('Valor de la variable local: ' + varLocal);
+            }
+
+            funcionAnidada('Valor del parámetro de la función anidada');
+        }
+
+        funcionPrincipal('Valor del parámetro de la función principal');
+        */
+    </script>
+</body>
+</html>
