@@ -1,0 +1,57 @@
+<!--
+Mostrar un elemento de tipo H1, luego cuando se ingrese con el mouse dentro del mismo cambiar el color a letra roja y color de fondo amarillo, luego cuando se mueva la flecha del mouse fuera del elemento volver al color original. 
+
+--> 
+
+<!--
+
+--> 
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <h1 id="titulo">Titulo principal</h1>
+
+    <script>
+        document.getElementById('titulo').addEventListener('mouseover', entrada);
+        document.getElementById('titulo').addEventListener('mouseout', salida);
+
+        function entrada() {
+            document.getElementById('titulo').style.color = '#ff0000';
+            document.getElementById('titulo').style.backgroundColor = '#ffff00';
+        }
+
+        function salida() {
+            document.getElementById('titulo').style.color = '#000000';
+            document.getElementById('titulo').style.backgroundColor = '#ffffff';
+        }
+    </script>
+
+    <!--
+    
+    <h1 id="encabezado1">Ejemplo de MouseOver y MouseOut</h1>
+
+    <script>
+        document.getElementById('encabezado1').addEventListener('mouseover', entrada);
+        document.getElementById('encabezado1').addEventListener('mouseout', salida);
+
+        function entrada() {
+            document.getElementById('encabezado1').style.color = 'red';
+            document.getElementById('encabezado1').style.backgroundColor = 'yellow';
+        }
+
+        function salida() {
+            document.getElementById('encabezado1').style.color = 'black';
+            document.getElementById('encabezado1').style.backgroundColor = 'white';
+        }
+    </script>
+    -->
+</body>
+</html>

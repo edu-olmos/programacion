@@ -1,0 +1,35 @@
+<!--
+    Para probar el evento keyup implementaremos un programa que permita solo ingresar 140 caracteres y nos informe con un mensaje la cantidad de caracteres disponibles para seguir escribiendo
+--> 
+
+<!--
+
+--> 
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <input type="text" id="texto" maxlength="140" size="140">
+    <br>
+    <p>Máxima cantidad de caracteres disponibles:<span id="cantidad">140</span></p>
+
+    <script>
+        document.getElementById('texto').addEventListener('keyup', presion);
+
+        function presion() {
+            let canti = document.getElementById('texto').value.length;
+            let disponibles = 140 - parseInt(canti);
+            document.getElementById('cantidad').innerHTML = disponibles;
+        }
+    </script>
+
+</body>
+
+</html>

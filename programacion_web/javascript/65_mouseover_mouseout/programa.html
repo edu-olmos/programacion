@@ -1,0 +1,36 @@
+<!--
+Implementaremos un pequeño ejemplo que muestre un cuadrado, el mismo mostrará los bordes redondeados cuando ingresemos la flecha del mouse en su interior y volverá al estado anterior cuando retiremos la flecha.
+--> 
+<!--
+
+--> 
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <div style="width:200px;height:200px;background:#0000ff" id="recuadro1">
+    </div>
+
+    <script>
+        document.getElementById('recuadro1').addEventListener('mouseover', entrada);
+        document.getElementById('recuadro1').addEventListener('mouseout', salida);
+
+        function entrada() {
+            document.getElementById('recuadro1').style.borderRadius = '30px';
+        }
+
+        function salida() {
+            document.getElementById('recuadro1').style.borderRadius = '0px';
+        }
+    </script>
+
+</body>
+
+</html>

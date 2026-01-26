@@ -1,0 +1,43 @@
+<!--
+    Realizar un programa que muestre en un div el número 2. Cada vez que se hace doble clic sobre el mismo duplicar el valor contenido en el div. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="numero">2</div>
+
+    <script>
+        document.getElementById('numero').addEventListener('dblclick', duplicar);
+
+        function duplicar() {
+            let valor = document.getElementById('numero').innerHTML;
+            valor = parseInt(valor);
+            let resultado = valor * 2;
+            document.getElementById('numero').innerHTML = resultado;
+        }
+    </script>
+    <!--
+    <div style="width:200px;height:200px;background:#ff5500;font-size:48px;text-align:center;line-height:200px;" id="recuadro">
+        2
+    </div>
+
+    <script>
+        document.getElementById('recuadro').addEventListener('dblclick', duplicar);
+
+        function duplicar() {
+            let div = document.getElementById('recuadro');
+            let valor = parseInt(div.innerHTML);
+            valor = valor * 2;
+            div.innerHTML = valor;
+        }
+    </script>   
+    -->
+</body>
+</html>

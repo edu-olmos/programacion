@@ -1,0 +1,54 @@
+<!--
+    Elaborar un programa que muestre un div de color rojo. Cuando se presione cambiar el color a amarillo y luego de soltar el botón del mouse volver a pintar de rojo. 
+-->
+<!--
+
+--> 
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div style="width:200px;height:200px;background:#ff0000" id="recuadro1">
+    </div>
+
+    <script>
+        document.getElementById('recuadro1').addEventListener('mousedown', presion1);
+        document.getElementById('recuadro1').addEventListener('mouseup', presion2);
+
+        function presion1() {
+            document.getElementById('recuadro1').style.backgroundColor = '#ffff00';
+        }
+
+        function presion2() {
+            document.getElementById('recuadro1').style.backgroundColor = '#ff0000';
+        }
+    </script>
+
+    <!--
+
+    <p>Presione el recuadro rojo y suelte el botón del mouse.</p>
+    <div style="width:200px;height:200px;background:#ff0000" id="recuadro">
+    </div>
+
+    <script>
+        document.getElementById('recuadro').addEventListener('mousedown', cambiarAAmarillo);
+        document.getElementById('recuadro').addEventListener('mouseup', cambiarARojo);
+
+        function cambiarAAmarillo() {
+            document.getElementById('recuadro').style.backgroundColor = '#ffff00';
+        }
+
+        function cambiarARojo() {
+            document.getElementById('recuadro').style.backgroundColor = '#ff0000';
+        }
+
+    </script> 
+    -->  
+</body>
+</html>
