@@ -1,0 +1,36 @@
+<!--
+    Confeccionar una página que luego de 10 segundos redireccione a otro sitio empleando para ello la función setTimeout.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <p>Esta página redireccionará al periódico www.lanacion.com.ar en 10 segundo</p>
+
+    <script>
+        setTimeout(redireccionar, 10000);
+
+        function redireccionar() {
+            window.location = 'https://www.lanacion.com.ar';
+        }
+    </script>
+
+    <!--
+    <h1>Redireccionar en 10 segundos</h1>
+
+    <script>
+        setTimeout(redireccionar, 10000);
+
+        function redireccionar() {
+            window.location.href = "https://www.ejemplo.com";
+        }
+    </script> 
+    -->  
+</body>
+</html>

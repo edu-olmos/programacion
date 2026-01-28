@@ -1,0 +1,27 @@
+<!--
+    Mostrar por pantalla el valor 10 elevado a la 1,2,3 etc. hasta que se genere un valor infinito.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        for (let x = 1;; x++) {
+            let resu = Math.pow(10, x);
+            if (isFinite(resu))
+                document.write('10 elevado a la ' + x + ' es ' + resu + '<br>');
+            else
+                break;
+        }
+    </script>
+
+</body>
+
+</html>
