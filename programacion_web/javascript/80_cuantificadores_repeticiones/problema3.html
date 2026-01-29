@@ -1,0 +1,30 @@
+<!--
+ Solicitar el ingreso de la coordenada de un punto. El formato a ingresar por teclado es:
+
+(999,999)
+
+Los números pueden tener entre 1 y 3 dígitos 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let punto = prompt('Ingrese la coordenada de un punto con el formato(999,999):');
+        let patron = /\([0-9]{1,3}\,[0-9]{1,3}\)/;
+        if (patron.test(punto))
+            document.write('El formato de ingreso es correcto');
+        else
+            document.write('El formato de ingreso no es correcto');
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!--
+Ingresar una patente de un auto de argentina y luego mostrar un mensaje si es correcto o no su valor. Toda patente está constituida por 2 letras, tres números y finalmente 2 letras (ej. aa123bb )
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let patente = prompt('Ingrese una patente');
+        /*
+        let patron = /[a-z]{2}[0-9]{3}[a-z]{2}/;
+        Pero tenemos un problema ya que si ingresamos:
+
+        aa111cccd
+
+        SE VERIFICA VERDADERO.
+
+        Para resolver esto debemos modificar el patrón indicando que los últimos dos caracteres deben ser letras:
+
+
+        */
+        let patron=/[a-z]{2}[0-9]{3}[a-z]{2}$/;
+        if (patron.test(patente))
+            alert('La patente ingresada es correcta');
+        else
+            alert('La patente ingresada no es correcta');
+    </script>
+
+</body>
+
+</html>

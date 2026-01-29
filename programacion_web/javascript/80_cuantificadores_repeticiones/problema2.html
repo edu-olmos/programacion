@@ -1,0 +1,32 @@
+<!--
+Ingresar una oración y mostrar si se ingresó uno o más números con exactamente 5 dígitos que contengan un espacio en blanco antes y después del número, por ejemplo:
+
+Las ventas del més fueron 70000 pares.
+
+Para resolver este problema debemos definir un patrón que identifique un número con exactamente cinco dígitos y que antes y después de este tenga un espacio en blanco. Para identificar el espacio en blanco debemos introducir en la expresión regular el carácter de escape y la letra s, es decir \s
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let oracion = prompt('Ingrese una oracion');
+        let patron = /\s[0-9]{5}\s/;
+        if (patron.test(oracion))
+            alert('La oración tiene un número de 5 dígitos');
+        else
+            alert('La oración no tiene un número de 5 dígitos');
+    </script>
+
+</body>
+
+</html>

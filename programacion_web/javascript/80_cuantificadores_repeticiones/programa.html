@@ -1,0 +1,26 @@
+<!--
+Ingresar una oración y mostrar si se ingresó un número que tiene al menos 2 dígitos.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let oracion = prompt('Ingrese una palabra');
+        let patron = /[0-9]{2,}/;
+        if (patron.test(oracion))
+            alert('La oración tiene un número de al menos 2 dígitos');
+        else
+            alert('La oración no tiene un número de al menos 2 dígitos');
+    </script>
+
+</body>
+
+</html>
