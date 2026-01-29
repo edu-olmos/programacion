@@ -1,0 +1,23 @@
+<!--
+    Ingresar el sueldo bruto de un trabajador. Si supera a 10000 aplicar un descuento del 10%, en caso contrario el descuento es del 5%. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let sueldo = parseFloat(prompt('Ingrese el sueldo del trabajador:'));
+        sueldo > 10000 ? sueldo = sueldo * 0.90 : sueldo = sueldo * 0.95;
+        alert('El sueldo con el descuento es de: ' + sueldo);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!--
+ Ingresar una oración por teclado y luego imprimir un mensaje si la oración ingresada contiene la palabra 'hora'
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let oracion = prompt('Ingrese una oración');
+        let patron = /hora/;
+        if (patron.test(oracion))
+            alert('La oración ingresada contiene la palabra \'hora\'');
+        else
+            alert('La oración ingresada no contiene la palabra \'hora\'');
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!--
+Ingresar todos los caracteres con significada especial en las expresiones regulares en el siguiente orden: ^$.*+?=!:|\/()[]{} (es necesario escapar todos los metacaracteres):
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let cadena = prompt('Ingrese esos caracteres especiales para expresiones regulares en este mismo orden: ^$.*+?=!:|\/()[]{} ');
+        let patron = /^\^\$\.\*\+\?\=\!\:\|\\\/\(\)\[\]\{\}$/;
+        if (patron.test(cadena))
+            alert('Orden correcto');
+        else
+            alert('Incorrecto');
+    </script>
+
+</body>
+
+</html>

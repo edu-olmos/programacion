@@ -1,0 +1,28 @@
+<!--
+    Cargar dos valores por teclado, luego almacenar en una variable el mayor de los dos valores ingresados.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let v1 = parseInt(prompt('Ingrese primer valor:'));
+        let v2 = parseInt(prompt('Ingrese segundo valor:'));
+        let mayor;
+        if (v1 > v2)
+            mayor = v1;
+        else
+            mayor = v2;
+        document.write('El mayor de los dos valores es:' + mayor);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!--
+problema Controlar si la palabra ingresada comienza con el primer carácter alfabético ya sea en mayúsculas o en minúsculas:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let palabra = prompt('Ingrese una palabra');
+        let patron = /^[a-zA-Z]/;
+        if (patron.test(palabra))
+            alert('La palabra comienza con un carácter alfabético (mayúscula o minúscula)');
+        else
+            alert('La palabra no comienza con un carácter alfabético (mayúscula o minúscula)');
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!--
+Ingresar una palabra y luego mostrar un mensaje si finaliza con vocal.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let palabra = prompt('Ingrese una palabra');
+        let patron = /[aeiouAEIOUáéíóú]$/;
+        if (patron.test(palabra))
+            alert('La palabra finaliza con vocal');
+        else
+            alert('La palabra no finaliza con vocal');
+    </script>
+
+</body>
+
+</html>

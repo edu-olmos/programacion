@@ -1,0 +1,32 @@
+<!--
+Ingresar una oración y mostrar un mensaje si la misma comienza con el carácter '-'.
+Otro mensaje si comienzo con la palabra 'hora'.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let oracion = prompt('Ingrese una oración');
+        let patron1 = /^-/;
+        if (patron1.test(oracion))
+            alert('Comienza la oración con el carácter -');
+        else
+            alert('No comienza la oración con el carácter -');
+        let patron2 = /^hora/;
+        if (patron2.test(oracion))
+            alert('Comienza la oración con la palabra hora');
+        else
+            alert('No comienza la oración con la palabra hora');
+    </script>
+
+</body>
+
+</html>

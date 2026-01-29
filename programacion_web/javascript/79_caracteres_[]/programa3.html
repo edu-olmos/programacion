@@ -1,0 +1,26 @@
+<!--
+Ingresar una palabra y luego mostrar un mensaje si contiene una vocal en alguna parte de la palabra.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let palabra = prompt('Ingrese una palabra');
+        let patron = /[aeiouAEIOUáéíóú]/;
+        if (patron.test(palabra))
+            alert('La palabra tiene al menos una vocal');
+        else
+            alert('La palabra no tiene vocales');
+    </script>
+
+</body>
+
+</html>

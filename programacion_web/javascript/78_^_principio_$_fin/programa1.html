@@ -1,0 +1,26 @@
+<!--
+Ingresar una palabra y mostrar un mensaje si la misma finaliza con el string 'ón'
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let oracion = prompt('Ingrese una palabra', '');
+        let patron = /ón$/;
+        if (patron.test(oracion))
+            alert('La palabra finaliza con los caracteres \'ón\'');
+        else
+            alert('La palabra no finaliza con los caracteres \'ón\'');
+    </script>
+
+</body>
+
+</html>

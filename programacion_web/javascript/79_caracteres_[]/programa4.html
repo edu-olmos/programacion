@@ -1,0 +1,26 @@
+<!--
+Ingresar una oración por teclado y luego mostrar un mensaje si el string ingresado contiene al menos uno de los caracteres que son un comando o metacaracter para las expresiones regulares:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let oracion = prompt('Ingrese una oracion');
+        let patron = /[\^$.*+?=!:|\\/()\[\]{}]/;
+        if (patron.test(oracion))
+            alert('La oración tiene al menos un carácter ^ $. * +? =! : | \ / () [] {}');
+        else
+            alert('La oración no tiene ningún carácter ^ $. * +? =! : | \ / () [] {}');
+    </script>
+
+</body>
+
+</html>

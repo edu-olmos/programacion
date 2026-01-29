@@ -1,0 +1,27 @@
+<!--
+    Validar si se ingresa un valor entero con exactamente tres dígitos.
+    El mismo problema se puede expresar utilizando una sintaxis distinta
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let valor = prompt('Ingrese un numero entero positivo de 3 dígitos');
+        let patron = /^[0-9]{3}$/;
+        if (patron.test(valor))
+            alert('Se ingresó un valor entero positivo de 3 dígitos');
+        else
+            alert('No se ingresó un valor entero positivo de 3 dígitos');
+    </script>
+
+</body>
+
+</html>
