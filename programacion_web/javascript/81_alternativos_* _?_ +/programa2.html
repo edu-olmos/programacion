@@ -1,0 +1,26 @@
+<!--
+Ingresar un valor numérico entero o real, se debe validar que se ingrese al menos un número previo al operador punto que es opcional y finalizar con un número obligatoriamente.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let valor = prompt('Ingrese un valor numérico entero o real:');
+        let patron = /^[0-9]+\.?[0-9]+$/;
+        if (patron.test(valor))
+            document.write('Tiene un formato correcto');
+        else
+            document.write('Formato incorrecto');
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!--
+Ingresar una oración y mostrar un mensaje si tiene al menos una palabra de 4 caracteres.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let oracion = prompt('Ingrese una oracion');
+        let patron = /\s?\w{4}\s?/;
+        if (patron.test(oracion))
+            document.write('Tiene al menos una palabra de 4 caracteres');
+        else
+            document.write('No tiene una palabra de 4 caracteres');
+    </script>
+
+</body>
+
+</html>

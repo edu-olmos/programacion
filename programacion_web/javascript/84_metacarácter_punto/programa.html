@@ -1,0 +1,32 @@
+<!--
+validar el ingreso de cualquier cadena de 5 caracteres que comience con a y finalice con a podemos plantear la siguiente expresión regular:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let cadena = prompt('Ingrese una cadena de cinco caracteres que comience y finalice con a');
+        let patron = /^a...a$/;
+        /*
+        Podemos utilizar un cuantificador para no repetir tres veces el metacarácter punto:
+
+        let patron=/^a.{3}a$/;
+        */
+
+        if (patron.test(cadena))
+            document.write('cadena correcta');
+        else
+            document.write('cadena incorrecta');
+    </script>
+
+</body>
+
+</html>

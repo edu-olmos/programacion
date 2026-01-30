@@ -1,0 +1,26 @@
+<!-->
+Ingresar una palabra por teclado y validar que tenga al menos una vocal.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let palabra = prompt('Ingrese una palabra con al menos una vocal:');
+        let patron = /[aeiou]+/;
+        if (patron.test(palabra))
+            document.write('La palabra ingresada tiene al menos una vocal');
+        else
+            document.write('La palabra ingresada no tiene vocales');
+    </script>
+
+</body>
+
+</html>

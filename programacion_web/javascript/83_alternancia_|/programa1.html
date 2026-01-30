@@ -1,0 +1,26 @@
+<!--
+Validar si una palabra comienza con los caracteres va o ba
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let palabra = prompt('Ingrese una palabra que comience con va o ba:');
+        let patron = /^[va|ba]/;
+        if (patron.test(palabra))
+            document.write('La palabra comienza con va o ba');
+        else
+            document.write('La palabra no comienza con va o ba');
+    </script>
+
+</body>
+
+</html>

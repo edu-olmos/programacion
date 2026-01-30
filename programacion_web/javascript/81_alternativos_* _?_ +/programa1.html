@@ -1,0 +1,23 @@
+<!-->
+Ingresar un valor numérico entero que podemos opcionalmente antecederle alguno de los caracteres: + o -..
+-->
+
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        let valor = prompt('Ingrese un valor numérico entero, puede anteceder el +/-:');
+        let patron = /^[\+\-]?[0-9]+$/;
+        if (patron.test(valor))
+            document.write('Tiene un formato correcto');
+        else
+            document.write('Formato incorrecto');
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!--
+Verificar si un número ingresado por teclado tiene exactamente 5 dígitos.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let valor = prompt('Ingrese un valor numérico de 5 dígitos');
+        let patron = /^\d{5}$/;
+        if (patron.test(valor))
+            document.write('Tiene 5 dígitos');
+        else
+            document.write('No tiene 5 dígitos');
+    </script>
+
+</body>
+
+</html>

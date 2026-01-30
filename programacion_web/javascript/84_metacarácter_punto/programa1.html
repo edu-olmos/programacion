@@ -1,0 +1,26 @@
+<!--
+Es importante recordar que siempre que necesitemos utilizar alguno de los metacaracteres como dato a buscar es necesario escaparlo con la barra invertida, por ejemplo si queremos verificar si un número tiene el formato 999.99:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let nro = prompt('Ingrese un número con el formato 999.99');
+        let patron = /^\d{3}\.\d{2}$/;
+        if (patron.test(nro))
+            document.write('nro correcto');
+        else
+            document.write('nro incorrecto');
+    </script>
+
+</body>
+
+</html>

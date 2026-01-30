@@ -1,0 +1,27 @@
+<!--
+Elaborar una expresión regular que permita validar si se ingresó correctamente un valor entero o real y que eventualmente lleve el caracter + o - al principio. Validar que si se ingresa la coma debe ingresarse la parte real
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        let nro = prompt('ingrese un número entero o real:');
+        let patron = /^[+-]?\d+(\,\d+)?$/;
+        if (patron.test(nro))
+            alert('Correcto');
+        else
+            alert('Incorrecto');
+    </script>
+
+</body>
+
+</html>
