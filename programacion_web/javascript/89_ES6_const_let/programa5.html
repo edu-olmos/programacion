@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function mostrar(x, y) {
+            for (let avance = x; avance <= y; avance++) {
+                document.write(avance + ' ');
+            }
+            document.write(avance); // error variable no definida
+        }
+
+        mostrar(1, 10);
+    </script>
+
+</body>
+
+</html>
