@@ -1,0 +1,42 @@
+<!--
+    Implementar una función que mediante un parámetro Rest reciba una lista de enteros y retorne un Array con los elementos ordenados de menor a mayor.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function ordenar(...lista) {
+            return lista.sort(
+                function(x, y) {
+                    if (x > y)
+                        return 1;
+                    else
+                        return -1
+                })
+        }
+
+        const eleordenados = ordenar(10, 3, 22, 1);
+        document.write(eleordenados.toString());
+        /*
+        function ordenar(...valores) {
+            return valores.sort((a, b) => a - b);
+        }
+
+        document.write(ordenar(10, 2, 44, 3));
+        document.write('<br>');
+        document.write(ordenar(5, 1, 4, 2, 3));
+        document.write('<br>');
+        document.write(ordenar());
+        document.write('<br>');
+        */
+    </script>
+</body>
+</html>

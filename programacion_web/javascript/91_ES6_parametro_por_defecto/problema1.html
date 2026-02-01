@@ -1,0 +1,52 @@
+<!--
+    Confeccionar una función que muestre la tabla de multiplicar. Si no llegan datos muestra por defecto la tabla del 2. Por defecto se muestran 10 términos de la tabla salvo que se indique un valor en contrario.
+La función debe tener 2 parámetros y ambos deben tener un valor por defecto.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        function tablaMultiplicar(tabla = 2, cantidad = 10) {
+            document.write(`Tabla del ${tabla}<br>`)
+            for (let x = 1; x <= cantidad; x++) {
+                v = x * tabla;
+                document.write(`${tabla} * ${x} = ${v}<br>`);
+            }
+        }
+
+        tablaMultiplicar();
+        tablaMultiplicar(3);
+        tablaMultiplicar(5, 20);
+        /*
+        function tablaMultiplicar(numero = 2, terminos = 10) {
+            let resultado = '';
+            for (let i = 1; i <= terminos; i++) {
+                resultado += `${numero} x ${i} = ${numero * i}<br>`;
+            }
+            return resultado;
+        }
+
+        // Llamada sin parámetros, usa los valores por defecto (tabla del 2, 10 términos)
+        document.write(tablaMultiplicar());
+
+        document.write('<br>');
+
+        // Llamada con un parámetro (tabla del 5, 10 términos)
+        document.write(tablaMultiplicar(5));
+
+        document.write('<br>');
+
+        // Llamada con ambos parámetros (tabla del 3, 15 términos)
+        document.write(tablaMultiplicar(3, 15));
+        */
+    </script>
+</body>
+</html>

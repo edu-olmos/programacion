@@ -1,0 +1,31 @@
+<!--
+    Diferencia con las funciones tradicionales cuando se trata de un método.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        var objeto1 = {
+            x: 10,
+            metodo1: function() {
+                alert(this.x);
+            },
+            metodo2: () => {
+                alert(this.x);
+            }
+        }
+        objeto1.metodo1(); //10
+        objeto1.metodo2(); //undefined
+    </script>
+
+</body>
+
+</html>

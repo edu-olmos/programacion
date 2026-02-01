@@ -1,0 +1,36 @@
+<!--
+    Definir una función de flecha que reciba un valor entero y retorne otro valor entero aleatorio comprendido entre 1 y el valor que llega como parámetro. Asignar dicha función de flecha a una constante para permitir llamarla en sucesivas ocaciones.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        const aleatorio = valor => Math.trunc(Math.random() * valor) + 1;
+
+        document.write(aleatorio(3));
+        document.write('<br>');
+        document.write(aleatorio(50));
+        document.write('<br>');
+        document.write(aleatorio(100));
+        document.write('<br>');
+        /*
+        const aleatorio = (max) => {
+            return Math.floor(Math.random() * max) + 1;
+        }
+        document.write(aleatorio(10));
+        document.write('<br>');
+        document.write(aleatorio(10));
+        document.write('<br>');
+        document.write(aleatorio(10));
+        */
+    </script>
+</body>
+</html>

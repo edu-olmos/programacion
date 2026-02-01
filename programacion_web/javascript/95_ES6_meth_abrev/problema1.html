@@ -1,0 +1,80 @@
+<!--
+    Crear un objeto que represente los datos de un participante de un juego. Definir las propiedades
+
+ nombre
+ puntos
+
+y los métodos:
+
+imprimir (mostrar el nombre de jugador y los puntos actuales)
+aumentarpuntos (permite incrementar la cantidad de puntos actuales del jugador)
+verificarsigano (mostrar un mensaje si los puntos superan a 1000)
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        const jugador1 = {
+            nombre: 'ana',
+            puntos: 0,
+            imprimir() {
+                document.write('Nombre:' + this.nombre + '<br>');
+                document.write('Puntos:' + this.puntos + '<br>');
+            },
+            aumentarPuntos(cant) {
+                this.puntos = this.puntos + cant;
+            },
+            verificarSiGano() {
+                if (this.puntos > 1000)
+                    document.write('Gano<br>');
+                else
+                    document.write('No gano<br>');
+            }
+        };
+
+        jugador1.imprimir();
+        jugador1.aumentarPuntos(500);
+        jugador1.verificarSiGano();
+        jugador1.aumentarPuntos(501);
+        jugador1.verificarSiGano();
+        jugador1.imprimir();
+        /*
+        const participante = {
+            nombre: 'Ana',
+            puntos: 0,
+            imprimir() {
+                document.write('Nombre: ' + this.nombre + '<br>');
+                document.write('Puntos: ' + this.puntos + '<br>');
+            },
+            aumentarpuntos(monto) {
+                this.puntos += monto;
+            },
+            verificarsigano() {
+                if (this.puntos > 1000) {
+                    document.write('¡Felicidades ' + this.nombre + '! Has superado los 1000 puntos.<br>');
+                } else {
+                    document.write(this.nombre + ', aún no has superado los 1000 puntos.<br>');
+                }
+            }
+        };
+
+        participante.imprimir();
+        participante.aumentarpuntos(500);
+        participante.imprimir();
+        participante.verificarsigano();
+        participante.aumentarpuntos(600);
+        participante.imprimir();
+        participante.verificarsigano();
+        */
+    </script>
+</body>
+</html>

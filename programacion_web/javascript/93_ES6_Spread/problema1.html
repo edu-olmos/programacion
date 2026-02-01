@@ -1,0 +1,26 @@
+<!--
+    El método max de la clase Math recibe una lista de valores numéricos y nos retorna el mayor. Definir un vector con una lista de valores y llamar al método max utilizando el operador Spread
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        const vec = [10, 60, 2, 500, 50, 18];
+        const mayor = Math.max(...vec);
+        document.write(`el mayor de ${vec.toString()} es ${mayor}`);
+        /*
+        let numeros = [3, 5, 7, 2, 8, 1];
+        let maximo = Math.max(...numeros);
+        console.log("El número máximo es: " + maximo);
+        */
+    </script>
+</body>
+</html>

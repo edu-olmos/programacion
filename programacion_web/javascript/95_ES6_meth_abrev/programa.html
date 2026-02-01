@@ -1,0 +1,42 @@
+<!--
+    Crear un objeto literal llamado cliente1 con dos propiedads 'nombre' y 'saldo'. Definir tres métodos con notación abreviada que permitan depositar, extraer e imprimir su saldo/
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        const cliente1 = {
+            nombre: 'Juan',
+            saldo: 0,
+            imprimir() {
+                document.write(this.nombre + '<br>');
+                document.write(this.saldo + '<br>');
+            },
+            depositar(monto) {
+                this.saldo = this.saldo + monto;
+            },
+            extraer(monto) {
+                this.saldo = this.saldo - monto;
+            }
+        };
+
+        cliente1.imprimir();
+        cliente1.depositar(1000);
+        document.write('Estado luego de depositar 1000 pesos</br>');
+        cliente1.imprimir();
+        cliente1.extraer(200);
+        document.write('Estado luego de extraer 200 pesos</br>');
+        cliente1.imprimir();
+    </script>
+
+</body>
+
+</html>
