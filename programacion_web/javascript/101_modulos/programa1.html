@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script type="module">
+
+        import Dado from './dado.js';
+        const dado1 = new Dado();
+        alert(dado1.valor);
+        dado1.tirar();
+        alert(dado1.valor);
+
+    </script>
+</body>
+
+</html>

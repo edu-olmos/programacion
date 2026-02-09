@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script type="module">
+
+        import { default as Dado, lados } from './dado2.js';
+        const dado1 = new Dado();
+        alert('valor del dado:' + dado1.valor);
+        alert('lados del dado:' + lados);
+
+    </script>
+</body>
+
+</html>
