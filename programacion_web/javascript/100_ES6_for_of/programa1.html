@@ -1,0 +1,26 @@
+<!--
+Recuperar el valor y el índice que ocupa un elemento dentro del arreglo.
+
+Imprimir todos los elementos de un array y la posición que ocupa dentro del mismo:
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        const vector = [10, 40, 60, 5];
+        for (let [indice, valor] of vector.entries())
+            document.write(`${valor} ocupa la posición ${indice}<br>`);
+    </script>
+</body>
+
+</html>
+

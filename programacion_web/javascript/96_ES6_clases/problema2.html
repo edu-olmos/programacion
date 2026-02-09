@@ -1,0 +1,42 @@
+<!--
+   Plantear una clase ListaOrdenada. En el constructor definir un atributo de tipo vector vacío.
+Luego definir dos métodos, uno que permita agregar elementos a la lista y otro que lo muestre en la página.  
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+         class ListaOrdenada {
+               constructor() {
+                  this.lista = [];
+               }
+   
+               agregar(elemento) {
+                  this.lista.push(elemento);
+               }
+   
+               mostrar() {
+                  let cadena = '<ol>';
+                  for (let x = 0; x < this.lista.length; x++)
+                     cadena += `<li>${this.lista[x]}</li>`;
+                  cadena += '</ol>';
+                  document.write(cadena);
+               }
+         }
+   
+         const lista1 = new ListaOrdenada();
+         lista1.agregar('elemento 1');
+         lista1.agregar('elemento 2');
+         lista1.agregar('elemento 3');
+         lista1.mostrar(); 
+      </script>
+</body>
+</html>

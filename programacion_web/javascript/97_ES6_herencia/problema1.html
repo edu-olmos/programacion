@@ -1,0 +1,147 @@
+<!--
+Declarar una clase llamada Calculadora que reciba en el constructor dos valores.
+Definir las responsabilidades de sumar, restar, multiplicar, dividir e imprimir.
+
+Declarar luego una clase llamada CalculadoraCientifica que herede de Calculadora y añada las responsabilidades de calcular el cuadrado del primer número y la raíz cuadrada. 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        class Calculadora {
+            constructor(x1, x2) {
+                this.x1 = x1;
+                this.x2 = x2;
+                this.resultado = null;
+            }
+
+            sumar() {
+                this.resultado = this.x1 + this.x2;
+                document.write(`La suma de ${this.x1} y ${this.x2} es `);
+                this.imprimir();
+            }
+
+            restar() {
+                this.resultado = this.x1 - this.x2;
+                document.write(`La resta de ${this.x1} y ${this.x2} es `);
+                this.imprimir();
+            }
+
+            multiplicar() {
+                this.resultado = this.x1 * this.x2;
+                document.write(`La multiplicación de ${this.x1} y ${this.x2} es `);
+                this.imprimir();
+            }
+
+            dividir() {
+                this.resultado = this.x1 / this.x2;
+                document.write(`La división de ${this.x1} y ${this.x2} es `);
+                this.imprimir();
+            }
+
+            imprimir() {
+                document.write(this.resultado + '<br>');
+            }
+        }
+
+        class CalculadoraCientifica extends Calculadora {
+            cuadrado() {
+                this.resultado = this.x1 * this.x1;
+                document.write(`${this.x1} elevado al cuadrado es `);
+                this.imprimir();
+            }
+
+            raizCuadrada() {
+                this.resultado = Math.sqrt(this.x1);
+                document.write(`La raiz cuadrada de ${this.x1}  es `);
+                this.imprimir();
+            }
+        }
+
+        const calculadora1 = new Calculadora(100, 20);
+        calculadora1.sumar();
+        calculadora1.restar();
+        calculadora1.multiplicar();
+        calculadora1.dividir();
+
+        const calculadoraCientifica1 = new CalculadoraCientifica(6, 2);
+        calculadoraCientifica1.sumar();
+        calculadoraCientifica1.restar();
+        calculadoraCientifica1.cuadrado();
+        calculadoraCientifica1.raizCuadrada();
+        /*
+        class Calculadora {
+            constructor(num1, num2) {
+                this.num1 = num1;
+                this.num2 = num2;
+            }
+
+            sumar() {
+                return this.num1 + this.num2;
+            }
+
+            restar() {
+                return this.num1 - this.num2;
+            }
+
+            multiplicar() {
+                return this.num1 * this.num2;
+            }
+
+            dividir() {
+                if (this.num2 !== 0) {
+                    return this.num1 / this.num2;
+                } else {
+                    return 'Error: División por cero';
+                }
+            }
+
+            imprimir() {
+                document.write(`Número 1: ${this.num1}<br>`);
+                document.write(`Número 2: ${this.num2}<br>`);
+                document.write(`Suma: ${this.sumar()}<br>`);
+                document.write(`Resta: ${this.restar()}<br>`);
+                document.write(`Multiplicación: ${this.multiplicar()}<br>`);
+                document.write(`División: ${this.dividir()}<br>`);
+            }
+        }
+
+        class CalculadoraCientifica extends Calculadora {
+            cuadrado() {
+                return this.num1 ** 2;
+            }
+
+            raizCuadrada() {
+                if (this.num1 >= 0) {
+                    return Math.sqrt(this.num1);
+                } else {
+                    return 'Error: No se puede calcular la raíz cuadrada de un número negativo';
+                }
+            }
+
+            imprimir() {
+                super.imprimir();
+                document.write(`Cuadrado del número 1: ${this.cuadrado()}<br>`);
+                document.write(`Raíz cuadrada del número 1: ${this.raizCuadrada()}<br>`);
+            }
+        }
+
+        const calculadora = new Calculadora(10, 5);
+        calculadora.imprimir();
+        document.write('<hr>');
+
+        const calculadoraCientifica = new CalculadoraCientifica(10, 5);
+        calculadoraCientifica.imprimir();
+        */
+    </script>
+
+</body>
+</html>

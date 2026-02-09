@@ -1,0 +1,86 @@
+<!--
+Declarar una clase llamada 'Fecha' con dos métodos estáticos:
+
+  static retornarMes(mes)
+
+Retorna el nombre de mes a partir de un valor de 1 a 12.
+
+  static fechaCompleta()
+
+Retorna el día, mes y año actual separado por guiones.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        class Fecha {
+            static retornarMes(mes) {
+                switch (mes) {
+                    case 1:
+                        return 'Enero';
+                    case 2:
+                        return 'Febrero';
+                    case 3:
+                        return 'Marzo';
+                    case 4:
+                        return 'Abril';
+                    case 5:
+                        return 'Mayo';
+                    case 6:
+                        return 'Junio';
+                    case 7:
+                        return 'Julio';
+                    case 8:
+                        return 'Agosto';
+                    case 9:
+                        return 'Septiembre';
+                    case 10:
+                        return 'Octubre';
+                    case 11:
+                        return 'Noviembre';
+                    case 12:
+                        return 'Diciembre';
+                }
+            }
+
+            static fechaCompleta() {
+                const fecha = new Date();
+                return `${fecha.getDate()}-${fecha.getMonth()+1}-${fecha.getFullYear()}`;
+            }
+        }
+
+        document.write(`La fecha actual es ${Fecha.fechaCompleta()}<br>`);
+        document.write(Fecha.retornarMes(12));
+
+        /*
+        class Fecha {
+            static retornarMes(mes) {
+                let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                return meses[mes - 1];
+            }
+
+            static fechaCompleta() {
+                let fecha = new Date();
+                let dia = fecha.getDate();
+                let mes = fecha.getMonth() + 1;
+                let anio = fecha.getFullYear();
+                return `${dia}-${mes}-${anio}`;
+            }
+        }
+
+        document.write(`El mes número 5 es ${Fecha.retornarMes(5)} <br>`);
+        document.write(`La fecha completa es ${Fecha.fechaCompleta()}`);
+        */
+    </script>
+
+</body>
+
+</html>

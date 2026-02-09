@@ -1,0 +1,65 @@
+<!--
+Declarar una clase llamada Persona.
+Definir los atributos donde almacenar su nombre y edad. Crear dos propiedades para que se puedan acceder a los atributos definidos.
+
+Validar que no se puedan ingresar valores negativos para la edad.
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        class Persona {
+            constructor(nombre, edad) {
+                this._nombre = nombre;
+                this._edad = edad;
+            }
+
+            get nombre() {
+                return this._nombre;
+            }
+
+            set nombre(n) {
+                this._nombre = n;
+            }
+
+            get edad() {
+                return this._edad;
+            }
+
+            set edad(e) {
+                if (e >= 0)
+                    this._edad = e;
+                else
+                    throw "Error en asignación de edad";
+            }
+
+            imprimir() {
+                document.write(this.nombre + ' tiene ' + this.edad + ' años.<br>');
+            }
+        }
+
+        const persona1 = new Persona('diego', 20);
+        persona1.imprimir();
+        persona1.nombre = 'juan';
+        persona1.edad = 30;
+        persona1.imprimir();
+        try {
+            persona1.edad = -5;
+        } catch (error) {
+            document.write(error + '<br>');
+        }
+    </script>
+
+</body>
+
+</html>

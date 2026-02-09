@@ -1,0 +1,44 @@
+<!--
+Plantear una clase llamada 'Matematica' que defina una serie de métodos estáticos que nos retorne el primero el mayor de dos enteros y el segundo el menor. Además agregar un tercer método estático que retorne un valor aleatorio entre dos valores enteros que le enviamos como parámetros.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        class Matematica {
+            static mayor(v1, v2) {
+                if (v1 > v2)
+                    return v1;
+                else
+                    return v2;
+            }
+
+            static menor(v1, v2) {
+                if (v1 < v2)
+                    return v1;
+                else
+                    return v2;
+            }
+
+            static aleatorio(inicio, fin) {
+                return Math.trunc((Math.random() * (fin + 1 - inicio)) + inicio);
+            }
+        }
+
+        let x1 = Matematica.aleatorio(1, 10);
+        let x2 = Matematica.aleatorio(1, 10);
+        document.write(`El mayor entre ${x1} y ${x2} es ${Matematica.mayor(x1,x2)} <br>`);
+        document.write(`El menor entre ${x1} y ${x2} es ${Matematica.menor(x1,x2)}`);
+    </script>
+
+</body>
+
+</html>

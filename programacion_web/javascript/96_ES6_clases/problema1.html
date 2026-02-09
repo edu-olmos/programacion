@@ -1,0 +1,39 @@
+<!--
+   Confeccionar una clase que permita administrar el nombre y la edad de una persona. Mostrar los datos cargados. Imprimir un mensaje si es mayor de edad (edad>=18) 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        class Persona {
+            constructor(nombre, edad) {
+                this.nombre = nombre;
+                this.edad = edad;
+            }
+
+            mostrar() {
+                document.write('Nombre:' + this.nombre + '<br>');
+                document.write('Edad:' + this.edad + '<br>');
+                if (this.edad >= 18)
+                    document.write('Es mayor de edad');
+                else
+                    document.write('Es menor de edad');
+            }
+        }
+
+        const persona1 = new Persona('diego', 20);
+        persona1.mostrar();
+
+        const persona2 = new Persona('ana', 15);
+        persona2.mostrar();
+    </script>   
+</body>
+</html>

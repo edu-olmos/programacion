@@ -1,0 +1,53 @@
+<!--
+Declarar una clase llamada Dado y definir un atributo llamado '_valor' que almacene el valor actual del dado. Luego definir los métodos set y get para poder fijar un nuevo valor al dado y conocer el valor actual.
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        class Dado {
+            constructor() {
+                this._valor = 1;
+            }
+
+            get valor() {
+                return this._valor;
+            }
+
+            set valor(v) {
+                this._valor = v;
+            }
+
+            /*
+            set valor(v) {
+          if (v>=1 && v<=6 && v%1===0)
+              this._valor=v;
+          else
+              throw "Error en asignación de valor del dado"; 
+    }
+            */
+
+            imprimir() {
+                document.write(this.valor + '<br>');
+            }
+        }
+
+        const dado1 = new Dado();
+        dado1.imprimir();
+        dado1.valor = 6;
+        dado1.imprimir();
+    </script>
+
+</body>
+
+</html>
