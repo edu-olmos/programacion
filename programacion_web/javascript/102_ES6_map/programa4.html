@@ -1,0 +1,55 @@
+<!--
+    Recorrido de un Map.
+
+Los elementos almacenado en el 'Map' mantienen el orden en que se agregaron.
+
+Podemos recorrer un mapa mediante la estructura repetitiva 'for of':
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+        /*
+        //dispone de un método 'forEach' para iterar sobre los elementos del 'Map':
+        const mapa1 = new Map([
+          ["casa", "house"],
+          ["rojo", "red"],
+          ["auto", "car"]
+      ]);
+
+      document.write("Claves y valores del mapa.<br>")
+      mapa1.forEach((valor, clave) => document.write(`${clave}  ${valor}<br>`));
+      */
+        const mapa1 = new Map([
+            ["casa", "house"],
+            ["rojo", "red"],
+            ["auto", "car"]
+        ]);
+
+        document.write("Claves del mapa.<br>")
+        for (let clave of mapa1.keys()) {
+            document.write(clave);
+            document.write("<br>");
+        }
+        document.write("Valores del mapa.<br>")
+        for (let valor of mapa1.values()) {
+            document.write(valor);
+            document.write("<br>");
+        }
+        document.write("Claves y valores del mapa.<br>")
+        for (let [clave, valor] of mapa1) {
+            document.write(clave + '-' + valor);
+            document.write("<br>");
+        }
+    </script>
+</body>
+
+</html>

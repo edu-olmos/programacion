@@ -1,0 +1,33 @@
+<!--
+Almacenar en un Map los nombres de paises como clave y la cantidad de habitantes como valores. Mostrar en una lista HTML que se debe crear en forma dinámica inmediatamente luego que se carga la página.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="paises"></div>
+    <script>
+        const paises = new Map([
+            ["Argentina", 45000000],
+            ["España", 46000000],
+            ["Brasil", 190000000],
+            ["Urugual", 3400000]
+        ]);
+
+        let cadena = '';
+        for (let [pais, cantidad] of paises) {
+            cadena += `<li>${pais} => ${cantidad}</li>`;
+        }
+        document.getElementById("paises").innerHTML = cadena;
+
+
+    </script>
+</body>
+
+</html>

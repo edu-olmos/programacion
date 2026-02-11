@@ -1,0 +1,25 @@
+<!--
+    Generar 10 números aleatorios comprendidos entre 1 y 50. Almacenar los mismos en un Set. Verificar luego si el conjunto tiene el valor 12.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+        const conjunto1 = new Set();
+        for (let x = 0; x < 10; x++)
+            conjunto1.add(parseInt(Math.random() * 50) + 1);
+        document.write(`La cantidad de números aleatorios distintos son ${conjunto1.size}<br>`)
+        if (conjunto1.has(12))
+            document.write("Si se generó el número 12")
+        else
+            document.write("No se generó el número 12")
+    </script>
+</body>
+</html>
