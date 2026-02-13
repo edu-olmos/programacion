@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+        const arreglo1 = [1, 2, 73, 3, 4, 120, 5, 18];
+        // Generar un nuevo arreglo con los elementos invertidos
+        const arreglo2 = arreglo1.reduceRight((acumulador, elemento, indice, arreglo) => {
+            acumulador.push(elemento);
+            return acumulador;
+        }, []);
+        console.log(arreglo2); // [18, 5, 120, 4, 3, 73, 2, 1]
+    </script>
+</body>
+
+</html>

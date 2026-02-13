@@ -1,0 +1,21 @@
+<!--
+El método 'from' tiene opcionalmente un segundo parámetro al cual podemos pasar una función que reciba cada elemento del arreglo y retorne el dato a almacenar:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+        const arreglo1 = [10, 20, 30];
+        const arreglo2 = Array.from(arreglo1, (elemento) => elemento * 2);
+        console.log(arreglo2); // [20, 40, 60]
+    </script>
+</body>
+
+</html>
