@@ -1,0 +1,56 @@
+<!--
+    
+
+Mediante la dirección web:
+
+https://api.ipbase.com/v1/json/
+
+freegeoip.app nos proporciona una API de geolocalización IP. Utiliza una base de datos de direcciones IP asociadas a ciudades junto con otra información relevante como zona horaria, latitud y longitud.
+
+La estructura del archivo JSON es:
+
+{
+  "ip":"186.123.122.56",
+  "country_code":"AR",
+  "country_name":"Argentina",
+  "region_code":"X",
+  "region_name":"Córdoba",
+  "city":"Córdoba",
+  "zip_code":"5000",
+  "time_zone":"America/Argentina/Cordoba",
+  "latitude":-31.4015,
+  "longitude":-64.1803,
+  "metro_code":0}
+
+Mostrar en la página el nombre del país, ciudad, código postal e ip.
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="informacion">
+
+    </div>
+
+    <script>
+        fetch("https://api.ipbase.com/v1/json/")
+            .then(response => response.json())
+            .then(datos => {
+                document.getElementById("informacion").innerHTML =
+                    `<p>Pais:${datos.country_name}</p>
+             <p>Ciudad:${datos.city}</p>
+             <p>Código postal:${datos.zip_code}</p>
+             <p>Ip:${datos.ip}</p>`;
+            });
+    </script>
+
+</body>
+
+</html>
