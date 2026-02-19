@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <p>Foto:<input type="file" id="foto" required></p>
+    <p><button type="button" id="boton1">Subir foto</button></p>
+    <p><img id="imagen"></p>
+
+    <script>
+        document.getElementById("boton1").addEventListener("click", () => agregar());
+
+
+        function agregar() {
+            let fd = new FormData();
+            fd.append("foto", document.getElementById("foto").files[0]);
+            fetch('subirfoto.php', {
+                method: 'POST',
+                body: fd
+            })
+                .then(response => response.json())
+                .then(datos => {
+                    if (datos.resultado == "Ok")
+                        document.getElementById("imagen").setAttribute("src", document.getElementById("foto").files[0].name);
+                })
+        }
+    </script>
+
+</body>
+
+</html>
