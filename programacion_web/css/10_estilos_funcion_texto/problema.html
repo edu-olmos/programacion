@@ -1,0 +1,52 @@
+<!--
+  Problema:
+
+Definir distintas escalas de grises para los textos contenidos por el elemento "em" que se encuentren contenidos por los elementos h1,h2,h3,h4,h5 y h6.
+La escala de grises que podemos utilizar es:
+
+  color:#dddddd; si está contenido en un h1
+  color:#cccccc; si está contenido en un h2
+  color:#bbbbbb; etc.
+  color:#aaaaaa;
+  color:#999999;
+  color:#888888;
+
+Aparecen los bloques de más claro a más oscuro (cuando los tres valores son iguales (rojo,verde,azul) estamos en presencia de un gris (salvo el #000000 y el #ffffff))
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problema</title>
+  <meta charset="UTF-8">
+<style>
+h1 em {
+  color:#dddddd;
+}
+h2 em {
+  color:#cccccc;
+}
+h3 em {
+ color:#bbbbbb;
+}
+h4 em {
+  color:#aaaaaa;
+}
+
+h5 em {
+  color:#999999;
+}
+h6 em {
+  color:#888888;
+}
+</style>
+</head>
+<body>
+<h1>Titulo de nivel 1 y enfatizamos <em>esto</em></h1>
+<h2>Titulo de nivel 2 y enfatizamos <em>esto</em></h2>
+<h3>Titulo de nivel 3 y enfatizamos <em>esto</em></h3>
+<h4>Titulo de nivel 4 y enfatizamos <em>esto</em></h4>
+<h5>Titulo de nivel 5 y enfatizamos <em>esto</em></h5>
+<h6>Titulo de nivel 6 y enfatizamos <em>esto</em></h6>
+</body>
+</html>
