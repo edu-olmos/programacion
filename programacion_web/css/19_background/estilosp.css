@@ -1,0 +1,5 @@
+body {
+  background-image:url(fondo.jpeg);
+  background-repeat:no-repeat;
+  background-attachment:scroll;/*luego probar con fixed*/
+}
