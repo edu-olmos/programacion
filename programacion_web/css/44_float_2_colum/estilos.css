@@ -1,0 +1,15 @@
+* {
+  margin:0;
+  padding:0;
+}
+#columna1 {
+  float:left; 
+  width:200px;
+  background-color:#ff5;
+  border:1px solid #555;
+}
+#columna2 {
+  margin-left:210px;
+  background-color:#ffb;
+  border:1px solid #555;
+}
