@@ -1,0 +1,23 @@
+
+
+* {
+  margin:0;
+  padding:0;
+}
+#cabecera {
+  background-color:#f99;
+  font-family:verdana;
+  font-size:1.3rem;
+  position:absolute:
+  top:0;
+  left0;
+  height:50px;
+}
+#columna1 {
+  background-color:#ff0;
+  font-size:1.3rem;
+  position:absolute;
+  left:0;
+  top:51px;
+  min-height:700px;
+}
