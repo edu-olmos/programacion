@@ -1,0 +1,7 @@
+strong::before {
+  content:"¡";
+}
+
+strong::after {
+  content:"!";
+}
