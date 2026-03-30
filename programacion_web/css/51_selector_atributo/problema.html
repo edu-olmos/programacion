@@ -1,0 +1,28 @@
+<!--
+  Desarrollar un formulario que solicite el ingreso del nombre, mail y comentarios. Mediante un selector de atributo acceder a los elementos de tipo "input" y en aquellos que tenga definida la propiedad "type" y almacene el valor "text" proceder a fijar un color de fondo amarillo.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problema</title>
+  <meta charset="UTF-8">
+  <link rel="StyleSheet" href="estilosp.css" type="text/css">
+</head>
+<body>
+<div id="contenedorform">
+<form method="post" action="#">
+<label>Ingrese nombre:</label>
+<input type="text" name="nombre" size="30">
+<br>
+<label>Ingrese mail:</label>
+<input type="text" name="mail" size="45">
+<br>
+<label>Comentarios:</label>
+<textarea name="comentarios" cols="30" rows="5"></textarea>
+<br>
+<input class="botonsubmit" type="submit" value="confirmar">
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+#fechainicio li:only-child {
+  color:blue;
+}
+
+#fechafin li:only-child {
+  color:blue;
+}
+
+#equipo1 p:only-of-type {
+  color:red;
+}
+
+#equipo2 p:only-of-type {
+  color:red;
+}

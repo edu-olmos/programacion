@@ -1,0 +1,11 @@
+a[href^="http"] {
+  color:#f00;
+}
+
+a[href$=".ar"] {
+  color:#0f0;
+}
+
+a[href*="yahoo"] {
+  color:#00f;
+}
