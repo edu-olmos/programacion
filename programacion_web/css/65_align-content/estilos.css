@@ -1,0 +1,15 @@
+#contenedor1{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: #000;  
+  height: 400px;
+  color:white;
+  font-size:2rem;
+}
+
+.item {
+  background-color: #0078A6;
+  width:150px;
+  height:150px;
+}

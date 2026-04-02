@@ -1,0 +1,14 @@
+#contenedor1{
+  display: flex;  
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;  
+  height: 300px;
+  color:white;
+  font-size:2rem;
+}
+
+#item1 {
+  background-color: #0078A6;
+}
