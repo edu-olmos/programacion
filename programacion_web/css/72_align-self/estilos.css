@@ -1,0 +1,33 @@
+#contenedor1{
+  display: flex;
+  background-color: #000;  
+  height: 300px;
+  color:white;
+  font-size:2rem;
+}
+
+#item1 {  
+  align-self: auto;
+  background-color: #0078A6;
+}
+#item2 {
+  align-self: flex-start;
+  background-color: #0084B6;
+}
+#item3 {
+  align-self: flex-end;
+  background-color: #008CC1;
+}
+
+#item4 {  
+  align-self: center;
+  background-color: #0078A6;
+}
+#item5 {
+  align-self: stretch;
+  background-color: #0084B6;
+}
+#item6 {
+  align-self: baseline;
+  background-color: #008CC1;
+}
