@@ -1,0 +1,51 @@
+<!--
+  Dibujar una cuadrícula formada por 10 líneas horizontales y 10 líneas verticales.
+-->
+
+<!DOCTYPE HTML>
+<head>
+  <title>Título de la página</title>
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+
+function retornarLienzo(x)
+{
+   var canvas = document.getElementById(x);
+   if (canvas.getContext) 
+   {
+     var lienzo = canvas.getContext("2d");   
+     return lienzo;
+   }
+   else
+     return false;
+}
+
+function dibujar()
+{
+   var lienzo=retornarLienzo("lienzo1");
+   if (lienzo)
+   { 
+      lienzo.strokeStyle = "rgb(0,0,255)";
+      lienzo.beginPath();
+      for(var col=0;col<=300;col+=30)
+      {
+        lienzo.moveTo(col,0);
+        lienzo.lineTo(col,300);
+      }	
+      for(var fil=0;fil<=300;fil+=30)
+      {
+        lienzo.moveTo(0,fil);
+        lienzo.lineTo(300,fil);
+      }		  
+      lienzo.stroke();
+   }
+}
+</script>
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

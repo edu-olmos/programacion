@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+
+function retornarLienzo(x)
+{
+   var canvas = document.getElementById(x);
+   if (canvas.getContext) 
+   {
+     var lienzo = canvas.getContext("2d");   
+     return lienzo;
+   }
+   else
+     return false;
+}
+
+function dibujar()
+{
+   var lienzo=retornarLienzo("lienzo1");
+   if (lienzo)
+   { 
+     lienzo.strokeStyle = "rgb(200,0,0)";
+    //Inicio de camino
+    // 1. Inicia un nuevo trazado para evitar conectar con dibujos anteriores
+lienzo.beginPath(); 
+// 2. Mueve el lápiz al punto de inicio (esquina superior izquierda, x=0, y=0)
+lienzo.moveTo(0,0);     
+// 3. Dibuja una línea hasta el centro inferior (x=150, y=300)
+lienzo.lineTo(150,300); 
+// 4. Dibuja una línea hacia la esquina superior derecha (x=300, y=0)
+lienzo.lineTo(300,0);
+// Nota: Falta lienzo.stroke() para visualizarla o lienzo.fill() para rellenarla
+
+    //Trazar linea
+    lienzo.stroke();
+   }
+}
+</script>
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

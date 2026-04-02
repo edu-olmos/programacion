@@ -1,0 +1,45 @@
+<!--
+  Dibujar un triángulo con líneas de 20 píxeles de ancho y los vértices redondeados.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) { 
+    lienzo.beginPath();
+    lienzo.strokeStyle="rgb(0,0,0)";
+    lienzo.lineWidth=20;
+    lienzo.lineCap="round";
+    lienzo.lineJoin="round";
+    lienzo.moveTo(150,20);
+    lienzo.lineTo(10,280);
+    lienzo.lineTo(290,280);
+    lienzo.lineTo(150,20);
+    lienzo.stroke();
+    
+  }
+}
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>
