@@ -1,0 +1,53 @@
+<!--
+  Crear dos canvas, en el primero dibujar un triángulo y en el segundo canvas dibujar un cuadrado utilizando como patrón el contenido del primer canvas.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo1=retornarLienzo("lienzo1");
+  if (lienzo1) {
+    lienzo1.strokeStyle="rgb(0,0,255)";
+    lienzo1.beginPath();
+    lienzo1.moveTo(25,0);
+    lienzo1.lineTo(0,49);
+    lienzo1.lineTo(49,49);
+    lienzo1.lineTo(25,0);
+    lienzo1.stroke();
+    var lienzo2=retornarLienzo("lienzo2");
+    if (lienzo2) {
+      var patron = lienzo2.createPattern(lienzo1.canvas,'repeat');
+      lienzo2.fillStyle = patron;
+      lienzo2.fillRect(0,0,300,300);            
+    }  
+  }  
+}
+
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="50" height="50"><br>
+Su navegador no permite utilizar canvas.
+</canvas>
+<br>
+<canvas id="lienzo2" width="300" height="300"><br>
+Su navegador no permite utilizar canvas.
+</canvas>
+
+</body>
+</html>

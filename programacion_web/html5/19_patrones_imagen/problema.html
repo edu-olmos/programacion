@@ -1,0 +1,47 @@
+<!--
+  Dibujar un triángulo y utilizar un patrón de tipo imagen para pintar su interior.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    img1 = new Image(); 
+    img1.src = '../../imagenes/imagen1.png';
+    img1.onload = function(){ 
+      var patron = lienzo.createPattern(img1,'repeat');
+      lienzo.fillStyle = patron;
+      lienzo.beginPath();
+      lienzo.moveTo(300,0);
+      lienzo.lineTo(0,600);
+      lienzo.lineTo(600,600);
+      lienzo.lineTo(300,0);
+      lienzo.fill();
+    }      
+  }
+}
+
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="600" height="600">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

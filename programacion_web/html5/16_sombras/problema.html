@@ -1,0 +1,50 @@
+<!--
+  Mostrar un cuadrado y definir una sombra que aumente su difuminado lentamente hasta el valor 100.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function inicio() {
+  ini=setInterval(dibujar,20);
+}
+
+var contador=0;
+var ini;
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    lienzo.clearRect(0,0,300,300);
+    lienzo.shadowOffsetX=30;
+    lienzo.shadowOffsetY=30;
+    lienzo.shadowBlur=contador;
+    lienzo.shadowColor="rgba(255,0,0,0.5)";
+    lienzo.fillStyle="rgb(255,0,0)";
+    lienzo.fillRect(50,50,200,200);
+    contador++;
+    if (contador==100)
+      clearInterval(ini);
+  }
+}
+</script>
+
+</head>
+<body onLoad="inicio()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

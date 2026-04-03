@@ -1,0 +1,42 @@
+<!--
+  Dibujar un círculo y definir una gradiente lineal.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    var gradiente1=lienzo.createLinearGradient(0,0,200,0);
+    gradiente1.addColorStop(0,"rgb(255,0,0)");
+    gradiente1.addColorStop(1,"rgb(0,0,0)");
+    lienzo.fillStyle=gradiente1;
+    lienzo.beginPath();
+    lienzo.arc(100,100,100,0,Math.PI*2,true);
+    lienzo.fill();
+  }
+}
+
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="600" height="600">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

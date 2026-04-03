@@ -1,0 +1,54 @@
+<!--
+  Dibujar 250 cuadrados del rojo al negro. Dibujar un rectángulo negro grande que tape todos los cuadrados. Redibujar y hacer que el rectángulo se vuelva cada vez más transparente. 
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    lienzo.clearRect(0,0,750,300);
+    var rojo=0;
+    for(var fil=1;fil<=5;fil++) {
+      for(var col=1;col<=50;col++) {  
+        lienzo.fillStyle="rgb("+rojo+",0,0)";
+        lienzo.fillRect(col*15,fil*15,14,14);
+        rojo++;
+      }
+    }
+    lienzo.fillStyle="rgba(0,0,0,"+(transp/10)+")";
+    lienzo.fillRect(0,0,750,100);
+    transp=transp-1;
+    if (transp<0)
+      clearInterval(ini);    
+  }
+}
+
+var ini;
+var transp=10;
+function inicio() {
+  ini=setInterval(dibujar,1000);
+}
+</script>
+
+</head>
+<body onLoad="inicio()">
+<canvas id="lienzo1" width="750" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>
