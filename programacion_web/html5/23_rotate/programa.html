@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    //Lo primero que hacemos el borrar el lienzo
+    lienzo.clearRect(0,0,600,600);
+    lienzo.save();
+    lienzo.fillStyle="rgb(255,0,0)";
+    //trasladar el punto de origen a la coordenada (300,300)
+    lienzo.translate(300,300);
+    //Definimos los grados de rotación    
+    lienzo.rotate(avance);
+    /*Dibujamos un cuadrado teniendo en cuenta la ubicación actual del punto de origen (por eso los parámetros negativos en x1 e y1):*/    
+    lienzo.fillRect(-100,-100,200,200);
+    lienzo.restore();
+    avance+=0.05;
+    if (avance>Math.PI*2)
+      avance=0;
+  }
+}
+
+/*Definimos una variable global que indica el grado de rotación actual: */
+var avance=0;
+function inicio() {
+  /*La función dibujar se ejecuta cada 50 milisegundos*/
+  setInterval(dibujar,50);
+}
+
+</script>
+
+</head>
+<body onLoad="inicio()">
+<canvas id="lienzo1" width="600" height="600">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>
