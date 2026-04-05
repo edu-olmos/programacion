@@ -1,0 +1,88 @@
+<!--
+Confeccionar un programa que muestre una oración en Ingles con las palabras desacomodadas. Permitir mediante drag and drop disponer las palabras dentro de un div. Cambiar el color de fondo del recuadro donde se disponen las palabras una vez que el usuario entra a dicho recuadro y volverlo al color original si sale del recuadro sin soltar el objeto.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<style>
+  #recuadro {
+    width:300px;
+    height:50px;
+    background-color:rgb(255,255,0);
+    border-style:solid;
+    border-color:red;
+    font-size:1.5em;
+  }
+  #palabras span {
+    font-size:1.5em;
+  }
+</style>  
+
+<script>
+    window.addEventListener('load', inicio, false);
+
+    /*Como podemos ver lo nuevo que presenta este problema es que registramos los eventos dragenter y dragleave para el objeto contenedor (es decir el div donde el usuario arrastrará las palabras):*/
+
+    function inicio() {
+        document.getElementById('palabra1').addEventListener('dragstart', dragInicio, false);
+        document.getElementById('palabra2').addEventListener('dragstart', dragInicio, false);
+        document.getElementById('palabra3').addEventListener('dragstart', dragInicio, false);
+        document.getElementById('palabra4').addEventListener('dragstart', dragInicio, false);                
+        document.getElementById('recuadro').addEventListener('dragover', permitirDrop, false);        
+        document.getElementById('recuadro').addEventListener('drop', drop, false);
+        document.getElementById('recuadro').addEventListener('dragenter', entra, false);
+        document.getElementById('recuadro').addEventListener('dragleave', sale, false);        
+    }
+    
+    function dragInicio(ev)
+    {
+        ev.dataTransfer.setData("Text",ev.target.id);
+    }    
+    
+/*Lo único nuevo que agregamos a la función 'drop' es volver al color amarillo de fondo del div:*/
+
+    function drop(ev)
+    {
+        ev.preventDefault();
+        var dato=ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(dato));
+        document.getElementById(dato).removeEventListener('dragstart', dragInicio, false);        
+        document.getElementById('recuadro').style.background = "rgb(255,255,0)";            
+    }  
+
+    function permitirDrop(ev)
+    {
+        ev.preventDefault();
+    }
+
+    /*Cuando el usuario arrastra una palabra y entra al div contenedor se dispara la función 'entra' donde cambiamos el color de fondo del div:*/
+    
+    function entra(ev)
+    {
+        document.getElementById('recuadro').style.background = "rgb(255,0,0)";
+    }
+    
+    /*Y cuando el usuario arrastrando el objeto sale del div se dispara la función 'sale' donde regresamos al color amarillo el fondo del div:*/
+
+    function sale(ev)
+    {
+        document.getElementById('recuadro').style.background = "rgb(255,255,0)";    
+    }    
+</script>
+
+</head>
+<body>
+  <p>Arrastre en orden las palabras para formar la oración correcta.</p>
+  <div id="recuadro"></div>
+  <div id="palabras">
+    <span id="palabra1" draggable="true">the </span>
+    <span id="palabra2" draggable="true">is </span>
+    <span id="palabra3" draggable="true">What </span>
+    <span id="palabra4" draggable="true">time </span>    
+  </div>
+</body>
+</html>

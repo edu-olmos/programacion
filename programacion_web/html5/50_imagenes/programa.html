@@ -1,0 +1,50 @@
+<!--Permitir seleccionar una imagen del disco duro y posteriormente mostrarla en el fondo de un div.-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<style>
+#caja {
+  margin: 10px;
+  width: 350px;
+  height: 350px;
+  border: 5px dashed gray;
+  border-radius: 8px;
+  background: rgb(230,230,230);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+</style>
+  
+  
+<script>
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById('archivo').addEventListener('change', cargar, false);               
+    }
+
+    /*Cuando el usuario terminó de seleccionar la foto se ejecuta la función cargar donde creamos un objeto de la clase FileReader, registramos el evento load para indicar que se ejecute la función leer una vez que el archivo esté en memoria, y finalmente llamamos al método readAsDataURL que procede a cargar la imagen:*/
+    function cargar(ev) {
+        var arch=new FileReader();
+        arch.addEventListener('load',leer,false);
+        arch.readAsDataURL(ev.target.files[0]);
+    }
+    /*En la función leer inicializamos la propiedad backgroundImage con la imagen que acabamos de leer (como está con formato de URL de datos debemos llamar a la función url previo a la asignación):*/
+    
+    function leer(ev) {
+        document.getElementById('caja').style.backgroundImage="url('" + ev.target.result + "')";
+    }
+</script>
+</head>
+
+<body>
+<p>Lectura de una imagen almacenada en el disco duro.</p>
+<input type="file" id="archivo"><br>
+<div id="caja">
+</div>
+</body>
+</html>

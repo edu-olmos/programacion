@@ -1,0 +1,40 @@
+<!--
+  Confeccionar una aplicación que inmediatamente arranque muestra la longitud, latitud y precisión. Actualizar dicha posición cada vez que cambie empleando para ello la llamada al método watchPosition.
+Para probar este algoritmo es mejor hacerlo en un celular y desplazarnos para que se obtengan distintas posiciones.
+-->
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+  
+<script type="text/javascript">
+
+    window.addEventListener('load', inicio, false);
+
+    /*En la función inicio que se dispara una vez que la página se ha cargado completamente es que llamamos a watchPosition indicando la función que se ejecutará cada vez que cambiemos de posición:*/
+
+    function inicio() {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(mostrarCoordenada);
+        } else {
+          alert('El navegador no dispone la capacidad de geolocalización');
+        }
+    }
+  
+    function mostrarCoordenada(posicion) {
+        document.getElementById('dato').innerHTML='Latitud:'+
+           posicion.coords.latitude+
+           '<br> Longitud:'+posicion.coords.longitude+
+           '<br>Exactitud:'+posicion.coords.accuracy;
+    }
+       
+</script>  
+  
+</head>
+<body>
+  <span id="dato"></span>
+</body>
+</html>

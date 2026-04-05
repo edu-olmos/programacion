@@ -1,0 +1,47 @@
+<!--
+    Confeccionar un programa que nos permita seleccionar un conjunto de archivos de texto de una sola vez y muestre sus contenidos en un control textarea (separando el contenido de cada archivo por varios guiones). Mostrar además todos los nombres de archivos leidos.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<script>
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById('archivo').addEventListener('change', cargar, false);               
+    }
+
+    /*Ahora viene lo distinto, como se pueden haber seleccionado más de un archivo debemos disponer una estructura repetitiva for. Para saber la cantidad de archivos seleccionados la propiedad files es un vector por lo que podemos acceder a length que almacena la cantidad de elementos del mismo:
+    
+Dentro del for vamos concatenando en el párrafo el nombre de archivo que accedemos del vector según su subíndice ev.target.files[f].name:*/
+    function cargar(ev) {
+        document.getElementById('datos').innerHTML='';
+        document.getElementById('editor').value='';
+        for(var f=0;f<ev.target.files.length;f++) {
+        document.getElementById('datos').innerHTML=document.getElementById('datos').innerHTML+
+                                                   'Nombre del archivo:'+ev.target.files[f].name+'<br>';
+          var arch=new FileReader();
+          arch.addEventListener('load',leer,false);
+          arch.readAsText(ev.target.files[f]);
+        }  
+    }
+    /*La función leer se ejecuta por cada uno de los archivos que se lee, aquí procedemos a acumular el contenido de cada archivo en el textarea y agregarles una serie de guiones de separación:*/
+    function leer(ev) {
+        document.getElementById('editor').value=document.getElementById('editor').value+ev.target.result+
+                                                '\n-------------------------------------------------------\n';
+    }
+</script>
+</head>
+
+<body>
+<p>Selecciona un conjunto de archivos de texto del disco duro.</p>
+<input type="file" id="archivo" multiple><br>
+<textarea rows="10" cols="80" id="editor"></textarea>
+<br>
+<p id="datos"></p>
+</body>
+</html>

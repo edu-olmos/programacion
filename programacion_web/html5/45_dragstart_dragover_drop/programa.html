@@ -1,0 +1,85 @@
+<!--
+Confeccionar un programa que muestre una oración en Ingles con las palabras desacomodadas. Permitir mediante drag and drop disponer las palabras dentro de un div. 
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+
+<!--
+  Hemos definido en la hoja de estilo del div el color amarillo de fondo con rojo como borde:  
+-->
+<style>
+  #recuadro {
+    width:300px;
+    height:50px;
+    background-color:yellow;
+    border-style:solid;
+    border-color:red;
+    font-size:1.5em;
+  }
+  #palabras span {
+    font-size:1.5em;
+  }
+</style>  
+
+<script>
+    window.addEventListener('load', inicio, false);
+
+    /*Cuando se termina de cargar la página se ejecuta el método inicio donde asociamos para cada elemento span el evento dragstart indicando que se ejecute la función drag.
+    Por otro lado debemos indicar los nombres de las funciones que se ejecutarán para los eventos dragover y drop del elemento contenedor (es decir el elemento HTML que recibirá en su interior los elementos arrastrados):*/
+
+    function inicio() {
+        document.getElementById('palabra1').addEventListener('dragstart', drag, false);
+        document.getElementById('palabra2').addEventListener('dragstart', drag, false);
+        document.getElementById('palabra3').addEventListener('dragstart', drag, false);
+        document.getElementById('palabra4').addEventListener('dragstart', drag, false);                
+        document.getElementById('recuadro').addEventListener('dragover', permitirDrop, false);        
+        document.getElementById('recuadro').addEventListener('drop', drop, false);                
+    }
+    
+    /*La función drag se ejecuta cuando el operador selecciona el objeto a arrastrar y tiene como objetivo mediante el atributo dataTransfer indicar en este caso el id del objeto que acaba de seleccionarse, para luego poder recuperarlo en el evento drop:*/
+
+    function drag(ev)
+    {
+        ev.dataTransfer.setData("Text",ev.target.id);
+    }    
+    
+    /*
+
+Finalmente la función drop se ejecuta cuando soltamos el elemento dentro del contenedor. En esta llamamos a preventDefault del contenedor y seguidamente recuperamos la referencia del objeto que estabamos arrastrando mediante el método getData del atributo dataTransfer. Creamos un elemento dentro del div:*/
+
+    function drop(ev)
+    {
+        ev.preventDefault();
+        var dato=ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(dato));
+    }  
+
+
+    /*Por otro lado debemos indicar al objeto que recibe el elemento permitir recibir objetos:*/
+    function permitirDrop(ev)
+    {
+        ev.preventDefault();
+    }
+</script>
+
+</head>
+<body>
+  <p>Arrastre en orden las palabras para formar la oración correcta.</p>
+
+  <!--En el cuerpo de la página definimos un div llamado recuadro donde dispondremos las palabras que se arrastrarán a su interior:-->
+  <div id="recuadro"></div>
+  <!--Por otro lado definimos cuatro elementos span que contienen las palabras que pueden ser arrastradas, recordemos que para permitir el arrastre debemos inicializar la propiedad draggable con el valor true:-->
+
+  <div id="palabras">
+    <span id="palabra1" draggable="true">the </span>
+    <span id="palabra2" draggable="true">is </span>
+    <span id="palabra3" draggable="true">What </span>
+    <span id="palabra4" draggable="true">time </span>    
+  </div>
+</body>
+</html>

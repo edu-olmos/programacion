@@ -1,0 +1,99 @@
+<!--
+  Confeccionar un programa que muestre una oración en Ingles con las palabras desacomodadas. Permitir mediante drag and drop disponer las palabras dentro de un div. Inmediatamente luego que el usuario selecciona una palabra cambiar el fondo del div que recibirá la palabra con colores aleatorios. Cuando se suelte la palabra volver el fondo del div al color amarillo
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<style>
+  #recuadro {
+    width:300px;
+    height:50px;
+    background-color:yellow;
+    border:2px solid #ff0000;
+    font-size:1.5em;
+  }
+  #palabras span {
+    font-size:1.5em;
+  }
+  #palabras {
+    padding-top:50px;
+  }
+</style>  
+
+<script>
+    window.addEventListener('load', inicio, false);
+
+    /*En la función inicio registramos los eventos dragstart, drag y dragend para todos los elementos HTML capacitados para ser arrastrados:*/
+
+    function inicio() {
+        document.getElementById('palabra1').addEventListener('dragstart', dragInicio, false);
+        document.getElementById('palabra2').addEventListener('dragstart', dragInicio, false);
+        document.getElementById('palabra3').addEventListener('dragstart', dragInicio, false);
+        document.getElementById('palabra4').addEventListener('dragstart', dragInicio, false);         
+        document.getElementById('palabra1').addEventListener('drag', dragMueve, false);
+        document.getElementById('palabra2').addEventListener('drag', dragMueve, false);
+        document.getElementById('palabra3').addEventListener('drag', dragMueve, false);
+        document.getElementById('palabra4').addEventListener('drag', dragMueve, false);                 
+        document.getElementById('palabra1').addEventListener('dragend', dragSolto, false);
+        document.getElementById('palabra2').addEventListener('dragend', dragSolto, false);
+        document.getElementById('palabra3').addEventListener('dragend', dragSolto, false);
+        document.getElementById('palabra4').addEventListener('dragend', dragSolto, false);
+        document.getElementById('recuadro').addEventListener('dragover', permitirDrop, false);
+        document.getElementById('recuadro').addEventListener('drop', drop, false);
+    }
+    
+    function dragInicio(ev)
+    {
+        ev.dataTransfer.setData("Text",ev.target.id);        
+    }    
+
+    /*La función dragMueve se ejecuta cada vez que desplazamos el objeto por la pantalla y como actividad cambiamos el color de fondo del div contenedor con un valor aleatorio (tener en cuenta que esta función se comenzará a ejecutar mientras tengamos agarrado el objeto y no lo hallamos soltado):*/
+    function dragMueve(ev)
+    {
+        var ale=200+parseInt(Math.random()*55);
+        var rojo=ale;
+        var verde=ale;
+        var azul=ale;
+        document.getElementById('recuadro').style.background = "rgb("+rojo+","+verde+","+azul+")";
+    }
+
+    /*La función dragSolto se ejecuta cuando se suelta el objeto indistintamente estemos o no dentro del contenedor, en nuestro problema fijamos nuevamente el color de fondo del div a color amarillo:*/
+    function dragSolto(ev)
+    {
+        document.getElementById('recuadro').style.background = "rgb(255,255,0)";        
+    }            
+    
+/*En la función drop agregamos la palabra dentro del div y suprimimos el evento que pueda moverse nuevamente dicha palabra llamando a removeEventListener:*/
+
+    function drop(ev)
+    {
+        var dato=ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(dato));
+        ev.preventDefault();        
+        document.getElementById(dato).removeEventListener('dragstart', dragInicio, false);
+    }  
+
+    /*La última función es permitir disponer objetos dentro del div contenedor:*/
+    function permitirDrop(ev)
+    {
+        ev.preventDefault();
+    }
+    
+</script>
+
+</head>
+<body>
+  <p>Arrastre en orden las palabras para formar la oración correcta.</p>
+  <div id="recuadro"></div>
+  <div id="palabras">
+    <span id="palabra1" draggable="true">the </span>
+    <span id="palabra2" draggable="true">is </span>
+    <span id="palabra3" draggable="true">What </span>
+    <span id="palabra4" draggable="true">time </span>    
+  </div>
+</body>
+</html>
