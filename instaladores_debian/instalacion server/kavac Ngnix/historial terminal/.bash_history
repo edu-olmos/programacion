@@ -1,0 +1,373 @@
+su
+su -
+su
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer 
+chmod +x /usr/local/bin/composer
+mv composer.phar /usr/local/bin/composer
+chmod +x /usr/local/bin/composer
+cd /home/pampanito/
+ls
+mv composer.phar /usr/local/bin/composer 
+chmod +x /usr/local/bin/composer
+composer
+cd Descargas/
+exit
+cd /home/pampanito/
+su
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer 
+chmod +x /usr/local/bin/composer
+ls
+su
+composer
+apt install php-xml
+su
+su -
+su
+exit
+su
+cd Programación/php/proyectos_laravel/kavac/
+npm run dev
+cd modules/
+ls
+cd Accounting/
+npm run dev
+cd ..
+cd Asset/
+npm run dev
+cd ..
+cd Budget/
+npm run dev
+cd ..
+ls
+cd CitizenService/
+npm run dev
+cd ..
+ls
+cd DigitalSignature/
+npm run dev
+cd ..
+ls
+cd Finance/
+npm run dev
+cd ..
+cd Payroll/
+npm run dev
+cd ..
+cd Purchase/
+npm run dev
+cd ..
+ls
+cd Sale/
+npm run dev
+cd ..
+cd TechnicalSupport/
+npm run dev
+cd ..
+cd Warehouse/
+npm run dev
+cd ..
+cp .env.example .env
+su
+php artisan key:generate
+exit}
+exit
+cd Programación/php/proyectos_laravel/kavac/
+php artisan migrate
+php artisan db:seed && php artisan module:seed
+exot
+exit
+cd /usr/local/src
+cd /home/pampanito/Descargas/
+ls
+tar xf noip-duc_3.0.0.tar.gz 
+ls
+cd noip-duc_3.0.0/
+cd binaries/
+ls
+su
+exit
+su -
+su
+su -
+cd /home/pampanito/Programación/php/proyectos_laravel/kavac/
+php artisan serve
+su -
+su
+cd Descargas/
+wget https://mega.nz/linux/repo/Arch_Extra/x86_64/megasync-x86_64.pkg.tar.zst && sudo pacman -U \"$PWD/megasync-x86_64.pkg.tar.zst\"
+ls
+wget https://mega.nz/linux/repo/Debian_12/amd64/megasync-Debian_12_amd64.deb && su apt install \"$PWD/megasync-Debian_12_amd64.deb\"
+ls
+su
+exit
+su -
+exit
+su
+su -
+exit
+cd Programación/php/proyectos_laravel/kavac/
+ls
+cd public/
+ls
+nano index.php 
+exit
+su -
+su
+su -
+su
+exit
+su
+exit
+su -
+su
+exit
+su
+cd Descargas
+wget https://www.noip.com/download/linux/latest
+ls
+tar xf noip-duc_3.1.0.tar.gz
+ls
+wget https://www.noip.com/download/linux/latest
+ls
+wget https://www.noip.com/download/linux/latest
+ls
+tar xf noip-duc_3.1.0.tar.gz
+ls
+cd /home/pampanito/noip-duc_3.1.0/binaries && su apt install ./noip-duc_3.1.0_amd64.deb
+su
+noip-duc
+noip-duc -g all.ddnskey.com --username <edusolid> --password <v18456345>
+noip-duc [OPTIONS] --username <USERNAME> --password <PASSWORD>
+noip-duc [OPTIONS] --username <edusolid> --password <V18456345>
+noip-duc [OPTIONS] --username <edusolid> --password <v18456345>
+noip-duc [OPTIONS] --username <USERNAME> --password <PASSWORD>
+su -
+su
+exit}
+exit
+su -
+noip-duc [OPTIONS] --username <edusolid> --password <v18456345>
+noip-duc
+noip-duc -g all.ddnskey.com --username <edusolid> --password <v18456345>
+su -
+su
+cd /var/www/html/
+ls
+mkdir diario
+ls
+mv wordpress diario
+cd diario
+ls
+cd ..
+chmod -R 775 diario/
+chown -R www-data:www-data diario/
+chmod -R 775 diario/
+chown -R www-data:www-data diario/
+chmod -R 775 diario/
+chown -R www-data:www-data diario/
+su 
+cd /home/pampanito/
+ls
+cd diarioliberalrecuperado/
+cd base\ de\ datos/
+ls
+mysql -u diarioelliberal_w77 -p diarioelliberal_w77 < diarioelliberal_w77.sql
+exit
+cd /home/pampanito/
+ls
+cd diarioliberalrecuperado/
+cd base\ de\ datos/
+ls
+mysql -u diarioelliberal_w77 -p diarioelliberal_w77 < diarioelliberal_w77.sql
+exit
+su
+exit
+ls
+clear
+tar xf noip-duc_3.1.1.tar.gz
+cd noip-duc_3.1.1/binaries/
+su
+noip-duc -g all.ddnskey.com --solid_edu --v18456345
+noip-duc -g all.ddnskey.com solid_edu v18456345
+noip-duc -g all.ddnskey.com --username <solid_edu> --password <v18456345>
+noip-duc -g all.ddnskey.com <solid_edu>  <v18456345>
+noip-duc -g all.ddnskey.com solid_edu  v18456345
+noip-duc -g all.ddnskey.com --solid_edu <DDNS Key Username> --v18456345 <DDNS Key Password>
+noip-duc -g all.ddnskey.com solid_edu <DDNS Key Username> v18456345 <DDNS Key Password>
+noip-duc -g all.ddnskey.com solid_edu  v18456345 
+su -
+ls
+cd noip-duc_3.1.1/binaries/
+noip-duc -g all.ddnskey.com --username <DDNS Key Username> --password <DDNS Key Password>
+noip-duc -g all.ddnskey.com --solid_edu <DDNS Key Username> --v18456345 <DDNS Key Password>
+noip-duc -g all.ddnskey.com solid_edu <DDNS Key Username> v18456345 <DDNS Key Password>
+noip-duc -g all.ddnskey.com --username <DDNS Key solid_edu> --password <DDNS Key v18456345>
+su
+exit
+su
+su -
+su
+cd Descargas
+curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+su
+exit
+su -
+su
+su mysql
+su
+su passwd
+su
+exit
+su
+exit
+su
+cd /home/pampanito/Descargas
+mysql -u diarioelliberal_w77 -p diarioelliberal_w77 < diarioelliberal_w77.sql
+su -
+su
+exit
+su -
+su 
+su -
+su
+exit
+su
+su -
+su
+rxit
+exit
+su -
+V11mayo() su -
+su -
+su
+exit
+apt update
+su
+exit
+su
+exit
+su
+exit
+su -
+su 
+exit
+su
+su -
+apt update
+su -
+su 
+su -
+su 
+exit
+su -
+ls
+cd Programación/php/proyectos_laravel/kavac/
+ls
+exit
+cd Programación/php/proyectos_laravel/kavac/
+php artisan serve
+exit
+su -
+cd Programación/php/proyectos_laravel/kavac-v1.0.5/
+composer install
+cp .env.example .env
+php artisan module:compile -s -i
+su
+php artisan key:generate
+php artisan migrate
+php artisan db:seed && php artisan module:seed
+php artisan serve
+exit
+cd Programación/php/proyectos_laravel/kavac-v1.0.5/
+php artisan serve
+su -
+cd Programación/php/proyectos_laravel/kavac-v1.0.5/
+php artisan serve
+cd Programación/php/proyectos_laravel/kavac
+php artisan serve
+su -
+su
+cd Programación/php/proyectos_laravel/kavac
+su
+cd Programación/php/proyectos_laravel/kavac
+php artisan serve
+su -
+su 
+cd Programación/php/proyectos_laravel/kavac
+php artisan serve
+su -
+su
+exit
+su
+cd Programación/php/proyectos_laravel/kavac-v1.0.5/
+php artisan module:compile -s -i
+php artisan serve
+cd ..
+cp -r kavac-v1.0.5/ /var/www/html/kavac-v1.0.5
+cd /var/www/html/kavac-v1.0.5/
+php artisan serve
+su -
+cd /var/www/html/kavac-v1.0.5/
+php artisan serve --host 0.0.0.0
+crontab -e
+su -
+crontab -e
+cd /
+ls
+find -name php
+crontab -e
+su -
+crontab -e
+/usr/bin/php artisan serve --host 0.0.0.0
+crontab -e
+su -
+crontab -e
+cd /var/www/html/kavac-v1.0.5
+crontab -e
+/usr/bin/php artisan serve --host 0.0.0.0
+su -
+exit
+su -
+cd /var/www/html/kavac-v1.0.5
+php artisan serve --host 0.0.0.0
+su -
+cd /var/www/html/
+cp -r kavac-v1.0.5/ /var/www/html/kavac
+cd kavac
+php artisan module:compile -s -i
+php artisan key:generate
+php artisan serve
+[A
+php artisan serve --host 0.0.0.0
+php artisan serve
+su -
+cd /var/www/html/kavac
+php artisan serve
+php artisan module:compile -s -i
+php artisan serve
+su
+php artisan module:compile -s -i
+su
+cd /var/www/html/kavac
+php artisan serve
+su
+cd /var/www/html/kavac
+clear
+php artisan module:compile -s -i
+su -
+php artisan module:compile -s -i
+su
+exit
+su -
+cd /var/www/html/kavac/
+php artisan optimize
+php artisan optimize:clear
+php artisan config:cache
+php artisan event:cache
+php artisan route:cache
+php artisan view:cache
+su
+cd /var/www/html/kavac/
+su -

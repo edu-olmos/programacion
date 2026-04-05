@@ -1,0 +1,786 @@
+en carpeta donde esta la aplicacion el codigo
+Crear archivo .profile 
+$ nano .profile
+
+# ~/.profile: executed by Bourne-compatible login shells.
+if [ "$BASH" ]; then
+if [ -f ~/.bashrc ]; then
+. ~/.bashrc
+fi
+fi
+mesg n 2> /dev/null || true
+
+
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
+
+Crear archivo .bashrc que es el archivo de inicio individual por shell interactivo
+$ nano .bashrc
+
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
+# You may uncomment the following lines if you want `ls' to be colorized:
+# export LS_OPTIONS='--color=auto'
+# eval "`dircolors`"
+# alias ls='ls $LS_OPTIONS'
+# alias ll='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
+#
+# Some more alias to avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+Crear archivo .zshrc
+$ touch .zshrc
+
+Configurar el acceso del nuevo scrip
+
+$ . ~/.profile
+
+Instalación y configuración de Redis
+
+# apt install redis
+
+# nano /etc/redis/redis.conf
+
+
+en mi caso
+
+bind 192.168.11.10 127.0.0.1 -::1
+
+requirepass u8M6cxOGwVwHyPNL4fO0uG7cb9v9yJ3
+
+# systemctl restart redis
+
+##############################################
+
+Configuración del motor de aplicaciones (uWSGI)
+
+apt-get install uwsgi uwsgi-plugin-php
+
+Colocar el siguiente contenido en /etc/uwsgi/apps-available/kavac.ini
+
+nano /etc/uwsgi/apps-available/kavac.ini
+
+
+mi conf
+
+[uwsgi]
+plugins=php
+processes=2
+master=true
+cheaper=1
+uid=server
+gid=server
+log-x-forwarded-for=true
+max-requests=521
+post-buffering=4096
+buffer-size=6144
+harakiri=521
+harakiri-verbose=true
+socket=192.168.11.10:1597
+project_dir = /var/www/html/kavac/public/
+chdir=%(project_dir)
+; jail our php environment to project_dir
+php-docroot = %(project_dir)
+php-allowed-docroot = %(project_dir)
+; ... and to the .php and .inc extensions
+php-allowed-ext = .php
+php-allowed-ext = .inc
+; and search for index.php and index.inc if required
+php-index = index.php
+php-index = index.inc
+
+Crear un enlace simbólico para activar la configuración de uWSGI:
+ cd /etc/uwsgi/apps-enabled/
+ ln -s ../apps-available/kavac.ini
+ systemctl restart uwsgi
+ systemctl enable uwsgi
+
+
+Dirigirse con el comando cd a la siguiente ruta /etc/php/8.2/embed/conf.d/ y crear el archivo para agregar las directivas de php.
+
+# nano /etc/php/8.2/embed/conf.d/31-kavac.ini
+
+
+mi conf
+
+# Tamaño máximo de datos a través del método POST
+post_max_size = 41M
+# Tamaño máximo de archivos permitidos para cargar al servidor
+upload_max_filesize = 13M
+# Número máximo de archivos que se pueden cargar mediante una sola solicitud
+max_file_uploads = 53
+# Cantidad máxima de memoria que un script puede asignar
+memory_limit= 512M
+# Tiempo máximo de ejecución de cada script, en segundos
+max_execution_time = 300
+
+Worker (colas)
+
+#nano /etc/systemd/system/kavac-worker@.service
+
+
+
+mi conf
+
+[Unit]
+Description=Obrero procesador de colas de sistema kavac - cola %i
+After=network.target
+[Service]
+Type=exec
+Restart=always
+RestartSec=233
+TimeoutStopSec=4253
+RuntimeMaxSec=28657
+ExecStart=/usr/bin/php /var/www/html/kavac/artisan queue:work --queue=%i --sleep=3 --tries=3
+User=server
+Group=server
+[Install]
+WantedBy=multi-user.target
+
+systemctl daemon-reload
+
+Activar, iniciar el servicio para la cola default y verificar su status:
+ systemctl enable kavac-worker@default.service
+ systemctl restart kavac-worker@default.service
+ systemctl status kavac-worker@default.service
+
+ systemctl enable kavac-worker@bulk.service
+ systemctl restart kavac-worker@bulk.service
+ systemctl status kavac-worker@bulk.service
+
+Puede realizar el seguimiento con el comando:
+# journalctl --unit=kavac-worker@default
+
+Websocket
+
+# nano /etc/systemd/system/kavac-websockets.service
+
+
+mi conf
+                                          
+[Unit]
+Description=Obrero gestor de conexiones websocket de sistema kavac
+After=network.target
+[Service]
+Restart=always
+RestartSec=233
+TimeoutStopSec=4253
+ExecStart=/usr/bin/php /var/www/html/kavac/artisan websockets:serve --host 192.168.11.10
+User=server
+Group=server
+[Install]
+WantedBy=multi-user.target
+
+ systemctl daemon-reload
+ systemctl enable kavac-websockets.service
+ systemctl start kavac-websockets.service
+ systemctl status kavac-websockets.service
+
+configuración general de Nginx
+
+# nano /etc/nginx/nginx.conf
+
+
+mi conf
+
+
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+error_log /var/log/nginx/error.log;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+        worker_connections 768;
+        # multi_accept on;
+}
+
+http {
+
+        ##
+        # Basic Settings
+        ##
+
+        sendfile on;
+        tcp_nopush on;
+        types_hash_max_size 2048;
+        server_tokens off;
+       # server_names_hash_bucket_size 64;
+        # server_name_in_redirect off;
+
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+        #server_tokens off;
+
+        ##
+        # SSL Settings
+        ##
+
+#       ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
+#       ssl_prefer_server_ciphers on;
+
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
+ssl_prefer_server_ciphers on;
+ssl_ciphers
+ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256>
+ssl_session_cache shared:SSL:10m;
+ssl_session_timeout 5m;
+      ##
+        # Logging Settings
+        ##
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        log_format main '$http_x_real_ip - $remote_addr - $remote_user [$time_local] $request '
+        ' "$status" $body_bytes_sent "$http_referer" '
+        ' "$http_user_agent" "$http_x_forwarded_for" ';
+
+        ##
+        # Gzip Settings
+        ##
+
+        gzip on;
+
+        # gzip_vary on;
+        # gzip_proxied any;
+        # gzip_comp_level 6;
+        # gzip_buffers 16 8k;
+       # gzip_http_version 1.1;
+        # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/jav>
+
+        ##
+        # Virtual Host Configs
+        ##
+
+        include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/sites-enabled/*;
+}
+
+
+#mail {
+#       # See sample authentication script at:
+#       # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+#
+#       # auth_http localhost/auth.php;
+#       # pop3_capabilities "TOP" "USER";
+#       # imap_capabilities "IMAP4rev1" "UIDPLUS";
+#
+#       server {
+#               listen     localhost:110;
+#               protocol   pop3;
+#               proxy      on;
+#       }
+#
+#       server {
+#               listen     localhost:143;
+#               protocol   imap;
+#               proxy      on;
+#       }
+#}
+
+
+Configuración del sitio para la aplicación KAVAC
+
+nano /etc/nginx/sites-available/kavac
+
+
+mi conf
+
+upstream kavac {
+        server 192.168.11.10:80 max_fails=1 fail_timeout=10s;
+}
+
+upstream kavac-websocket {
+        server 192.168.11.10:6001 max_fails=1 fail_timeout=10s;
+}
+
+map $http_upgrade $type_conn {
+        default @web;
+        websocket @ws;
+}
+
+server {
+    listen 192.168.11.10:80;
+    server_name ingsistemas.sytes.net;
+    #return 301 https://$server_name$request_uri;
+    root /var/www/html/kavac/public;
+
+    error_log /var/log/nginx/kavac-error.log error;
+    access_log /var/log/nginx/kavac-access.log combined;
+
+   add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+        client_max_body_size 20M;
+        client_body_buffer_size 128k;
+
+
+        set_real_ip_from 192.168.11.10;
+        real_ip_header X-Real-IP;
+
+    index index.html index.htm index.php;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 4 256k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name ingsistemas.sytes.net;
+    #return 301 https://$server_name$request_uri;
+    root /var/www/html/kavac/public;
+
+    error_log /var/log/nginx/kavac-error.log error;
+    access_log /var/log/nginx/kavac-access.log combined;
+
+    ssl_certificate /var/www/html/ssl/default_blank.crt;
+    ssl_certificate_key /var/www/html/ssl/default_blank.key;
+
+        client_max_body_size 20M;
+        client_body_buffer_size 128k;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    index index.html index.htm index.php;
+
+    charset utf-8;
+
+   location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 4 256k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+        location @ws {
+                proxy_pass
+                http://kavac-websocket;
+                proxy_read_timeout 60;
+                proxy_connect_timeout 60;
+                proxy_redirect off;
+# Allow the use of websockets
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+
+}
+
+# mkdir -p /srv/www/kavac/50x.html
+
+<html>
+<head>
+<title>Error interno del servidor</title>
+</head>
+<body>
+<h1>Error interno del servidor</h1>
+</body>
+</html>
+
+# cd /etc/nginx/sites-enabled/
+# ln -s ../sites-available/kavac
+
+# rm default
+
+su -
+# nginx -t
+# systemctl restart nginx
+# systemctl enable nginx
+
+Instalar y configurar la capa Proxy
+
+# nano /etc/nginx/nginx.conf
+
+user www-data;
+worker_processes 1;
+pid /run/nginx.pid;
+.
+.
+.
+http {
+.
+server_tokens off;
+.
+##
+# SSL Settings
+##
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
+ssl_prefer_server_ciphers on;
+ssl_ciphers
+ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-
+SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-
+ECDSA-AES128-SHA:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES256-
+SHA:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:DHE-DSS-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:DHE-
+RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-
+SHA:DHE-DSS-AES128-SHA256:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK;
+ssl_session_cache shared:SSL:10m;
+ssl_session_timeout 5m;
+##
+# Logging Settings
+##
+access_log /var/log/nginx/access.log;
+error_log /var/log/nginx/error.log;
+log_format main
+'$http_x_real_ip - $remote_addr - $remote_user [$time_local] $request '
+' "$status" $body_bytes_sent "$http_referer" '
+' "$http_user_agent" "$http_x_forwarded_for" ';
+.
+.
+.
+}
+
+nano /etc/nginx/sites-available/kavac
+
+upstream kavac {
+server
+x.x.x.x:80
+max_fails=1 fail_timeout=10s;
+}
+upstream kavac-websocket {
+server
+x.x.x.x:6001 max_fails=1 fail_timeout=10s;
+}
+map $http_upgrade $type_conn {
+default
+@web;
+websocket
+@ws;
+}
+server {
+listen x.x.x.x:80;
+server_name kavac.gob.ve;
+access_log /var/log/nginx/kavac.access.log main;
+error_log /var/log/nginx/kavac.error.log error;
+## Devolver un estatus 204 (No Content) para el favicon.ico
+location = /favicon.ico {
+return 204;
+}
+## Devolver un estatus 204 (No Content) para el robots.txt
+location = /robots.txt {
+return 204;
+}
+location / {
+return 301 https://kavac.gob.ve$request_uri;
+}
+#error_page 404 /404.html;
+# redirect server error pages to the static page /50x.html
+#
+error_page 500 502 504 /50x.html;
+location = /50x.html {
+root /srv/www/kavac;
+}
+error_page 503 /503.html;
+location = /503.html {
+root /srv/www/kavac;
+}
+}
+server {
+listen x.x.x.x:443 ssl;
+server_name kavac.gob.ve;
+ssl_certificate
+/etc/nginx/ssl_keys/kavac.gob.ve.crt;
+ssl_certificate_key /etc/nginx/ssl_keys/kavac.gob.ve.key;
+access_log
+error_log
+/var/log/nginx/kavac.access-ssl.log main;
+/var/log/nginx/kavac.error-ssl.log error;
+client_max_body_size 20M;
+client_body_buffer_size 128k;
+## Devolver un estatus 204 (No Content) para el robots.txt
+location = /robots.txt {
+return 204;
+}
+location ~ ^/ {
+try_files /nonexistent $type_conn;
+}
+location ~ ^/app {
+try_files /nonexistent @ws;
+}
+location @web {
+include
+proxy_pass
+proxy_params;
+http://kavac;
+proxy_set_header X-Forwarded-Protocol $scheme;
+proxy_set_header X-Forwarded-Https $https;
+proxy_read_timeout 90;
+proxy_buffer_size 128k;
+proxy_buffers 4 256k;
+proxy_busy_buffers_size 256k;
+}
+location @ws {
+proxy_pass
+http://kavac-websocket;
+proxy_read_timeout 60;
+proxy_connect_timeout 60;
+proxy_redirect off;
+# Allow the use of websockets
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host;
+proxy_cache_bypass $http_upgrade;
+}
+#error_page 404 /404.html;
+# redirect server error pages to the static page /50x.html
+#
+error_page 500 502 504 /50x.html;
+location = /50x.html {
+root /srv/www/kavac;
+}
+error_page 503 /503.html;
+location = /503.html {
+root /srv/www/kavac;
+}
+}
+
+
+# mkdir -p /srv/www/kavac/
+50x.html
+<html>
+<head>
+<title>Error interno del servidor</title>
+</head>
+<body>
+<h1>Error interno del servidor</h1>
+</body>
+</html>
+
+503.html
+<html>
+<head>
+<title>Servicio temporalmente no disponible</title>
+</head>
+<body>
+<h1>Servicio temporalmente no disponible</h1>
+</body>
+</html>
+
+# cd /etc/nginx/sites-enabled/
+# ln -s ../sites-available/kavac
+
+# rm default
+su-
+# nginx -t
+# systemctl restart nginx
+
+
+# systemclt enable nginx
+
+
+.env
+
+APP_NAME=KAVAC
+APP_ENV=local
+APP_KEY=base64:JSyseWGGX2HWnT0mu1CmP6JfDKCiqRnNNw1/FLYUlu0=
+APP_DEBUG=true
+APP_LOG_LEVEL=debug
+#APP_URL=http://localhost
+APP_URL=https://ingsistemas.sytes.net
+APP_DEMO=false
+#Colocar en true para servidores de prueba
+APP_TESTING=false
+#Url del servidor de pruebas (incluyendo subcarpetas si es que esta configurado de tal forma)
+APP_TESTING_URL=http://localhost
+#Plantilla blade en donde se encuentra el formulario de autenticación de usuario, modificar si se crea un nuevo método de autenticación que requiera un procedimiento distinto
+AUTH_VIEW="auth.login"
+#Condición que establece el uso de Active Directory como método de autenticación
+ACTIVE_DIRECTORY=false
+ACTIVE_DIRECTORY_URL=
+ACTIVE_DIRECTORY_DN=
+ACTIVE_DIRECTORY_BASE_DN=
+
+#Habilita/Deshabilita los respaldos de base de datos desde la interfaz de la aplicación
+BACKUP_ENABLED=true
+
+#Indica si la aplicación esta en modo de pruebas unitarias
+TEST_UNIT=false
+#Indica si la aplicación permite la auditoria por consola, colocar en false si se requiere no auditar los procesos realziados por consola
+APP_AUDIT=true
+AUDIT_LIMIT=10
+
+LOG_CHANNEL=daily
+LOG_SLACK_WEBHOOK_URL=
+
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=kavac
+DB_USERNAME=admin
+DB_PASSWORD=4321
+
+#DB_CONNECTION=mysql
+#DB_HOST=127.0.0.1
+#DB_PORT=3306
+#DB_DATABASE=homestead
+#DB_USERNAME=homestead
+#DB_PASSWORD=secret
+
+BROADCAST_DRIVER=pusher
+#Driver para gestionar el cache de la aplicación, los valores permitidos son database o redis
+#CACHE_DRIVER=database
+CACHE_DRIVER=redis
+#Driver para gestionar las sesiones, los valores permitidos son database o redis
+#SESSION_DRIVER=database
+SESSION_DRIVER=redis
+#Establecer en default si la variable SESSION_DRIVER se define como redis, de lo contrario dejar en null
+SESSION_CONNECTION=null
+#Tiempo de vida de la sesión
+SESSION_LIFETIME=120
+#Indica si las cookies solo se pueden enviar bajo protocolo seguro https
+SESSION_SECURE_COOKIE=true
+#Establece la bandera HttpOnly
+SESSION_HTTP_ONLY=true
+#Envía las variables de sesión cifradas
+SESSION_ENCRYPT=true
+#Valores aceptados: lax, strict
+SESSION_SAME_SITE=lax
+#Conexión para gestionar las colas, los valores permitidos son database o redis
+#QUEUE_CONNECTION=database
+QUEUE_CONNECTION=redis
+
+#REDIS_HOST=127.0.0.1
+REDIS_HOST=192.168.11.10
+#Contraseña del servidor Redis
+#REDIS_PASSWORD=null
+REDIS_PASSWORD=u8M6cxOGwVwHyPNL4fO0uG7cb9v9yJ3
+REDIS_PORT=6379
+#Cliente redis, los valores permitidos son predis o phpredis
+REDIS_CLIENT=phpredis
+REDIS_DB=0
+REDIS_CACHE_DB=1
+REDIS_QUEUE_DB=2
+REDIS_QUEUE_PREFIX='q:'
+REDIS_QUEUE='default'
+REDIS_QUEUE_CONN='queue'
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=sapnnaettapo@gmail.com
+MAIL_PASSWORD=ksupzaogbyzbrkxo
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=sapnnaettapo@gmail.com
+
+
+
+#MAIL_DRIVER=smtp
+#MAIL_HOST=smtp.mailtrap.io
+#MAIL_PORT=2525
+#MAIL_USERNAME=null
+#MAIL_PASSWORD=null
+#MAIL_ENCRYPTION=null
+#MAIL_FROM_ADDRESS=kavac@cenditel.gob.ve
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+
+CAPTCHA_COLOR_ONE=false
+
+# longitud de 5 dígitos
+PUSHER_APP_ID=anyid
+#Longitud de 10 carácteres
+PUSHER_APP_KEY=somekey
+#Longitud de 12 carácteres
+PUSHER_APP_SECRET=somesecret
+PUSHER_APP_CLUSTER=mt1
+
+#WEBSOCKETS_HOST=127.0.0.1
+#WEBSOCKETS_PORT=6001
+WEBSOCKETS_HOST=ingsistemas.sytes.net
+WEBSOCKETS_PORT=443
+WEBSOCKETS_SSL_LOCAL_CERT=null
+WEBSOCKETS_SSL_LOCAL_PK=null
+WEBSOCKETS_SSL_PASSPHRASE=null
+#Colocar en true si se requiere la implementación de tls
+WEBSOCKETS_TLS=false
+
+#BROADCAST_HOST=127.0.0.1
+BROADCAST_HOST=192.168.11.10
+BROADCAST_PORT=6001
+BROADCAST_TLS=false
+BROADCAST_SCHEME=http
+
+MIX_APP_URL="${APP_URL}"
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+MIX_WEBSOCKETS_HOST="${WEBSOCKETS_HOST}"
+MIX_WEBSOCKETS_PORT="${WEBSOCKETS_PORT}"
+MIX_WEBSOCKETS_TLS="${WEBSOCKETS_TLS}"
+# Tiempo de vida de la sesión
+MIX_SESSION_LIFETIME="${SESSION_LIFETIME}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

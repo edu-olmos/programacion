@@ -1,0 +1,13 @@
+$crontab -e
+
+#@reboot cd /var/www/html/kavac-v1.0.5 
+#@reboot /usr/bin/php artisan serve --host 0.0.0.0
+
+su
+
+@reboot /usr/sbin/inadyn
+#@reboot /sbin/shutdown -h 23:59
+@reboot noip-duc -g all.ddnskey.com --username solid_edu --password v18456345
+#@reboot /home/pampanito/Programación/php/proyectos_laravel/kavac/php artisan serve
+
+

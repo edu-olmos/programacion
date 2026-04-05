@@ -1,0 +1,14 @@
+server {
+	listen 192.168.11.10:80 default_server;
+	server_name _;
+	return 444;
+}
+
+server {
+	listen 192.168.11.10:443 ssl http2 default_server;
+	server_name _;
+	ssl_certificate /var/www/html/ssl/default_blank.crt;
+	ssl_certificate_key /var/www/html/ssl/default_blank.key;
+	keepalive_timeout 70;
+	return 444;
+}

@@ -1,0 +1,399 @@
+instalar Ngnix
+
+su
+
+apt update
+apt upgrade
+
+# apt install nginx
+
+# systemctl enable nginx
+
+# systemctl start nginx
+
+# systemctl status nginx.service
+
+#systemctl status nginx
+
+# nginx -v
+
+desinstalar Ngnix
+
+# apt-get remove nginx nginx-common
+
+# apt-get purge nginx nginx-common
+
+# apt-get autoremove
+
+desinstalar apache2
+
+#service apache2 stop
+
+# dpkg -l | grep apache2
+
+#apt-get purge apache2 apache2-bin apache2-data apache2-doc apache2-mpm-prefork apache2-utils
+
+# apt-get autoremove
+
+# whereis apache2
+
+#rm -rf /usr/sbin/apache2 /usr/lib/apache2 /etc/apache2 /usr/share/apache2 /usr/share/man/man8/apache2.8.gz
+
+#systemctl start nginx
+
+#nano /etc/nginx/sites-available/kavac
+
+pegar y guardar lo que esta en el archivo llamado archivoroot.txt
+
+# ln -s /etc/nginx/sites-available/kavac /etc/nginx/sites-enabled
+
+# apt install php8.2-fpm
+
+reiniciar Ngnix
+
+#systemctl reload nginx php8.2-fpm
+
+permisos full carpeta kavac
+
+# chmod -R 777 kavac
+
+verificar errores
+# nano /var/log/nginx/error.log
+#nano /var/log/nginx/error.log
+
+crear certificados estar en la carpeta kavac
+responder VE  Y lo demas con . y enter dejar en vacio o en blanco
+
+#openssl ecparam -name secp384r1 -genkey -out default_blank.key
+
+# openssl req -out default_blank.csr -utf8 -new -key default_blank.key -sha512
+
+# openssl x509 -req -in default_blank.csr -out default_blank.crt -signkey default_blank.key -days 730 -sha512
+
+comandos sin root $
+
+$ cd /var/www/html/kavac/
+
+copilar cuando se modifique el archivo .env
+APP_URL=https://compuvalera.sytes.net
+$php artisan module:compile -s -i
+
+$php artisan optimize
+$php artisan optimize:clear
+$php artisan config:cache
+$php artisan event:cache
+$php artisan route:cache
+$php artisan view:cache
+
+--------------------------------------------------------------------------------------------
+#primer paso pasar descomprimido la version en una carpeta a instalar
+#con la opcion de  copiar y ver archivos ocultos.
+
+#una vez copiad todo se procede al comando
+#Instalar los requerimientos de composer.json
+
+    ~$ composer install
+
+# Seguimos con el siguiente comando
+
+#Hacer la siguiente configuración
+
+    // Cambia el nombre del archivo
+    ~$ cp .env.example .env
+
+# modificar el archivo package.json
+
+"sass-loader": "^10.0.0",
+"node-sass": "^9.0.0",
+
+#luego
+
+#Instalar paquetes de nodejs y compilar el frontend de la aplicación base y los módulos
+
+    ~$ php artisan module:compile -s -i
+    
+    Crear la base de datos para __kavac__ usando PostgresSQL
+
+        // Acceso al usuario postgres
+        ~# su postgres
+
+        // Acceso a la interfaz de comandos de PostgreSQL
+        postgres@xxx:$ psql
+
+        // Creación del usuario de base de datos
+        postgres=# CREATE USER kavac WITH LOGIN ENCRYPTED PASSWORD '4321' CREATEDB;
+        
+        postgres=# CREATE USER admin WITH LOGIN ENCRYPTED PASSWORD '4321' CREATEDB;
+        
+        postgres=# CREATE USER root WITH LOGIN ENCRYPTED PASSWORD '4321' CREATEDB;
+        postgres=# \q
+
+        // Creación de la base de datos con dueño
+        postgres=# CREATE DATABASE kavac WITH OWNER admin;
+        CREATE DATABASE kavacact WITH OWNER kavac;
+
+        // Cerrar sesión del usuario PostgreSQL y regresar al usuario root
+        postgres@xxx:$ exit
+
+        // Salir del usuario root
+        ~# exit
+        
+        // Editar las siguientes líneas del archivo .env
+        DB_CONNECTION=pgsql
+        DB_HOST=127.0.0.1
+        DB_PORT=5432
+        DB_DATABASE=kavac
+        DB_USERNAME=admin
+        DB_PASSWORD=4321
+        
+Crear la clave interna de laravel
+
+    ~$ php artisan key:generate
+
+Editar la siguiente línea del archivo .env
+
+    APP_URL=http://localhost:8000
+    
+Crear las tablas en la base de datos
+
+    ~$ php artisan migrate
+
+Cargar los datos por defecto de la aplicación
+
+    ~$ php artisan db:seed && php artisan module:seed
+    
+usuario eduardo
+password v18456345
+correo edujosepeolms@gmail.com
+
+    // Este comando levanta un servidor en la dirección ip 127.0.0.1 o localhost y en el puerto 8000, para verificarlo entra al enlace [localhost:8000]
+    ~$ php artisan serve
+    
+G200046864
+
+SERVICIO ADMINISTRATIVO DE PROTECCION DEL NIÑO, NIÑA Y ADOLESCENTE DEL ESTADO TRUJILLO
+
+SAPNNAET
+
+27/04/2005
+    
+AV PRINCIPAL EDIF SEDE SAPNAAET PISO 1 OFICINA ADMINISTRATIVA SECTOR AGUA CLARA PQUIA JUAN IGNACIO MONTILLA MCPIO VALERA TRUJILLO ZONA POSTAL 3101
+
+http://sapnnaet.sytes.net
+    
+-------------------------------------------------------------------------------------------------
+
+# Entorno de desarollo Kavac
+
+Cuando somos un usuario normal del sistema, en el terminal se mostrará el siguiente símbolo: ~$
+
+Cuando accedemos al usuario root del sistema, en el terminal se mostrará el siguiente símbolo: ~#
+
+Probado en versiones actualizadas de Debian y Ubuntu. Instalar los siguientes programas
+
+    nuevo
+    # apt install curl git graphviz libgraphviz-dev php phppgadmin postgresql libmariadb-dev-compat libmariadb-dev mariadb-server php-gd php-mbstring php-tokenizer php-zip php-pgsql php-cli php-curl zip unzip
+
+    
+    viejo
+    ~# apt install curl git graphviz graphviz-dev php phppgadmin postgresql libmysqlclient-dev mariadb-server php-gd php-mbstring php-tokenizer php-zip php-pgsql php-cli php-curl zip unzip
+
+Para instalar npm hacer lo siguiente
+
+    // Ubuntu
+    ~$ curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+
+    // Debian
+    ~# curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+
+    ~# apt install -y nodejs
+
+Instalar composer seguir los pasos https://getcomposer.org/download/
+
+Crear las siguientes carpetas
+
+    ~$ mkdir Programación
+
+Desde el terminal, moverse a la carpeta Programación y ejecutar
+
+    ~$ cd Programación/
+
+    ~$ mkdir php
+
+Entrar a la carpeta php y hacer lo siguiente
+
+    ~$ cd php/
+
+    ~$ mkdir proyectos_laravel
+
+Desde el terminal, moverse a la carpeta proyectos_laravel y ejecutar
+
+    ~$ cd proyectos_laravel/
+
+    ~$ git clone https://github.com/willez88/kavac.git
+
+    ~$ cd kavac/
+
+Tendremos las carpetas estructuradas de la siguiente manera
+
+    // Servidor de desarrollo
+    Programación/php/proyectos_laravel/kavac
+    
+    Instalar los requerimientos de composer.json
+
+    ~$ composer install
+
+Instalar paquetes de nodejs y compilar el frontend de la aplicación base y los módulos
+
+    ~$ php artisan module:compile -s -i
+    
+Una vez copiada la carpeta con todo instalado
+
+    ~$ npm run dev
+    
+en cada modulo
+
+    $ npm run dev
+
+
+
+Hacer la siguiente configuración
+
+    // Cambia el nombre del archivo
+    ~$ cp .env.example .env
+
+PostgreSQL o MariaDB (en este proyecto usar MariaDB)
+
+    Crear la base de datos para __kavac__ usando PostgresSQL
+
+        // Acceso al usuario postgres
+        ~# su postgres
+
+        // Acceso a la interfaz de comandos de PostgreSQL
+        postgres@xxx:$ psql
+
+        // Creación del usuario de base de datos
+        postgres=# CREATE USER admin WITH LOGIN ENCRYPTED PASSWORD '4321' CREATEDB;
+        
+        postgres=# CREATE USER root WITH LOGIN ENCRYPTED PASSWORD '4321' CREATEDB;
+        postgres=# \q
+
+        // Creación de la base de datos con dueño
+        postgres=# CREATE DATABASE kavac WITH OWNER admin;
+
+        // Cerrar sesión del usuario PostgreSQL y regresar al usuario root
+        postgres@xxx:$ exit
+
+        // Salir del usuario root
+        ~# exit
+
+        // Editar las siguientes líneas del archivo .env
+        DB_CONNECTION=pgsql
+        DB_HOST=127.0.0.1
+        DB_PORT=5432
+        DB_DATABASE=kavac
+        DB_USERNAME=admin
+        DB_PASSWORD=4321
+
+    Crear la base de datos para __kavac__ usando MariaDB
+
+        // Acesso al usuario root del sistema
+        # mysql
+
+        // Crea el usuario
+        CREATE USER 'admin'@'localhost' IDENTIFIED BY '123';
+
+        // Se Otorgan todos los permisos
+        GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
+
+        FLUSH PRIVILEGES;
+
+        // Cerrar sesión del usuario MariaDB y regresar al usuario root
+        exit
+
+        // Salir del usuario root
+        ~# exit
+
+        // Editar las siguientes líneas del archivo .env
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=kavac
+        DB_USERNAME=admin
+        DB_PASSWORD=123
+
+    Puedes crear la base de datos usando la interfaz gráfica phpmyadmin
+
+        // Desde algún navegador ir al siguiente sitio y entrar con el usuario que se acaba de crear
+        localhost/phpmyadmin
+
+        // Si phpmyadmin no abre, ejecutar el siguiente comando
+        ~# ln -s /usr/share/phpmyadmin /var/www/html
+
+        // Nombre de la base de datos: kavac
+
+Crear la clave interna de laravel
+
+    ~$ php artisan key:generate
+
+Editar la siguiente línea del archivo .env
+
+    APP_URL=http://localhost:8000
+
+Crear las tablas en la base de datos
+
+    ~$ php artisan migrate
+
+Cargar los datos por defecto de la aplicación
+
+    ~$ php artisan db:seed && php artisan module:seed
+    
+    edu
+    v18456345
+    
+    Se ha creado un usuario de prueba con el nombre 'user' y contraseña '123456
+
+Correr el servidor de laravel
+
+    // Este comando levanta un servidor en la dirección ip 127.0.0.1 o localhost y en el puerto 8000, para verificarlo entra al enlace [localhost:8000]
+    ~$ php artisan serve
+
+Una vez que hayan sido registrado los datos iniciales del sistema, se puede autenticar en el mismo con los siguientes datos de acceso como administrador:
+
+    usuario: admin
+    clave: 123456
+
+El primer paso, para el correcto funcionamiento del sistema, es registrar información básica de la organización que llevará a cabo la gestión de información dentro de la aplicación, para ello se debe ingresar al menú
+
+    Configuración > General
+
+Y allí, en el panel **"CONFIGURAR ORGANIZACIÓN"** se deben indicar los datos de la organización. Una vez configurada, se mostrarán todas las opciones de los módulos disponibles en el sistema
+
+server
+
+edu-solid@hotmail.com
+
+edu
+
+eduardo
+
+v12345
+
+edujosepeolms@gmail.com
+Indique el correo del usuario administrador [admin@mail.com]:
+ > edujosepeolms@gmail.com
+
+ Indique el usuario administrador [admin]:
+ > admin
+
+ Indique el nombre del usuario admin:
+ > eduardo 
+
+ Indique la contraseña del usuario admin:
+ > 
+
+ ¿Desea crear un usuario de prueba? (s)i/(n)o [n]:
+ > s
+
+Se ha creado un usuario de prueba con el nombre 'user' y contraseña '123456'
+

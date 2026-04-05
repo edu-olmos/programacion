@@ -1,0 +1,12 @@
+[Unit]
+Description=Obrero gestor de conexiones websocket de sistema kavac
+After=network.target
+[Service]
+Restart=always
+RestartSec=233
+TimeoutStopSec=4253
+ExecStart=/usr/bin/php /var/www/html/kavac/artisan websockets:serve --host 192.168.11.10
+User=server
+Group=server
+[Install]
+WantedBy=multi-user.target

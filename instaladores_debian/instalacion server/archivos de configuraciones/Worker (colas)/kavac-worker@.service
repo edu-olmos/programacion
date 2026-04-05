@@ -1,0 +1,14 @@
+[Unit]
+Description=Obrero procesador de colas de sistema kavac - cola %i
+After=network.target
+[Service]
+Type=exec
+Restart=always
+RestartSec=233
+TimeoutStopSec=4253
+RuntimeMaxSec=28657
+ExecStart=/usr/bin/php /var/www/html/kavac/artisan queue:work --queue=%i --sleep=3 --tries=3
+User=server
+Group=server
+[Install]
+WantedBy=multi-user.target

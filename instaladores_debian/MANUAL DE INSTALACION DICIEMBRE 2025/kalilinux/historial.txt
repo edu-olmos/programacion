@@ -1,0 +1,30 @@
+﻿sudo dpkg-reconfigure locales
+sudo reboot
+sudo su
+exit
+sudo nano /etc/default/grub
+exit
+sudo update-grub2
+exit
+sudo nano /etc/default/grub
+
+sudo su
+cd LibreOffice_7.6.7.2_Linux_x86-64_deb
+# cd DEBS  
+sudo dpkg -i *.d   
+dpkg -i *.deb    
+ apt upgrade 
+apt upgrade 
+# nano /etc/apt/sources.list 
+
+# See https://www.kali.org/docs/general-use/kali-linux-sources-list-reposito>
+#deb http://http.kali.org/kali kali-last-snapshot main contrib non-free
+deb http://http.kali.org/kali kali-rolling main non-free contrib
+deb-src http://http.kali.org/kali kali-rolling main non-free contrib
+#deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-f>
+
+
+# Additional line for source packages
+# deb-src http://http.kali.org/kali kali-rolling main contrib non-free non-f>
+
+

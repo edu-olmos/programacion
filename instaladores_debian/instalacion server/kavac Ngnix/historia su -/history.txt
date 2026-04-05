@@ -1,0 +1,500 @@
+shutdown -h now
+shutdown -h now
+apt update
+apt upgrade
+exit
+service apache2 restart
+exit
+service apache2 restart
+exit
+/etc/php/8.2/
+cd /etc/php/8.2/cli/
+nano php.ini
+service apache2 restart
+su -
+cd ..
+ls
+cd apache2/
+ls
+nano php.ini
+su -
+su -
+shutdown -h now
+shutdown -h now
+apt update
+apt upgrade
+exit
+shutdown -h now
+su -
+shutdown -h now
+apt update
+apt upgrade
+su --
+shutdown -h now
+apt update
+apt upgrade
+exit
+apt update
+apt upgrade
+exit
+apt update
+apt update
+apt update
+apt update
+apt upgrade
+su -
+shutdown -h now
+apt update
+apt upgrade
+nano pg_hba.conf
+exit
+apt update
+apt upgrade
+exit
+shutdown -h now
+apt update
+apt upgrade
+exit
+apt upgrade
+apt update
+apt upgrade
+exit
+shutdown -h now
+apt update
+apt upgrade
+shutdown -h now
+shutdown -h now
+apt update
+apt upgrade
+shutdown -h now
+su -
+apt update
+apt upgrade
+exit
+shutdown -h now
+apt update
+apt upgrade
+apt upgrade
+exit
+shutdown -h now
+shutdown -h now
+su postgres
+exit
+shutdown -h now
+shutdown -h now
+shutdown -h now
+shutdown -h now
+crontab -e
+su -
+reboot
+crontab -e
+su -
+reboot
+crontab -e
+reboot
+shutdown -h now
+shutdown -h now
+apt update
+apt upgrade
+su -
+shutdown -h now
+cd /var/www/html/
+ls
+cd /home/pampanito/Programación/php/proyectos_laravel/kavac
+cd ..
+ls
+exit
+a2ensite compuvalera
+ls
+a2dissite compuvalera
+a2dissite compuvalera_
+systemctl reload apache2
+a2ensite compuvalera
+a2ensite compuvalera_
+systemctl reload apache2
+exit
+cd /etc/apache2/sites-available/
+ls
+nano 000-default.conf 
+nano 000-default_.conf 
+nano compuvalera.conf 
+nano compuvalera.conf 
+nano compuvalera_.conf 
+a2ensite compuvalera
+su -
+clear
+ls
+nano pampanito.conf 
+exit
+shutdown -h now
+reboot
+reboot
+reboot
+reboot
+shutdown -h now
+shutdown -h now
+reboot
+a2dissite compuvalera_
+systemctl reload apache2
+a2ensite compuvalera_
+systemctl reload apache2
+exot
+exit
+cd /etc/apache2/sites-available/
+ls
+nano compuvalera.conf 
+nano compuvalera_.conf 
+su -
+exit
+crontab -e
+su -
+reboot
+a2dissite compuvalera_
+systemctl reload apache2
+a2ensite compuvalera_
+systemctl reload apache2
+nano /etc/apache2/ports.conf
+systemctl reload apache2
+nano /etc/apache2/ports.conf
+systemctl reload apache2
+systemctl reload apache2
+nano /etc/apache2/ports.conf
+systemctl reload apache2
+exit
+cd /etc/apache2/sites-available/
+ls
+nano compuvalera_.conf 
+cd ..
+ls
+cd sites-enabled/
+ls
+nano compuvalera_.conf 
+su -
+su -
+reboot
+a2dissite compuvalera_
+systemctl reload apache2
+a2ensite compuvalera_
+systemctl reload apache2
+exit
+cd /etc/apache2/sites-available/
+nano compuvalera_.conf 
+su -
+exit
+systemctl start nginx systemctl enable nginx
+systemctl start nginx 
+sudo systemctl start nginx sudo systemctl enable nginx
+exit
+systemctl reload apache2
+cd /etc/apache2/sites-enabled/
+ls
+nano compuvalera.conf 
+nano compuvalera_.conf 
+nano compuvalera.conf 
+systemctl reload apache2
+cd /var/www/html/
+ chmod 777 -R kavac
+cd /etc/apache2/sites-enabled/
+nano compuvalera.conf 
+ls
+cd ..
+ls
+cp -r sites-available/ /home/pampanito/sites-available
+cp -r sites-enable/ /home/pampanito/sites-enable
+cp -r sites-enabled/ /home/pampanito/sites-enabled
+apt update
+apt upgrade
+apt install nginx
+systemctl start nginx  systemctl enable nginx
+systemctl start nginx  
+sudo systemctl start nginx sudo systemctl enable nginx
+su -
+systemctl enable nginx
+systemctl start nginx
+systemctl status nginx.service
+systemctl status nginx
+systemctl status nginx
+nginx -v
+cd /var/www/html/
+ls
+clear
+ls
+rm index.html 
+ls
+ervice apache2 stop
+service apache2 stop
+dpkg -l | grep apache2
+apt-get purge apache2 apache2-bin apache2-data apache2-doc apache2-mpm-prefork apache2-utils
+apt-get autoremove
+whereis apache2
+rm -rf /usr/sbin/apache2 /usr/lib/apache2 /etc/apache2 /usr/share/apache2 /usr/share/man/man8/apache2.8.gz
+ls
+systemctl start nginx
+ nano /etc/nginx/sites-available/kavac
+apt install php8.3-fpm
+apt install php8.2-fpm
+ nano /etc/nginx/sites-available/kavac
+ln -s /etc/nginx/sites-available/kavac /etc/nginx/sites-enabled
+nginx -t
+systemctl reload nginx php8.2-fpm
+ nano /etc/nginx/sites-available/kavac
+ln -s /etc/nginx/sites-available/kavac /etc/nginx/sites-enabled
+systemctl reload nginx php8.2-fpm
+exit
+exit
+nginx -t
+clear
+nginx -t
+exit
+systemctl reload nginx php8.2-fpm
+ nano /etc/nginx/sites-available/kavac
+nginx -t
+su -
+exit
+reboot
+nginx -t
+systemctl reload nginx php8.2-fpm
+exit
+nginx -t
+exit
+nginx -t
+nano /var/log/nginx/error.log
+nginx -t
+exit
+nginx -t
+su -
+nano /var/log/nginx/error.log
+ nano /etc/nginx/sites-available/kavac
+ nano /etc/nginx/sites-available/kavac
+ nano /etc/nginx/sites-available/kavac
+systemctl reload nginx php8.2-fpm
+ su -
+ su -
+systemctl reload nginx php8.2-fpm
+nginx -t
+nano /var/log/nginx/error.log
+ su -
+exit
+su
+cd /var/www/html/kavac/
+systemctl status nginx.service
+ nano /etc/nginx/sites-available/kavac
+su -
+nginx -t
+systemctl reload nginx php8.2-fpm
+systemctl reload nginx php8.2-fpmexit
+exit
+nginx -t
+systemctl reload nginx php8.2-fpmexit
+systemctl reload nginx php8.2-fpm
+exit
+nginx -t
+systemctl reload nginx php8.2-fpm
+exit
+exit
+cd /var/www/html/kavac/
+chmod -R 777 kavac
+cd ..
+chmod -R 777 kavac
+su -
+systemctl status nginx.service
+nano /var/log/nginx/error.log
+ nano /etc/nginx/sites-available/kavac
+ nano /etc/nginx/sites-available/kavac
+SU -
+su -
+sigue igual
+nano /var/log/nginx/error.log
+nano /var/log/nginx/kavac-error_ssl.log
+cd  kavac
+ls
+rm default_blank.key 
+rm default_blank.crt
+ls
+openssl ecparam -name secp384r1 -genkey -out default_blank.key
+openssl req -out default_blank.csr -utf8 -new -key default_blank.key -sha512
+openssl x509 -req -in default_blank.csr -out default_blank.crt -signkey default_blank.key -days 730 -sha512
+su -
+nano /var/log/nginx/kavac-error_ssl.log
+nano /etc/nginx/sites-available/kavac
+su -
+exit
+crontab -e
+su -
+service apache2 restart 
+apt install apache
+exit
+systemctl restart apache2 
+systemctl status apache2.service
+systemctl restart apache2 
+journalctl -xeu apache2.service
+exit
+netstat -nap | grep 80
+lsof -i :80
+kill [PID]
+lsof -i :80
+kill PID 
+exit
+service nginx stop 
+service apache2 restart 
+service apache2 status 
+exit
+apt install apache2 -y
+systemctl restart apache2 
+su -
+systemctl restart apache2 
+netstat -nap | grep 80
+su -
+lsof -i :80
+service nginx stop 
+su -
+su -
+systemctl restart apache2 
+systemctl status apache2.service
+journalctl -xeu apache2.service
+apache2ctl configtest
+a2dismod mpm_event
+cd /etc/apache2/
+ls
+cd conf-available/
+ls
+nano php8.2-fpm.conf 
+cd ..
+ls
+exit
+systemctl status apache2 
+systemctl restart apache2 
+systemctl status apache2.service
+cd /usr/sbin/
+ls
+apt install --reinstall apache2-bin
+service apache2 start 
+nano /etc/network/interfaces
+nano /etc/apache2/ports.conf
+nano /etc/ssh/sshd_config
+cd /etc/apache2/sites-available/
+ls
+cd /home/pampanito/
+ls
+cp -r sites-available/ /etc/apache2/sites-available/
+cp -r sites-available/ /etc/apache2/
+cp -r sites-enabled/ /etc/apache2/
+cd /etc/apache2/sites-available/
+service apache2 start 
+su -
+a2dissite compuvalera
+a2dissite compuvalera_
+ls
+cd /etc/apache2/sites-available/
+ls
+a2dissite pampanito
+a2dissite pampanito_
+systemctl reload apache2
+a2ensite compuvalera
+a2ensite compuvalera_
+a2ensite pampanito
+a2ensite pampanito_
+systemctl reload apache2
+nano pampanito.conf 
+nano pampanito_.conf 
+ls
+nano 000-default.conf 
+rm compuvalera.conf 
+rm compuvalera_.conf 
+rm pampanito.conf 
+rm pampanito_.conf 
+cp 000-default.conf  pampanito.conf
+nano pampanito.conf 
+cd ..
+cd sites-enabled/
+ls
+rm compuvalera.conf 
+rm compuvalera_.conf 
+rm pampanito_.conf 
+rm pampanito.conf 
+ls
+cd ..
+cd sites-available/
+cp 000-default_.conf  pampanito_.conf
+nano pampanito_.conf 
+nano pampanito.conf 
+nano pampanito_.conf 
+a2ensite pampanito
+a2ensite pampanito_
+systemctl reload apache2
+cd ..
+cd sites-enabled/
+ls
+cd /var/www/html/
+chmod -R 777 diario/
+su -
+cd /etc/apache2/sites-available/
+a2dissite pampanito
+a2dissite pampanito_
+cd ..
+cd sites-enabled/
+a2dissite pampanito
+a2dissite pampanito_
+systemctl reload apache2
+cd ..
+cd sites-available/
+a2ensite pampanito
+a2ensite pampanito_
+systemctl reload apache2
+cd /var/www/html/
+rm -r kavac
+ apt-get install mariadb-server
+apt-get install phpmyadmin
+nano /etc/apache2/apache2.conf
+systemctl restart apache2
+php -v
+apt update
+exit
+adduser pampanito www-data
+exit
+service apache2 restart 
+exit
+a2ensite compuvalera
+a2ensite compuvalera_
+systemctl reload apache2
+exit
+cd /etc/apache2/sites-available/
+ls
+rm sites-available/
+rm sites-available
+rm -r sites-available
+ls
+nano pampanito.conf 
+a2dissite pampanito
+a2dissite pampanito_
+su -
+apt update
+nano /etc/apt/sources.list
+apt upgrade
+apt install apache2 php postgresql
+chown -R www-data:www-data /var/www
+su -
+chmod -R 775 /var/www
+apt install php-xml
+service apache2 restart 
+su -
+apt install php-pgsql pgadmin3
+apt install php-pgsql 
+ls
+cp 000-default_.conf  compuvalera_.conf
+cp 000-default.conf  compuvalera.conf
+a2ensite compuvalera
+su -
+nano /etc/apache2/apache2.conf
+nano /etc/apache2/ports.conf
+su -
+ls
+cd backups/
+ls
+rm nginx-8-Sep-2019.tar.gz 
+LS
+ls
+cd /home/pampanito/
+history -a
+history -a
+history -w ~/history.txt

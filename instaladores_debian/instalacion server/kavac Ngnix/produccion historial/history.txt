@@ -1,0 +1,113 @@
+adduser server12 www-data
+exit
+nano /etc/apt/sources.list
+apt update
+apt update
+apt upgrade
+apt install curl git graphviz libgraphviz-dev php phppgadmin postgresql libmariadb-dev-compat libmariadb-dev mariadb-server php-gd php-mbstring php-tokenizer php-zip php-pgsql php-cli php-curl zip unzip
+apt install curl git graphviz libgraphviz-dev php postgresql libmariadb-dev-compat libmariadb-dev mariadb-server php-gd php-mbstring php-tokenizer php-zip php-pgsql php-cli php-curl zip unzip
+cd Descargas/
+ls
+apt-get install ./anydesk_6.3.3-1_amd64.deb 
+apt install p7zip-full zip unzip unace bzip2 arj lzip lzma gzip unar
+apt install apache2 php postgresql
+chown -R www-data:www-data /var/www
+adduser server12 www-data
+su -
+chmod -R 775 /var/www
+apt install curl
+exit
+mv composer.phar /usr/local/bin/composer 
+chmod +x /usr/local/bin/composer
+exit
+apt install php-xml
+apt install php-pgsql pgadmin3
+apt install php-pgsql pgadmin
+apt install php-pgsql 
+curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+apt install -y nodejs
+exit
+apt install inadyn
+ip link show
+nano /etc/inadyn.conf
+crontab -e
+nano /etc/network/interfaces
+nano /etc/resolv.conf 
+exit
+nano /etc/apache2/ports.conf
+nano /etc/ssh/sshd_config
+exit
+apt install ./noip-duc_3.1.0_amd64.deb
+ls
+apt install ./noip-duc_3.3.0_amd64.deb
+crontab -e
+exit
+apt-get install mariadb-server
+apt-get install phpmyadmin
+nano /etc/apache2/apache2.conf
+systemctl restart apache2
+su mysql
+mysql
+exit
+apt install ./megasync-Debian_12_amd64.deb 
+exit
+shutdown now
+apt install nginx
+cd Programacion/php/proyectos_laravel/kavac/
+exit
+apt install php8.3-fpm
+php -v
+dpkg -l | grep php | tee packages.txt
+apt install php8.3-fpm
+apt install php8.2-fpm
+nano /etc/nginx/sites-available/kavac
+ln -s /etc/nginx/sites-available/kavac /etc/nginx/sites-enabled/
+nano /etc/nginx/sites-available/kavac
+nano /etc/nginx/sites-available/kavac
+clear
+nginx -t
+exit
+nginx -t
+exit
+nginx -t
+exit
+nginx -t
+exit
+su -
+nano /etc/nginx/sites-available/kavac
+su -
+nano /etc/nginx/sites-available/kavac
+clear
+su -
+exit
+crontab -e
+exit
+reebot now
+reboot now
+su postgres
+exit
+systemctl reload nginx php8.2-fpm
+exit
+cd /etc/nginx/sites-enabled/
+ls
+rm default 
+ls
+systemctl reload nginx php8.2-fpm
+exit
+cp -r kavac /var/www/html/
+exit
+chmod 777 -R kavac
+nano /etc/nginx/sites-available/kavac
+systemctl reload nginx php8.2-fpm
+systemctl reload nginx php8.2-fpm
+apt autoremove apache2
+systemctl reload nginx php8.2-fpm
+clear
+systemctl reload nginx php8.2-fpm
+nano /etc/nginx/sites-available/kavac
+su -
+shutdown now
+shutdown now
+history -a
+history -a
+history -w ~/history$.txt
