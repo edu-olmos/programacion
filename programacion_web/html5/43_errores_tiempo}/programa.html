@@ -1,0 +1,57 @@
+<!--
+    Confeccionar una aplicación que al presionar un botón obtenga la latitud y longitud de nuestra posición actual y luego solicitar a los servicios de Google Maps un mapa de dicha coordenada. Esperar solo 10 milisegundos y ver si se genera un error por el tiempo de espera. Disponer luego en el atributo timeout un valor mayor hasta que no se dispare el error de tiempo de espera.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+  
+<script type="text/javascript">
+
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById('obtener').addEventListener('click', recuperarLocalizacion, false);
+    }
+
+
+    /*Como podemos ver hemos fijado el tiempo de espera en 50 milisegundos, con lo que es muy probable que no demos tiempo al dispositivo a generar la posición:*/
+
+    function recuperarLocalizacion() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(mostrarCoordenada,errores,{timeout:50});
+        } else {
+            alert('El navegador no dispone la capacidad de geolocalización');
+        }
+    }
+    
+    function mostrarCoordenada(posicion) {
+        var direccion = posicion.coords.latitude + "," + posicion.coords.longitude;
+        var mapa = "http://maps.googleapis.com/maps/api/staticmap?center="
+           +direccion+"&zoom=14&size=500x500&sensor=false";
+        document.getElementById("dato").innerHTML = "<img src='"+mapa+"'>";    
+    }
+    
+    /*La función errores la hemos pasado como parámetro cuando llamamos a getCurrentPosition y es en donde analizamos el tipo de error disparado:*/
+
+    function errores(err) {
+        if (err.code == err.TIMEOUT) 
+            alert("Se ha superado el tiempo de espera");
+        if (err.code == err.PERMISSION_DENIED)     
+            alert("El usuario no permitió informar su posición");
+        if (err.code == err.POSITION_UNAVAILABLE)                 
+            alert("El dispositivo no pudo recuperar la posición actual");
+    }
+
+        
+</script>  
+  
+</head>
+<body>
+  <input type="button" id="obtener" value="Obtener la localización actual en Google Maps">
+  <br>
+  <div id="dato"></div>
+</body>
+</html>
