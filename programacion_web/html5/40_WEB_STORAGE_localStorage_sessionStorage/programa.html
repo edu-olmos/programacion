@@ -1,0 +1,56 @@
+<!--
+    Confeccionar una aplicación que permita administrar un diccionario ingles/castellano, almacenar en forma local dichos datos.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+  
+<script>
+
+    //indicar que el método inicio se ejecute una vez que la página este cargada:
+    window.addEventListener('load', inicio, false);
+
+    //En la función inicio asociamos la función que se ejecutará al presionarse cada botón:
+    function inicio() {
+        document.getElementById('guardar').addEventListener('click', guardar, false);
+        document.getElementById('traducir').addEventListener('click', recuperar, false);
+    }
+    /*
+    El método guardar se ejecuta cuando presionamos el botón "Guardar", en este llamamos al método setItem del objeto localStorage pasando como clave la palabra en ingles y como dato a grabar la palabra en castellano ( por ejemplo si guardamos la traducción de casa luego como clave se almacena 'house' y como dato 'casa'):
+    */
+
+    function guardar(evt) {
+        localStorage.setItem(document.getElementById('ingles').value, document.getElementById('castellano').value);        
+        document.getElementById('ingles').value='';
+        document.getElementById('castellano').value='';
+    }
+
+    /* 
+
+El proceso inverso, es decir la recuperación de datos del localStorage la realizamos en el la función 'recuperar', llamamos al método getItem pasando como parámetro la palabra en ingles que buscamos para que nos retorne su traducción. Agregamos un if para los casos que no exista la palabra dentro del diccionario:
+    */
+
+    function recuperar(evt) {
+        if (localStorage.getItem(document.getElementById('ingles').value) == null) 
+            alert('No está almacenala la palabra '+document.getElementById('ingles').value);
+        else  
+            document.getElementById('castellano').value=localStorage.getItem(document.getElementById('ingles').value);
+    }
+       
+</script>  
+  
+</head>
+<body>
+  Palabra en ingles:
+  <input type="text" id="ingles">
+  <input type="button" id="traducir" value="Traducir"> 
+  <br>      
+  Palabra en castellano:
+  <input type="text" id="castellano">
+  <br>
+  <input type="button" id="guardar" value="Guardar">
+</body>
+</html>
