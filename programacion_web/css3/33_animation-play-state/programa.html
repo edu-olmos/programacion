@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Prueba</title> 
+
+<style type="text/css"> 
+
+#recuadro1{
+  border-radius: 20px;  
+  background-color:#ddd;
+  width:200px;
+  height:100px;
+  padding:8px;
+  -moz-animation-play-state:paused;
+  -moz-animation-name: animacion1;
+  -moz-animation-duration: 4s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  -webkit-animation-play-state:paused;
+  -webkit-animation-name: animacion1;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -o-animation-play-state:paused;
+  -o-animation-name: animacion1;
+  -o-animation-duration: 4s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: alternate;
+}
+
+#recuadro1:hover {
+  -moz-animation-play-state:running;
+  -webkit-animation-play-state:running;
+  -o-animation-play-state:running;
+}
+
+@-moz-keyframes animacion1 {
+  from {
+    border-radius:0px;
+    background-color:#ddd;
+  }
+  to {
+    border-radius:40px;
+    background-color:#ff0;
+  }
+}
+
+@-webkit-keyframes animacion1 {
+  from {
+    border-radius:0px;
+    background-color:#ddd;
+  }
+  to {
+    border-radius:40px;
+    background-color:#ff0;
+  }
+}
+
+@-o-keyframes animacion1 {
+  from {
+    border-radius:0px;
+    background-color:#ddd;
+  }
+  to {
+    border-radius:40px;
+    background-color:#ff0;
+  }
+}
+
+
+body {
+  background:white;
+  margin:50px;
+}
+
+</style> 
+
+</head> 
+<body> 
+<div id="recuadro1"> 
+<h3>Título</h3>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+</div> 
+
+</body> 
+</html> 
