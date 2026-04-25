@@ -1,0 +1,39 @@
+<!--
+  Implementemos una página que muestre los datos en dos columnas y el ancho de las columnas dependa de la pantalla del dispositivo:
+
+                              1er columna              2da columna
+
+Pantalla muy,muy grande:      10 unidades              2 unidades
+Pantalla muy grande:          9 unidades               3 unidades
+Pantalla grande:              8 unidades               4 unidades
+Pantalla mediana:             7 unidades               5 unidades                       
+Pantalla chica:               6 unidades               6 unidades
+Pantalla muy chica:           5 unidades               7 unidades
+
+-->
+
+<!doctype html>
+<html>
+<head>
+  <title>Prueba de Bootstrap 5</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+          <div class="col-xxl-10 col-xl-9 col-lg-8 col-md-7 col-sm-6 col-5"  style="background-color:#aaa">
+            <h1>Columna 1</h1> 
+            <p>Esto es una prueba de bootstrap 5.</p>
+          </div>
+          <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-5 col-sm-6 col-7"  style="background-color:#bbb">
+            <h1>Columna 2</h1> 
+            <p>Esto es una prueba de bootstrap 5.</p>
+          </div>
+        </div>
+    
+      </div> 
+</body>
+</html>
