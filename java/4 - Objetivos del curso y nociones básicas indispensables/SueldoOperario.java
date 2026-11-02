@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class SueldoOperario {
 
-    @SuppressWarnings("resource")
-    public static void main(String[] ar) {
+      public static void main(String[] ar) {
         Scanner teclado=new Scanner(System.in);
         int horasTrabajadas;
         float costoHora;
