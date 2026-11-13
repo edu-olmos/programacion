@@ -1,3 +1,7 @@
+/*
+Solicitar el ingreso del apellido, nombre y edad de dos personas. Mostrar el nombre de la persona con mayor edad. Realizar la carga del apellido y nombre en una variable de tipo String.
+ */
+
 import java.util.Scanner;
 
 public class CadenaDeCaracteres2 {
